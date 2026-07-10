@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Odontologia estética, reabilitação oral e atendimento odontológico em São Conrado com Dra. Evelyn Castro. Lentes de resina, facetas de porcelana, estética do sorriso e emergências.">
-  <title>Dra. Evelyn Castro | Odontologia Estética em São Conrado</title>
-  <meta property="og:title" content="Dra. Evelyn Castro | Odontologia Estética RJ">
-  <meta property="og:description" content="Sorrisos naturais com técnica e sensibilidade. Reabilitação oral, odontologia estética e emergências em São Conrado, Zona Sul RJ.">
+  <meta name="description" content="Odontologia especializada, reabilitação oral e atendimento odontológico em São Conrado com Dra. Evelyn Castro. Lentes de resina, facetas de porcelana, estética do sorriso e emergências.">
+  <title>Dra. Evelyn Castro | Odontologia Especializada em São Conrado</title>
+  <meta property="og:title" content="Dra. Evelyn Castro | Odontologia Especializada RJ">
+  <meta property="og:description" content="Sorrisos naturais com técnica e sensibilidade. Reabilitação oral, odontologia especializada e emergências em São Conrado, Zona Sul RJ.">
   <meta property="og:image" content="https://res.cloudinary.com/dm9mnc97u/image/upload/v1783718884/2f030258-4d76-4ea7-a24c-6f7a856e7fc3_fvhdqu.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -25,7 +25,7 @@
     "@context": "https://schema.org",
     "@type": "Dentist",
     "name": "Dra. Evelyn Castro",
-    "description": "Odontologia estética, reabilitação oral e emergências em São Conrado, Zona Sul RJ.",
+    "description": "Odontologia especializada, reabilitação oral e emergências em São Conrado, Zona Sul RJ.",
     "image": "https://res.cloudinary.com/dm9mnc97u/image/upload/v1783718884/2f030258-4d76-4ea7-a24c-6f7a856e7fc3_fvhdqu.webp",
     "telephone": "+55 21 97615-9797",
     "areaServed": "São Conrado / Zona Sul RJ",
@@ -2510,29 +2510,31 @@
       width: 100%;
     }
     .navbar-logo {
-      display: inline-flex;
+      display: inline-grid;
+      grid-template-columns: auto minmax(0, auto);
       align-items: center;
       justify-content: flex-start;
-      width: clamp(218px, 24vw, 292px);
-      gap: clamp(.46rem, .7vw, .68rem);
+      width: auto;
+      max-width: clamp(260px, 28vw, 352px);
+      gap: clamp(.5rem, .8vw, .78rem);
       flex-shrink: 0;
-      transition: width .45s var(--ease), transform .45s var(--ease), filter .45s var(--ease);
+      transition: max-width .45s var(--ease), transform .45s var(--ease), filter .45s var(--ease);
     }
     .navbar-logo.logo-bubble::before {
       display: none;
     }
     .navbar.scrolled .navbar-logo {
-      width: clamp(202px, 22vw, 264px);
+      max-width: clamp(240px, 26vw, 316px);
       transform: translateY(-1px);
     }
     .navbar-logo .nav-logo-icon {
-      width: clamp(44px, 4.3vw, 58px);
+      width: clamp(52px, 5vw, 68px);
       height: auto;
       flex: 0 0 auto;
       object-fit: contain;
     }
     .navbar-logo .nav-logo-wordmark {
-      width: clamp(166px, 18.5vw, 224px);
+      width: clamp(194px, 21vw, 272px);
       height: auto;
       flex: 0 1 auto;
       object-fit: contain;
@@ -3688,16 +3690,16 @@
         gap: .58rem;
       }
       .navbar-logo {
-        width: min(236px, calc(100vw - 8.75rem));
-        gap: .5rem;
+        max-width: min(252px, calc(100vw - 8.5rem));
+        gap: .48rem;
       }
       .navbar.scrolled .navbar-logo {
-        width: min(222px, calc(100vw - 8.75rem));
+        max-width: min(238px, calc(100vw - 8.5rem));
       }
-      .navbar-logo .nav-logo-icon { width: 42px; }
+      .navbar-logo .nav-logo-icon { width: 48px; }
       .navbar-logo .nav-logo-wordmark {
-        width: min(166px, calc(100vw - 14rem));
-        min-width: 112px;
+        width: min(180px, calc(100vw - 14rem));
+        min-width: 124px;
       }
       .navbar-nav { display: none !important; }
       .navbar-actions {
@@ -3777,15 +3779,15 @@
     @media (max-width: 520px) {
       .navbar .container { padding-inline: .82rem; }
       .navbar-logo {
-        width: min(228px, calc(100vw - 8.5rem));
+        max-width: min(240px, calc(100vw - 8.35rem));
       }
       .navbar.scrolled .navbar-logo {
-        width: min(212px, calc(100vw - 8.5rem));
+        max-width: min(226px, calc(100vw - 8.35rem));
       }
-      .navbar-logo .nav-logo-icon { width: 40px; }
+      .navbar-logo .nav-logo-icon { width: 46px; }
       .navbar-logo .nav-logo-wordmark {
-        width: min(160px, calc(100vw - 13.75rem));
-        min-width: 108px;
+        width: min(172px, calc(100vw - 13.8rem));
+        min-width: 116px;
       }
       .navbar-cta {
         padding: .42rem .64rem;
@@ -3840,7 +3842,7 @@
   <header class="navbar" id="navbar">
     <div class="container">
       <div class="navbar-inner">
-        <a href="#inicio" class="navbar-logo logo-bubble" aria-label="Dra. Evelyn Castro Odontologia Estética">
+        <a href="#inicio" class="navbar-logo logo-bubble" aria-label="Dra. Evelyn Castro Odontologia Especializada">
           <img class="nav-logo-icon" src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1783718869/9deaba4a-952c-4fd1-b260-668b8d6ac6be_1_ayv8ct.webp" alt="" aria-hidden="true">
           <img class="nav-logo-wordmark" src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1783718868/ec6b7e44-bd5b-4f97-8623-7e77b7a1232b_1_hpfcr2.webp" alt="Dra. Evelyn Castro">
         </a>
@@ -3871,7 +3873,7 @@
               <span class="hero-text-line"><span class="hero-text-inner delay-2">com técnica e <em>sensibilidade.</em></span></span>
             </h1>
             <p class="hero-sub animate">
-              Reabilitação oral, odontologia estética e atendimentos personalizados para quem busca mais segurança, harmonia e confiança ao sorrir.
+              Reabilitação oral, odontologia especializada e atendimentos personalizados para quem busca mais segurança, harmonia e confiança ao sorrir.
             </p>
             <div class="hero-ctas animate">
               <a href="#" class="btn btn-whatsapp wa-link" data-wa-message="Olá, Dra. Evelyn. Vim pelo site e quero agendar uma avaliação odontológica." target="_blank" rel="noopener">Agendar avaliação</a>
@@ -4156,7 +4158,7 @@
           <div class="especialista-right animate-right">
             <h2 class="section-title">Quem vai cuidar do seu sorriso.</h2>
             <p class="especialista-copy">
-              Dra. Evelyn Castro atua com foco em odontologia estética, reabilitação oral e cuidados que unem técnica, sensibilidade e naturalidade. O atendimento é pensado para entender a necessidade de cada paciente e indicar a melhor solução para estética, função e bem-estar.
+              Dra. Evelyn Castro atua com foco em odontologia especializada, reabilitação oral e cuidados que unem técnica, sensibilidade e naturalidade. O atendimento é pensado para entender a necessidade de cada paciente e indicar a melhor solução para estética, função e bem-estar.
             </p>
             <div class="specialist-bullets">
               <div class="specialist-bullet">
@@ -4223,7 +4225,7 @@
                 <ul class="servico-list">
                   <li>Indicado conforme forma, cor, proporção e necessidade funcional.</li>
                 </ul>
-                <a href="#" class="btn btn-outline wa-link" data-wa-message="Olá, Dra. Evelyn. Vim pelo site e quero saber se odontologia estética é indicada para mim." target="_blank" rel="noopener">Quero saber se é indicado para mim</a>
+                <a href="#" class="btn btn-outline wa-link" data-wa-message="Olá, Dra. Evelyn. Vim pelo site e quero saber se um tratamento estético odontológico é indicado para mim." target="_blank" rel="noopener">Quero saber se é indicado para mim</a>
               </article>
               <article class="servico-card animate-scale">
                 <div class="servico-card-head">
@@ -4525,7 +4527,7 @@
           </details>
           <details class="faq-item animate">
             <summary>
-              <span>A odontologia estética busca resultados naturais?</span>
+              <span>Os tratamentos estéticos buscam resultados naturais?</span>
               <span class="faq-icon">+</span>
             </summary>
             <div class="faq-answer">Sim. O planejamento busca harmonia e naturalidade, respeitando as características de cada sorriso.</div>
@@ -4575,7 +4577,7 @@
           <div class="location-copy animate-left">
             <span class="section-label">Localização</span>
             <h2 class="section-title">Atendimento em <em>São Conrado, Zona Sul RJ.</em></h2>
-            <p>Consultório com atendimento em São Conrado para odontologia estética, reabilitação oral e emergências.</p>
+            <p>Consultório com atendimento em São Conrado para odontologia especializada, reabilitação oral e emergências.</p>
             <div class="location-address-card">
               <strong>Local</strong>
               <span>Estr. da Gávea, 712 - Sl 310 - São Conrado, Rio de Janeiro - RJ, 22610-002</span>
@@ -4645,7 +4647,7 @@
           <div class="footer-brand-logo logo-bubble">
             <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1783718868/ec6b7e44-bd5b-4f97-8623-7e77b7a1232b_1_hpfcr2.webp" alt="Dra. Evelyn Castro" loading="lazy" decoding="async">
           </div>
-          <p class="footer-copy">Dra. Evelyn Castro oferece odontologia estética, reabilitação oral e atendimentos odontológicos em São Conrado, Zona Sul RJ.</p>
+          <p class="footer-copy">Dra. Evelyn Castro oferece odontologia especializada, reabilitação oral e atendimentos odontológicos em São Conrado, Zona Sul RJ.</p>
         </div>
         <div>
           <div class="footer-title">Navegação rápida</div>

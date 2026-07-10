@@ -186,7 +186,7 @@
       position: fixed;
       inset: 0;
       z-index: 99999;
-      background: var(--c-chocolate);
+      background: #2B2423;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -217,12 +217,12 @@
       animation: loaderFadeUp 0.7s var(--ease) 0.1s forwards;
     }
     .loader-logo-stack .loader-icon {
-      width: clamp(96px, 18vw, 132px);
+      width: clamp(112px, 17vw, 150px);
       height: auto;
       display: block;
     }
     .loader-logo-stack .loader-wordmark {
-      width: clamp(200px, 34vw, 300px);
+      width: clamp(230px, 36vw, 360px);
       height: auto;
       display: block;
     }
@@ -245,7 +245,7 @@
       position: fixed;
       inset: 0;
       z-index: 99998;
-      background: var(--c-accent);
+      background: #211A19;
       transform: translateY(0);
       transition: transform 0.95s cubic-bezier(.86,0,.07,1);
     }
@@ -2483,21 +2483,21 @@
     section[id] { scroll-margin-top: calc(72px + env(safe-area-inset-top, 0px)); }
     .container { padding-inline: clamp(1rem, 2.4vw, 1.5rem); }
     .navbar {
-      background: rgba(255,249,246,.92);
+      background: rgba(43,36,35,.96);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       padding: calc(env(safe-area-inset-top, 0px) + .42rem) 0 .46rem;
-      box-shadow: 0 1px 0 rgba(201,143,149,.18);
-      border-bottom: 1px solid rgba(127,90,85,.12);
+      box-shadow: 0 1px 0 rgba(255,249,246,.08), 0 12px 34px rgba(43,36,35,.18);
+      border-bottom: 1px solid rgba(255,249,246,.12);
       transition: background .45s var(--ease), box-shadow .45s var(--ease), padding .45s var(--ease), backdrop-filter .45s var(--ease), border-color .45s var(--ease);
     }
     .navbar.scrolled {
-      background: rgba(255,249,246,.78);
+      background: rgba(33,26,25,.95);
       backdrop-filter: blur(18px) saturate(1.08);
       -webkit-backdrop-filter: blur(18px) saturate(1.08);
       padding: calc(env(safe-area-inset-top, 0px) + .18rem) 0 .22rem;
-      box-shadow: 0 10px 30px rgba(80,54,48,.1);
-      border-bottom-color: rgba(127,90,85,.16);
+      box-shadow: 0 14px 34px rgba(43,36,35,.24);
+      border-bottom-color: rgba(255,249,246,.14);
     }
     .navbar,
     .navbar * { box-sizing: border-box; }
@@ -2510,22 +2510,32 @@
       width: 100%;
     }
     .navbar-logo {
-      width: clamp(176px, 18vw, 242px);
-      gap: .55rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: clamp(218px, 24vw, 292px);
+      gap: clamp(.46rem, .7vw, .68rem);
       flex-shrink: 0;
       transition: width .45s var(--ease), transform .45s var(--ease), filter .45s var(--ease);
     }
+    .navbar-logo.logo-bubble::before {
+      display: none;
+    }
     .navbar.scrolled .navbar-logo {
-      width: clamp(152px, 16vw, 210px);
+      width: clamp(202px, 22vw, 264px);
       transform: translateY(-1px);
     }
     .navbar-logo .nav-logo-icon {
-      width: clamp(42px, 4.4vw, 56px);
+      width: clamp(44px, 4.3vw, 58px);
+      height: auto;
       flex: 0 0 auto;
+      object-fit: contain;
     }
     .navbar-logo .nav-logo-wordmark {
-      width: clamp(118px, 13vw, 176px);
-      flex: 1 1 auto;
+      width: clamp(166px, 18.5vw, 224px);
+      height: auto;
+      flex: 0 1 auto;
+      object-fit: contain;
     }
     .navbar-nav {
       display: flex;
@@ -2540,17 +2550,17 @@
     .navbar-nav a {
       font-size: .67rem;
       letter-spacing: .1em;
-      color: rgba(63,52,49,.68);
+      color: rgba(255,249,246,.72);
       white-space: nowrap;
       padding: .12rem 0;
     }
     .navbar-nav a + a {
       margin-left: .1rem;
       padding-left: .9rem;
-      border-left: 1px solid rgba(127,90,85,.18);
+      border-left: 1px solid rgba(255,249,246,.16);
     }
     .navbar-nav a::after { background: var(--c-primary); }
-    .navbar-nav a:hover { color: var(--c-primary-dark); }
+    .navbar-nav a:hover { color: #F4D2D1; }
     .navbar-actions {
       display: flex;
       align-items: center;
@@ -2566,12 +2576,12 @@
       padding: .58rem .92rem;
       font-size: .6rem;
       letter-spacing: .12em;
-      background: rgba(201,143,149,.16);
-      border: 1px solid rgba(201,143,149,.34);
-      color: var(--c-primary-dark);
+      background: rgba(255,249,246,.08);
+      border: 1px solid rgba(255,249,246,.28);
+      color: #FFF9F6;
     }
     .navbar-cta:hover {
-      background: rgba(201,143,149,.26);
+      background: rgba(255,249,246,.14);
       box-shadow: none;
     }
     .hero {
@@ -3672,15 +3682,23 @@
         background-size: 240px auto;
         opacity: .1;
       }
-      .navbar .container { padding-inline: 1.2rem; }
+      .navbar .container { padding-inline: .9rem; }
       .navbar-inner {
         min-height: 48px;
-        gap: .7rem;
+        gap: .58rem;
       }
-      .navbar-logo { width: 176px; }
-      .navbar.scrolled .navbar-logo { width: 156px; }
-      .navbar-logo .nav-logo-icon { width: 40px; }
-      .navbar-logo .nav-logo-wordmark { width: 122px; }
+      .navbar-logo {
+        width: min(236px, calc(100vw - 8.75rem));
+        gap: .5rem;
+      }
+      .navbar.scrolled .navbar-logo {
+        width: min(222px, calc(100vw - 8.75rem));
+      }
+      .navbar-logo .nav-logo-icon { width: 42px; }
+      .navbar-logo .nav-logo-wordmark {
+        width: min(166px, calc(100vw - 14rem));
+        min-width: 112px;
+      }
       .navbar-nav { display: none !important; }
       .navbar-actions {
         margin-left: auto;
@@ -3757,11 +3775,18 @@
       }
     }
     @media (max-width: 520px) {
-      .navbar .container { padding-inline: 1.28rem; }
-      .navbar-logo { width: 176px; }
-      .navbar.scrolled .navbar-logo { width: 156px; }
+      .navbar .container { padding-inline: .82rem; }
+      .navbar-logo {
+        width: min(228px, calc(100vw - 8.5rem));
+      }
+      .navbar.scrolled .navbar-logo {
+        width: min(212px, calc(100vw - 8.5rem));
+      }
       .navbar-logo .nav-logo-icon { width: 40px; }
-      .navbar-logo .nav-logo-wordmark { width: 122px; }
+      .navbar-logo .nav-logo-wordmark {
+        width: min(160px, calc(100vw - 13.75rem));
+        min-width: 108px;
+      }
       .navbar-cta {
         padding: .42rem .64rem;
         font-size: .5rem;

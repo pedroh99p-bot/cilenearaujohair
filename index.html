@@ -60,7 +60,11 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
     body {
       margin: 0;
       font-family: var(--font-sans);
@@ -68,6 +72,8 @@
       background: var(--off-white);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      width: 100%;
+      max-width: 100%;
       overflow-x: hidden;
     }
     body.loading { overflow: hidden; }
@@ -81,6 +87,18 @@
       margin-inline: auto;
     }
 
+    .loader-curtain {
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      background: var(--espresso);
+      pointer-events: none;
+      transform: translateY(0);
+      transition: transform 1s var(--ease);
+    }
+    .loader-curtain.lift {
+      transform: translateY(-100%);
+    }
     .page-loader {
       position: fixed;
       inset: 0;
@@ -88,11 +106,12 @@
       display: grid;
       place-items: center;
       background: var(--espresso);
-      transition: opacity .7s var(--ease), visibility .7s var(--ease);
+      transition: opacity .48s var(--ease), visibility .48s var(--ease), transform .72s var(--ease);
     }
     .page-loader.done {
       opacity: 0;
       visibility: hidden;
+      transform: translateY(-8%);
     }
     .loader-card {
       display: grid;
@@ -119,7 +138,7 @@
       left: 0;
       right: 0;
       z-index: 40;
-      padding: calc(env(safe-area-inset-top, 0px) + .72rem) 0 .72rem;
+      padding: calc(env(safe-area-inset-top, 0px) + .5rem) 0 .5rem;
       background: rgba(20, 16, 13, .72);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -127,7 +146,7 @@
       transition: padding .35s var(--ease), background .35s var(--ease), box-shadow .35s var(--ease);
     }
     .navbar.scrolled {
-      padding: calc(env(safe-area-inset-top, 0px) + .44rem) 0 .44rem;
+      padding: calc(env(safe-area-inset-top, 0px) + .34rem) 0 .34rem;
       background: rgba(20, 16, 13, .86);
       box-shadow: 0 18px 50px rgba(0, 0, 0, .2);
     }
@@ -135,11 +154,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 52px;
+      min-height: 44px;
       gap: 1.2rem;
     }
     .nav-logo img {
-      width: clamp(138px, 16vw, 218px);
+      width: clamp(118px, 13vw, 178px);
       height: auto;
     }
     .nav-links {
@@ -199,11 +218,14 @@
       border-color: currentColor;
     }
     .navbar .btn {
-      min-height: 40px;
-      padding: .7rem 1.05rem;
+      width: auto;
+      min-width: 118px;
+      min-height: 34px;
+      padding: .48rem .9rem;
       color: var(--espresso);
       background: var(--gold);
       border-color: var(--gold);
+      font-size: .64rem;
     }
 
     .hero {
@@ -238,8 +260,8 @@
     .hero-inner {
       position: relative;
       z-index: 1;
-      width: min(100%, 680px);
-      padding: 9rem 0 6rem;
+      width: min(100%, 590px);
+      padding: 8.4rem 0 5.6rem;
     }
     .eyebrow {
       display: inline-flex;
@@ -266,9 +288,9 @@
       line-height: .98;
     }
     h1 {
-      max-width: 10ch;
+      max-width: 11ch;
       margin-bottom: 1.35rem;
-      font-size: clamp(4rem, 9vw, 8.4rem);
+      font-size: clamp(3.35rem, 7vw, 6.7rem);
     }
     h1 em, h2 em {
       color: var(--gold);
@@ -372,6 +394,19 @@
       margin-bottom: 0;
       color: var(--ink-muted);
     }
+    .pain-card {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .pain-card h3 {
+      max-width: 11ch;
+    }
+    .pain-card strong {
+      color: var(--espresso);
+      font-weight: 600;
+    }
 
     .portfolio {
       overflow: hidden;
@@ -404,6 +439,8 @@
       width: 100vw;
       margin-left: calc(50% - 50vw);
       overflow: hidden;
+      overflow: clip;
+      contain: layout paint;
     }
     .marquee::before,
     .marquee::after {
@@ -426,8 +463,8 @@
     .marquee-track {
       display: flex;
       width: max-content;
-      gap: 1rem;
-      padding: .5rem 1rem 1rem;
+      gap: 0;
+      padding: .5rem 0 1rem;
       animation: marqueeLeft 42s linear infinite;
     }
     .marquee[data-direction="right"] .marquee-track {
@@ -437,16 +474,17 @@
       animation-play-state: paused;
     }
     .portfolio-card {
-      width: clamp(220px, 25vw, 340px);
+      width: clamp(230px, 24vw, 318px);
       aspect-ratio: 4 / 5;
       overflow: hidden;
-      border-radius: var(--radius-md);
+      border-radius: 0;
       border: 1px solid rgba(245, 241, 234, .14);
+      border-left: 0;
       background: var(--espresso-soft);
-      box-shadow: var(--shadow-dark);
+      box-shadow: none;
     }
     .portfolio-card--square {
-      aspect-ratio: 1;
+      aspect-ratio: 4 / 5;
     }
     .portfolio-card img {
       width: 100%;
@@ -597,7 +635,29 @@
       gap: clamp(2rem, 5vw, 4.5rem);
       align-items: center;
     }
+    .specialist-media {
+      position: relative;
+    }
+    .specialist-kicker {
+      position: absolute;
+      left: clamp(1rem, 2vw, 1.5rem);
+      top: clamp(1rem, 2vw, 1.5rem);
+      z-index: 2;
+      margin: 0;
+      padding: .5rem .7rem;
+      border: 1px solid rgba(245, 241, 234, .36);
+      border-radius: 999px;
+      color: var(--off-white);
+      background: rgba(33, 28, 24, .62);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
     .about-image {
+      position: relative;
       overflow: hidden;
       border-radius: var(--radius-lg);
       border: 1px solid var(--line-light);
@@ -609,11 +669,14 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: center top;
     }
     .about-copy h2 {
       margin-bottom: 1rem;
       font-size: clamp(2.8rem, 6vw, 5.6rem);
+    }
+    .about-copy .eyebrow {
+      color: var(--espresso);
     }
     .signature-list {
       display: grid;
@@ -639,16 +702,77 @@
       border: 1px solid var(--line-dark);
       background: rgba(245, 241, 234, .05);
     }
-    .faq-item h3 {
-      margin-bottom: .65rem;
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
       color: var(--champagne);
       font-family: var(--font-sans);
       font-size: 1rem;
+      font-weight: 600;
       line-height: 1.35;
+      cursor: pointer;
+      list-style: none;
+    }
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-item summary::after {
+      content: "+";
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(230, 218, 203, .28);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .faq-item[open] summary::after {
+      content: "-";
     }
     .faq-item p {
-      margin: 0;
+      margin: .95rem 0 0;
+      padding-top: .95rem;
+      border-top: 1px solid rgba(245, 241, 234, .1);
       color: rgba(245, 241, 234, .66);
+    }
+
+    .location {
+      border-top: 1px solid var(--line-dark);
+      border-bottom: 1px solid var(--line-dark);
+    }
+    .location-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, .65fr) minmax(0, 1fr);
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: center;
+    }
+    .location-logo {
+      width: min(72vw, 280px);
+      margin-bottom: 1.5rem;
+    }
+    .location-copy h2 {
+      margin-bottom: 1rem;
+      font-size: clamp(2.7rem, 6vw, 5.4rem);
+    }
+    .map-frame {
+      overflow: hidden;
+      min-height: 360px;
+      aspect-ratio: 16 / 10;
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius-lg);
+      background: rgba(245, 241, 234, .08);
+      box-shadow: var(--shadow-dark);
+    }
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: saturate(.82) sepia(.12);
     }
 
     .final-cta {
@@ -745,6 +869,17 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .76s var(--ease), transform .76s var(--ease);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal[data-reveal-delay="1"] { transition-delay: .08s; }
+    .reveal[data-reveal-delay="2"] { transition-delay: .16s; }
 
     @keyframes loaderIn {
       from { opacity: 0; transform: translateY(12px) scale(.96); }
@@ -757,10 +892,10 @@
     }
     @keyframes marqueeLeft {
       from { transform: translateX(0); }
-      to { transform: translateX(calc(-50% - .5rem)); }
+      to { transform: translateX(-50%); }
     }
     @keyframes marqueeRight {
-      from { transform: translateX(calc(-50% - .5rem)); }
+      from { transform: translateX(-50%); }
       to { transform: translateX(0); }
     }
 
@@ -769,6 +904,7 @@
       .section-head,
       .quiz-shell,
       .about-grid,
+      .location-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
@@ -790,18 +926,20 @@
         width: min(100% - 1.25rem, 1180px);
       }
       .navbar {
-        padding: calc(env(safe-area-inset-top, 0px) + .54rem) 0 .54rem;
+        padding: calc(env(safe-area-inset-top, 0px) + .36rem) 0 .36rem;
       }
       .nav-inner {
-        min-height: 46px;
+        min-height: 40px;
       }
       .nav-logo img {
-        width: min(154px, calc(100vw - 9rem));
+        width: min(122px, calc(100vw - 8.5rem));
       }
       .navbar .btn {
-        min-height: 38px;
-        padding: .64rem .86rem;
-        font-size: .62rem;
+        width: auto;
+        min-width: min(112px, 33vw);
+        min-height: 32px;
+        padding: .42rem .75rem;
+        font-size: .58rem;
       }
       .hero-bg {
         background-image:
@@ -810,11 +948,11 @@
         background-position: 70% center;
       }
       .hero-inner {
-        width: min(100%, 23rem);
-        padding: 7.5rem 0 4.8rem;
+        width: min(100%, 20rem);
+        padding: 6.8rem 0 4.6rem;
       }
       h1 {
-        font-size: clamp(3.4rem, 16vw, 5.2rem);
+        font-size: clamp(2.72rem, 12.6vw, 4rem);
       }
       .hero-sub {
         font-size: 1rem;
@@ -830,6 +968,9 @@
         white-space: normal;
         text-align: center;
       }
+      .navbar .btn {
+        white-space: nowrap;
+      }
       .quiz-options {
         grid-template-columns: 1fr;
       }
@@ -838,7 +979,10 @@
         flex-direction: column;
       }
       .portfolio-card {
-        width: 72vw;
+        width: 68vw;
+      }
+      .map-frame {
+        min-height: 300px;
       }
       .footer-bottom {
         flex-direction: column;
@@ -860,10 +1004,15 @@
         scroll-behavior: auto !important;
         transition-duration: .01ms !important;
       }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 </head>
 <body class="loading">
+  <div class="loader-curtain" id="loader-curtain" aria-hidden="true"></div>
   <div class="page-loader" id="page-loader" role="status" aria-label="Carregando">
     <div class="loader-card">
       <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006542/5512b5dd-7ec6-4ae1-9eb6-d2537d226fda_1_lvmjm0.webp" alt="Lualves Hair" width="320" height="320">
@@ -877,10 +1026,10 @@
         <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006494/e956f94b-cc3a-402c-bd37-282c936a69fa_1_fwuuqd.webp" alt="Lualves Hair" width="300" height="92">
       </a>
       <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#sobre">Especialista</a>
         <a href="#portfolio">Portfólio</a>
         <a href="#quiz">Quiz</a>
         <a href="#servicos">Serviços</a>
-        <a href="#sobre">Sobre</a>
       </nav>
       <a class="btn btn-gold wa-link" href="#" data-wa-message="Olá, Luana! Vim pelo site da Lualves Hair e quero agendar uma orientação para meu cabelo." target="_blank" rel="noopener noreferrer">Agendar</a>
     </div>
@@ -890,7 +1039,7 @@
     <section class="hero" id="inicio">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="container">
-        <div class="hero-inner">
+        <div class="hero-inner reveal">
           <p class="eyebrow">Mega hair • loiros • cacheados</p>
           <h1>Cabelo com presença, técnica e <em>movimento.</em></h1>
           <p class="hero-sub">Lualves Hair cria transformações personalizadas para quem quer alongar, iluminar ou cuidar da curvatura com acabamento elegante e orientação de perto.</p>
@@ -908,36 +1057,58 @@
       </div>
     </section>
 
-    <section class="section section-light" aria-label="Especialidades">
+    <section class="section section-light reveal" aria-label="Dores de quem procura um salão confiável">
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Assinatura Lualves</p>
-            <h2>Três caminhos para realçar sua beleza.</h2>
+            <p class="eyebrow">Escolha com segurança</p>
+            <h2>Quando o cabelo precisa de confiança antes da transformação.</h2>
           </div>
-          <p>O atendimento começa pelo que você quer sentir ao se olhar no espelho: comprimento, luminosidade ou definição. A técnica entra para preservar naturalidade, caimento e saúde visual dos fios.</p>
+          <p>Quem busca um salão confiável quer se sentir ouvida, entender o processo e sair com um resultado bonito sem abrir mão da saúde visual dos fios.</p>
         </div>
         <div class="pillars">
-          <article class="pillar-card">
+          <article class="pillar-card pain-card reveal" data-reveal-delay="0">
             <span>01</span>
-            <h3>Mega hair</h3>
-            <p>Volume, comprimento e integração visual pensados para parecer seu, com caimento leve e manutenção orientada.</p>
+            <h3>Medo de não ficar natural</h3>
+            <p><strong>Mega hair, loiro ou cachos</strong> precisam combinar com seu rosto, rotina e estilo. O acabamento precisa parecer pensado para você.</p>
           </article>
-          <article class="pillar-card">
+          <article class="pillar-card pain-card reveal" data-reveal-delay="1">
             <span>02</span>
-            <h3>Loiros</h3>
-            <p>Iluminação elegante, tons personalizados e cuidado com a fibra para um loiro bonito também fora do salão.</p>
+            <h3>Receio de danificar os fios</h3>
+            <p>A transformação começa com diagnóstico, leitura do cabelo atual e orientação clara sobre o que faz sentido executar naquele momento.</p>
           </article>
-          <article class="pillar-card">
+          <article class="pillar-card pain-card reveal" data-reveal-delay="2">
             <span>03</span>
-            <h3>Cacheados</h3>
-            <p>Valorização de curvaturas, definição e rotina possível para cachos com forma, brilho e movimento.</p>
+            <h3>Dúvida sobre manutenção</h3>
+            <p>O resultado precisa continuar bonito depois do atendimento, com cuidados possíveis e indicação honesta sobre manutenção.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark portfolio" id="portfolio">
+    <section class="section section-champagne reveal" id="sobre">
+      <div class="container about-grid">
+        <div class="specialist-media reveal">
+          <p class="specialist-kicker">ESPECIALISTA</p>
+          <div class="about-image">
+            <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785011440/76fd89f7-0701-47eb-9028-14d9c4bde9e0_rhjd16.webp" alt="Luana Alves, especialista da Lualves Hair" loading="lazy">
+          </div>
+        </div>
+        <div class="about-copy reveal" data-reveal-delay="1">
+          <p class="eyebrow">Luana Alves</p>
+          <h2>Técnica, escuta e acabamento premium para cada cabelo.</h2>
+          <p class="muted">À frente da Lualves Hair, Luana Alves conduz transformações com atenção ao desejo da cliente, ao histórico dos fios e à rotina real de manutenção. O foco é entregar presença, movimento e beleza com orientação de perto.</p>
+          <ul class="signature-list">
+            <li>Diagnóstico antes de indicar mega hair, loiros ou finalização para cacheadas.</li>
+            <li>Escolha de técnica pensando em naturalidade, caimento e saúde visual.</li>
+            <li>Orientação clara para manutenção e cuidado após o atendimento.</li>
+            <li>Atendimento acolhedor, com horário agendado e conversa inicial pelo WhatsApp.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark portfolio reveal" id="portfolio">
       <div class="container">
         <div class="section-head">
           <div>
@@ -947,7 +1118,7 @@
           <p>Os carrosséis mostram os três pilares da Lualves Hair: mega hair, loiros e cacheados. Cada linha tem um ritmo próprio para deixar o portfólio vivo sem perder a estética editorial.</p>
         </div>
 
-        <article class="portfolio-set">
+        <article class="portfolio-set reveal">
           <div class="portfolio-label">
             <h3>Mega hair</h3>
             <span>antes e depois</span>
@@ -968,7 +1139,7 @@
           </div>
         </article>
 
-        <article class="portfolio-set">
+        <article class="portfolio-set reveal" data-reveal-delay="1">
           <div class="portfolio-label">
             <h3>Loiros</h3>
             <span>iluminação personalizada</span>
@@ -989,7 +1160,7 @@
           </div>
         </article>
 
-        <article class="portfolio-set">
+        <article class="portfolio-set reveal" data-reveal-delay="2">
           <div class="portfolio-label">
             <h3>Cacheados</h3>
             <span>forma, brilho e definição</span>
@@ -1010,7 +1181,7 @@
       </div>
     </section>
 
-    <section class="section section-champagne" id="quiz">
+    <section class="section section-champagne reveal" id="quiz">
       <div class="container quiz-shell">
         <aside class="quiz-brand">
           <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006494/e956f94b-cc3a-402c-bd37-282c936a69fa_1_fwuuqd.webp" alt="Lualves Hair" width="300" height="92">
@@ -1087,7 +1258,7 @@
       </div>
     </section>
 
-    <section class="section section-light" id="servicos">
+    <section class="section section-light reveal" id="servicos">
       <div class="container">
         <div class="section-head">
           <div>
@@ -1097,7 +1268,7 @@
           <p>Sem promessas prontas: o ideal é entender o cabelo atual, a rotina e a expectativa antes de indicar o caminho mais bonito e responsável.</p>
         </div>
         <div class="services-grid">
-          <article class="service-card">
+          <article class="service-card reveal">
             <div>
               <p class="eyebrow">Alongar</p>
               <h3>Mega hair</h3>
@@ -1110,7 +1281,7 @@
             </div>
             <a class="btn btn-primary wa-link" href="#" data-wa-message="Olá, Luana! Quero saber mais sobre mega hair na Lualves Hair." target="_blank" rel="noopener noreferrer">Falar sobre mega hair</a>
           </article>
-          <article class="service-card">
+          <article class="service-card reveal" data-reveal-delay="1">
             <div>
               <p class="eyebrow">Iluminar</p>
               <h3>Loiros</h3>
@@ -1123,7 +1294,7 @@
             </div>
             <a class="btn btn-primary wa-link" href="#" data-wa-message="Olá, Luana! Quero conversar sobre loiros na Lualves Hair." target="_blank" rel="noopener noreferrer">Falar sobre loiros</a>
           </article>
-          <article class="service-card">
+          <article class="service-card reveal" data-reveal-delay="2">
             <div>
               <p class="eyebrow">Definir</p>
               <h3>Cacheados</h3>
@@ -1140,25 +1311,7 @@
       </div>
     </section>
 
-    <section class="section section-champagne" id="sobre">
-      <div class="container about-grid">
-        <div class="about-image">
-          <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785013029/b7c83bc0-f39e-4e1f-b707-25364451ca66_sudpgf.webp" alt="Lualves Hair em atendimento capilar" loading="lazy">
-        </div>
-        <div class="about-copy">
-          <p class="eyebrow">Sobre a Luana</p>
-          <h2>Beleza capilar com técnica e escuta.</h2>
-          <p class="muted">A Lualves Hair combina olhar técnico, estética premium e acolhimento para transformar cabelo com intenção. A proposta é orientar cada cliente a escolher um resultado compatível com seu desejo, sua rotina e a condição atual dos fios.</p>
-          <ul class="signature-list">
-            <li>Atendimento com horário agendado e conversa inicial pelo WhatsApp.</li>
-            <li>Foco em mega hair, loiros e cacheados.</li>
-            <li>Direção visual elegante, feminina e personalizada.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark" id="faq">
+    <section class="section section-dark reveal" id="faq">
       <div class="container">
         <div class="section-head">
           <div>
@@ -1168,27 +1321,42 @@
           <p>Algumas decisões dependem de avaliação do cabelo atual. Quando faltar informação, o melhor caminho é chamar no WhatsApp e enviar seu contexto.</p>
         </div>
         <div class="faq-list">
-          <article class="faq-item">
-            <h3>Como sei se mega hair é indicado para mim?</h3>
+          <details class="faq-item">
+            <summary>Como sei se mega hair é indicado para mim?</summary>
             <p>A indicação depende do objetivo, do cabelo atual e da rotina de manutenção. O primeiro passo é enviar seu contexto pelo WhatsApp.</p>
-          </article>
-          <article class="faq-item">
-            <h3>Consigo chegar no loiro que quero em uma sessão?</h3>
+          </details>
+          <details class="faq-item">
+            <summary>Consigo chegar no loiro que quero em uma sessão?</summary>
             <p>Depende do histórico e da resistência do fio. A Luana orienta um caminho possível sem prometer resultado sem avaliação.</p>
-          </article>
-          <article class="faq-item">
-            <h3>O atendimento para cacheadas ajuda na rotina?</h3>
+          </details>
+          <details class="faq-item">
+            <summary>O atendimento para cacheadas ajuda na rotina?</summary>
             <p>Sim. A ideia é valorizar a curvatura e orientar uma finalização que faça sentido também fora do salão.</p>
-          </article>
-          <article class="faq-item">
-            <h3>Onde vejo horários e endereço?</h3>
+          </details>
+          <details class="faq-item">
+            <summary>Onde vejo horários e endereço?</summary>
             <p>Os detalhes de agenda, local e disponibilidade devem ser confirmados diretamente pelo WhatsApp.</p>
-          </article>
+          </details>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark final-cta">
+    <section class="section section-dark location reveal" id="localizacao">
+      <div class="container location-grid">
+        <div class="location-copy">
+          <img class="location-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006494/e956f94b-cc3a-402c-bd37-282c936a69fa_1_fwuuqd.webp" alt="Lualves Hair" loading="lazy" width="300" height="92">
+          <p class="eyebrow">Localização</p>
+          <h2>Planeje sua visita com horário agendado.</h2>
+          <p class="muted">Use o mapa como busca inicial da Lualves Hair. Endereço exato, referência de chegada e horários disponíveis devem ser confirmados diretamente pelo WhatsApp.</p>
+          <a class="btn btn-gold wa-link" href="#" data-wa-message="Olá, Luana! Quero confirmar endereço e horários da Lualves Hair." target="_blank" rel="noopener noreferrer">Confirmar localização</a>
+        </div>
+        <div class="map-frame reveal" data-reveal-delay="1">
+          <iframe title="Mapa da Lualves Hair" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Lualves%20Hair&z=15&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark final-cta reveal">
       <div class="container">
         <img class="final-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006494/e956f94b-cc3a-402c-bd37-282c936a69fa_1_fwuuqd.webp" alt="Lualves Hair" loading="lazy" width="300" height="92">
         <h2>Seu próximo cabelo começa com uma conversa.</h2>
@@ -1211,10 +1379,11 @@
         <div>
           <div class="footer-title">Navegação</div>
           <nav class="footer-links" aria-label="Links do rodapé">
+            <a href="#sobre">Especialista</a>
             <a href="#portfolio">Portfólio</a>
             <a href="#quiz">Quiz</a>
             <a href="#servicos">Serviços</a>
-            <a href="#sobre">Sobre</a>
+            <a href="#localizacao">Localização</a>
           </nav>
         </div>
         <div>
@@ -1253,6 +1422,9 @@
       detalhe: "",
       prioridade: ""
     };
+    const loaderStartedAt = Date.now();
+    let loadingScheduled = false;
+    let loadingFinished = false;
 
     const quizOptions = {
       "Mega hair": {
@@ -1304,14 +1476,28 @@
       });
     }
 
-    function setLoadingDone() {
+    function finishLoading() {
+      if (loadingFinished) return;
+      loadingFinished = true;
       const loader = document.getElementById("page-loader");
-      document.body.classList.remove("loading");
-      if (!loader) return;
-      loader.classList.add("done");
+      const curtain = document.getElementById("loader-curtain");
+      if (loader) loader.classList.add("done");
       window.setTimeout(function() {
-        if (loader.parentNode) loader.parentNode.removeChild(loader);
-      }, 760);
+        document.body.classList.remove("loading");
+        if (curtain) curtain.classList.add("lift");
+      }, 520);
+      window.setTimeout(function() {
+        if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+        if (curtain && curtain.parentNode) curtain.parentNode.removeChild(curtain);
+      }, 1650);
+    }
+
+    function setLoadingDone() {
+      if (loadingScheduled || loadingFinished) return;
+      loadingScheduled = true;
+      const elapsed = Date.now() - loaderStartedAt;
+      const remaining = Math.max(0, 1350 - elapsed);
+      window.setTimeout(finishLoading, remaining);
     }
 
     function handleNavbar() {
@@ -1426,11 +1612,33 @@
       renderDynamicOptions();
     }
 
+    function initRevealAnimations() {
+      const items = Array.from(document.querySelectorAll(".reveal"));
+      if (!items.length) return;
+      if (!("IntersectionObserver" in window)) {
+        items.forEach(function(item) {
+          item.classList.add("is-visible");
+        });
+        return;
+      }
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      items.forEach(function(item) {
+        observer.observe(item);
+      });
+    }
+
     document.addEventListener("DOMContentLoaded", function() {
       hydrateWhatsAppLinks();
       handleNavbar();
       initQuiz();
-      window.setTimeout(setLoadingDone, 420);
+      initRevealAnimations();
+      window.setTimeout(setLoadingDone, 900);
     });
 
     window.addEventListener("load", setLoadingDone);

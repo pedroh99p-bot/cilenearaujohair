@@ -62,6 +62,7 @@
       --champagne: #E6DACB;
       --sand: #D2BEA7;
       --gold: #C6A36A;
+      --pain-red: #A8463D;
       --ink-muted: #6B5C50;
       --line-light: rgba(33, 28, 24, .13);
       --line-dark: rgba(245, 241, 234, .16);
@@ -135,7 +136,7 @@
       gap: 1.4rem;
     }
     .loader-card img {
-      width: min(42vw, 190px);
+      width: min(64vw, 300px);
       height: auto;
       filter: drop-shadow(0 18px 34px rgba(0, 0, 0, .22));
       animation: loaderIn .9s var(--ease) both;
@@ -260,7 +261,7 @@
         linear-gradient(90deg, rgba(33, 28, 24, .9) 0%, rgba(33, 28, 24, .68) 44%, rgba(33, 28, 24, .18) 100%),
         url("https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785013029/b7c83bc0-f39e-4e1f-b707-25364451ca66_sudpgf.webp");
       background-size: cover;
-      background-position: 68% center;
+      background-position: 74% center;
       transform: scale(1.01);
     }
     .hero::after {
@@ -387,6 +388,15 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1rem;
     }
+    .pain-section {
+      background:
+        linear-gradient(135deg, rgba(168, 70, 61, .1), transparent 38%),
+        var(--off-white);
+    }
+    .pain-section .eyebrow,
+    .pain-section .pillar-card span {
+      color: var(--pain-red);
+    }
     .pillar-card {
       padding: clamp(1.3rem, 2.4vw, 2rem);
       border: 1px solid var(--line-light);
@@ -415,6 +425,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      border-color: rgba(168, 70, 61, .2);
     }
     .pain-card h3 {
       max-width: 11ch;
@@ -422,6 +433,27 @@
     .pain-card strong {
       color: var(--espresso);
       font-weight: 600;
+    }
+    .pain-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1.2rem;
+      border-radius: 50%;
+      color: var(--pain-red);
+      background: rgba(168, 70, 61, .1);
+      border: 1px solid rgba(168, 70, 61, .22);
+    }
+    .pain-icon svg,
+    .quiz-step-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .text-roller {
@@ -530,7 +562,7 @@
     .marquee-track {
       display: flex;
       width: max-content;
-      gap: 0;
+      gap: .18rem;
       padding: .5rem 0 1rem;
       animation: marqueeLeft 42s linear infinite;
     }
@@ -541,6 +573,7 @@
       animation-play-state: paused;
     }
     .portfolio-card {
+      margin: 0;
       width: clamp(230px, 24vw, 318px);
       aspect-ratio: 4 / 5;
       overflow: hidden;
@@ -569,6 +602,9 @@
       gap: clamp(2rem, 5vw, 4rem);
       align-items: stretch;
     }
+    .quiz-section {
+      background: var(--espresso);
+    }
     .quiz-brand {
       display: grid;
       align-content: space-between;
@@ -578,6 +614,9 @@
       color: var(--off-white);
       background: var(--espresso);
       border: 1px solid var(--line-dark);
+    }
+    .quiz-section .quiz-brand {
+      background: rgba(245, 241, 234, .05);
     }
     .quiz-brand img {
       width: min(74%, 260px);
@@ -594,8 +633,25 @@
       background: rgba(255, 255, 255, .5);
       box-shadow: var(--shadow-soft);
     }
+    .quiz-section .quiz-card {
+      color: var(--off-white);
+      border-color: var(--line-dark);
+      background: rgba(245, 241, 234, .06);
+      box-shadow: var(--shadow-dark);
+    }
     .quiz-step { display: none; }
     .quiz-step.active { display: block; }
+    .quiz-step-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      color: var(--gold);
+      background: rgba(198, 163, 106, .13);
+      border: 1px solid rgba(198, 163, 106, .3);
+    }
     .quiz-step h3 {
       margin-bottom: 1.1rem;
       font-size: clamp(2.2rem, 4vw, 3.6rem);
@@ -617,11 +673,20 @@
       cursor: pointer;
       transition: border-color .25s var(--ease), background .25s var(--ease), transform .25s var(--ease);
     }
+    .quiz-section .quiz-option {
+      color: var(--off-white);
+      border-color: rgba(245, 241, 234, .16);
+      background: rgba(245, 241, 234, .06);
+    }
     .quiz-option:hover,
     .quiz-option.is-selected {
       border-color: var(--gold);
       background: #FFF9EF;
       transform: translateY(-2px);
+    }
+    .quiz-section .quiz-option:hover,
+    .quiz-section .quiz-option.is-selected {
+      background: rgba(198, 163, 106, .16);
     }
     .quiz-option strong {
       display: block;
@@ -632,6 +697,9 @@
       color: var(--ink-muted);
       font-size: .84rem;
       line-height: 1.45;
+    }
+    .quiz-section .quiz-option small {
+      color: rgba(245, 241, 234, .66);
     }
     .quiz-actions {
       display: flex;
@@ -646,6 +714,10 @@
       border-radius: var(--radius-md);
       color: var(--off-white);
       background: var(--espresso);
+    }
+    .quiz-section .quiz-result {
+      border: 1px solid var(--line-dark);
+      background: rgba(245, 241, 234, .08);
     }
     .quiz-result.active {
       display: block;
@@ -757,6 +829,40 @@
       border-top: 1px solid var(--line-light);
       color: var(--ink-muted);
     }
+    .specialist-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .8rem;
+      margin-top: 1.7rem;
+    }
+    .stat-card {
+      min-height: 132px;
+      display: grid;
+      align-content: center;
+      gap: .45rem;
+      padding: 1rem;
+      border: 1px solid rgba(33, 28, 24, .12);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, .36);
+    }
+    .stat-card strong {
+      color: var(--espresso);
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 500;
+      line-height: .92;
+    }
+    .stat-number {
+      display: inline-block;
+    }
+    .stat-card > span {
+      color: var(--ink-muted);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
 
     .faq-list {
       display: grid;
@@ -848,6 +954,11 @@
       font-size: 1.25rem;
       box-shadow: 0 12px 28px rgba(33, 28, 24, .08);
     }
+    .google-mark img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
     .rating-line {
       display: flex;
       align-items: center;
@@ -891,6 +1002,31 @@
       font-weight: 700;
       letter-spacing: .14em;
       text-transform: uppercase;
+    }
+
+    .drag-carousel {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      cursor: grab;
+      padding: .1rem .05rem 1rem;
+      scrollbar-width: none;
+      user-select: none;
+    }
+    .drag-carousel::-webkit-scrollbar {
+      display: none;
+    }
+    .drag-carousel > * {
+      flex: 0 0 calc((100% - 2rem) / 3);
+      scroll-snap-align: start;
+    }
+    .drag-carousel.is-dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
     }
 
     .location {
@@ -1107,7 +1243,7 @@
         background-image:
           linear-gradient(90deg, rgba(33, 28, 24, .94) 0%, rgba(33, 28, 24, .76) 52%, rgba(33, 28, 24, .22) 100%),
           url("https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785013029/b7c83bc0-f39e-4e1f-b707-25364451ca66_sudpgf.webp");
-        background-position: 70% center;
+        background-position: 82% center;
       }
       .hero-inner {
         width: min(100%, 20rem);
@@ -1142,6 +1278,26 @@
       }
       .portfolio-card {
         width: 68vw;
+      }
+      .drag-carousel {
+        padding-inline: .05rem;
+        scroll-padding-left: .05rem;
+      }
+      .drag-carousel > * {
+        flex-basis: min(84vw, 350px);
+      }
+      .specialist-stats {
+        gap: .45rem;
+      }
+      .stat-card {
+        min-height: 112px;
+        padding: .75rem .55rem;
+      }
+      .stat-card strong {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+      }
+      .stat-card > span {
+        font-size: .56rem;
       }
       .text-roller span {
         font-size: clamp(3rem, 16vw, 5.2rem);
@@ -1180,7 +1336,7 @@
   <div class="loader-curtain" id="loader-curtain" aria-hidden="true"></div>
   <div class="page-loader" id="page-loader" role="status" aria-label="Carregando">
     <div class="loader-card">
-      <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006542/5512b5dd-7ec6-4ae1-9eb6-d2537d226fda_1_lvmjm0.webp" alt="Lualves Hair" width="320" height="320">
+      <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006494/e956f94b-cc3a-402c-bd37-282c936a69fa_1_fwuuqd.webp" alt="Lualves Hair" width="300" height="92">
       <div class="loader-line"></div>
     </div>
   </div>
@@ -1240,7 +1396,7 @@
       </div>
     </section>
 
-    <section class="section section-light reveal" aria-label="Dores de quem procura um salão confiável">
+    <section class="section section-light pain-section reveal" aria-label="Dores de quem procura um salão confiável">
       <div class="container">
         <div class="section-head">
           <div>
@@ -1249,19 +1405,28 @@
           </div>
           <p>Quem busca um salão confiável quer se sentir ouvida, entender o processo e sair com um resultado bonito sem abrir mão da saúde visual dos fios.</p>
         </div>
-        <div class="pillars">
+        <div class="pillars drag-carousel" data-drag-carousel aria-label="Dores principais">
           <article class="pillar-card pain-card reveal" data-reveal-delay="0">
-            <span>01</span>
+            <div>
+              <div class="pain-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 2.8 19h18.4L12 3Z"></path><path d="M12 8v5"></path><path d="M12 17h.01"></path></svg></div>
+              <span>01</span>
+            </div>
             <h3>Medo de não ficar natural</h3>
             <p><strong>Mega hair, loiro ou cachos</strong> precisam combinar com seu rosto, rotina e estilo. O acabamento precisa parecer pensado para você.</p>
           </article>
           <article class="pillar-card pain-card reveal" data-reveal-delay="1">
-            <span>02</span>
+            <div>
+              <div class="pain-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 4.6-2.9 8.7-7 10-4.1-1.3-7-5.4-7-10V6l7-3Z"></path><path d="m9.5 12.5 1.7 1.7 3.6-4.2"></path></svg></div>
+              <span>02</span>
+            </div>
             <h3>Receio de danificar os fios</h3>
             <p>A transformação começa com diagnóstico, leitura do cabelo atual e orientação clara sobre o que faz sentido executar naquele momento.</p>
           </article>
           <article class="pillar-card pain-card reveal" data-reveal-delay="2">
-            <span>03</span>
+            <div>
+              <div class="pain-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="M4 9h16"></path><rect x="4" y="5" width="16" height="16" rx="2"></rect><path d="M9 14h.01"></path><path d="M15 14h.01"></path></svg></div>
+              <span>03</span>
+            </div>
             <h3>Dúvida sobre manutenção</h3>
             <p>O resultado precisa continuar bonito depois do atendimento, com cuidados possíveis e indicação honesta sobre manutenção.</p>
           </article>
@@ -1279,14 +1444,22 @@
         </div>
         <div class="about-copy reveal" data-reveal-delay="1">
           <p class="eyebrow">Luana Alves</p>
-          <h2>Técnica, escuta e acabamento premium para cada cabelo.</h2>
-          <p class="muted">À frente da Lualves Hair, Luana Alves conduz transformações com atenção ao desejo da cliente, ao histórico dos fios e à rotina real de manutenção. O foco é entregar presença, movimento e beleza com orientação de perto.</p>
-          <ul class="signature-list">
-            <li>Diagnóstico antes de indicar mega hair, loiros ou finalização para cacheadas.</li>
-            <li>Escolha de técnica pensando em naturalidade, caimento e saúde visual.</li>
-            <li>Orientação clara para manutenção e cuidado após o atendimento.</li>
-            <li>Atendimento acolhedor, com horário agendado e conversa inicial pelo WhatsApp.</li>
-          </ul>
+          <h2>Colorimetria, mechas e transformações com acabamento natural.</h2>
+          <p class="muted">Luana une diagnóstico, escuta e técnica para criar resultados alinhados ao desejo da cliente e à saúde visual dos fios.</p>
+          <div class="specialist-stats" aria-label="Números da especialista">
+            <article class="stat-card">
+              <strong><span class="stat-number" data-count="5" data-suffix=",0">0</span></strong>
+              <span>estrelas no Google</span>
+            </article>
+            <article class="stat-card">
+              <strong><span class="stat-number" data-count="500" data-prefix="+">0</span></strong>
+              <span>mulheres transformadas</span>
+            </article>
+            <article class="stat-card">
+              <strong><span class="stat-number" data-count="3">0</span></strong>
+              <span>especialidades principais</span>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -1381,7 +1554,7 @@
       </div>
     </section>
 
-    <section class="section section-champagne reveal" id="quiz">
+    <section class="section section-dark quiz-section reveal" id="quiz">
       <div class="container quiz-shell">
         <aside class="quiz-brand">
           <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006494/e956f94b-cc3a-402c-bd37-282c936a69fa_1_fwuuqd.webp" alt="Lualves Hair" width="300" height="92">
@@ -1395,6 +1568,7 @@
         <div class="quiz-card" data-quiz>
           <div class="quiz-step active" data-step="1">
             <p class="eyebrow">Passo 1</p>
+            <span class="quiz-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20v-6"></path><path d="M8 20h8"></path><path d="M16.5 4.5c1.7 1.7 1.7 4.4 0 6.1L12 15l-4.5-4.4a4.3 4.3 0 0 1 6.1-6.1L12 6l1.5-1.5a4.3 4.3 0 0 1 3 0Z"></path></svg></span>
             <h3>O que você quer transformar agora?</h3>
             <div class="quiz-options">
               <button class="quiz-option" type="button" data-choice="nicho" data-value="Mega hair">
@@ -1418,12 +1592,14 @@
 
           <div class="quiz-step" data-step="2">
             <p class="eyebrow">Passo 2</p>
+            <span class="quiz-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20c1.7-4 4.3-6 8-6s6.3 2 8 6"></path><circle cx="12" cy="7" r="4"></circle><path d="M8 7c1.5 1 3 1.5 4.5 1.5S15.3 8 16 7"></path></svg></span>
             <h3 id="quiz-question">Conte um pouco mais.</h3>
             <div class="quiz-options" id="quiz-dynamic-options"></div>
           </div>
 
           <div class="quiz-step" data-step="3">
             <p class="eyebrow">Passo 3</p>
+            <span class="quiz-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.5 5 5.5.8-4 3.9.9 5.5L12 15.6 7.1 18.2l.9-5.5-4-3.9 5.5-.8L12 3Z"></path></svg></span>
             <h3>O que mais importa no resultado?</h3>
             <div class="quiz-options">
               <button class="quiz-option" type="button" data-choice="prioridade" data-value="Naturalidade">
@@ -1484,7 +1660,7 @@
           </div>
           <p>Sem promessas prontas: o ideal é entender o cabelo atual, a rotina e a expectativa antes de indicar o caminho mais bonito e responsável.</p>
         </div>
-        <div class="services-grid">
+        <div class="services-grid drag-carousel" data-drag-carousel aria-label="Serviços Lualves Hair">
           <article class="service-card reveal">
             <div>
               <p class="eyebrow">Alongar</p>
@@ -1562,7 +1738,7 @@
       <div class="container reviews-grid">
         <div class="reviews-summary">
           <div>
-            <span class="google-mark" aria-label="Google">G</span>
+            <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
             <p class="eyebrow">Avaliações no Google</p>
             <h2>5,0 de 5 em 21 avaliações.</h2>
             <p class="muted">Prova social para reforçar confiança antes do agendamento. Os textos abaixo estão como placeholders para substituir por avaliações reais selecionadas.</p>
@@ -1572,10 +1748,10 @@
             <span>Luana Alves Cabeleireira Colorimetria Mechas Freguesia</span>
           </div>
         </div>
-        <div class="reviews-list">
+        <div class="reviews-list drag-carousel" data-drag-carousel aria-label="Depoimentos">
           <article class="review-card reveal">
             <header>
-              <span class="google-mark" aria-label="Google">G</span>
+              <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
               <span class="stars" aria-label="5 estrelas">★★★★★</span>
             </header>
             <p>Texto do depoimento placeholder para substituir por uma avaliação real sobre atendimento, técnica e resultado.</p>
@@ -1583,7 +1759,7 @@
           </article>
           <article class="review-card reveal" data-reveal-delay="1">
             <header>
-              <span class="google-mark" aria-label="Google">G</span>
+              <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
               <span class="stars" aria-label="5 estrelas">★★★★★</span>
             </header>
             <p>Texto do depoimento placeholder para destacar confiança, cuidado no diagnóstico e acabamento do cabelo.</p>
@@ -1591,7 +1767,7 @@
           </article>
           <article class="review-card reveal" data-reveal-delay="2">
             <header>
-              <span class="google-mark" aria-label="Google">G</span>
+              <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
               <span class="stars" aria-label="5 estrelas">★★★★★</span>
             </header>
             <p>Texto do depoimento placeholder para falar da experiência no salão e da orientação após o atendimento.</p>
@@ -1908,6 +2084,98 @@
       renderDynamicOptions();
     }
 
+    function formatCounterValue(element, value) {
+      const prefix = element.getAttribute("data-prefix") || "";
+      const suffix = element.getAttribute("data-suffix") || "";
+      return prefix + Math.round(value) + suffix;
+    }
+
+    function animateCounter(element) {
+      if (element.dataset.animated === "true") return;
+      element.dataset.animated = "true";
+      const target = Number(element.getAttribute("data-count") || "0");
+      const duration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1100;
+      if (!duration) {
+        element.textContent = formatCounterValue(element, target);
+        return;
+      }
+      const start = performance.now();
+      const tick = function(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        element.textContent = formatCounterValue(element, target * eased);
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          element.textContent = formatCounterValue(element, target);
+        }
+      };
+      requestAnimationFrame(tick);
+    }
+
+    function initStatCounters() {
+      const stats = Array.from(document.querySelectorAll(".stat-number"));
+      if (!stats.length) return;
+      if (!("IntersectionObserver" in window)) {
+        stats.forEach(animateCounter);
+        return;
+      }
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.querySelectorAll(".stat-number").forEach(animateCounter);
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: .35 });
+      document.querySelectorAll(".specialist-stats").forEach(function(group) {
+        observer.observe(group);
+      });
+    }
+
+    function initDragCarousels() {
+      document.querySelectorAll("[data-drag-carousel]").forEach(function(scroller) {
+        let isDown = false;
+        let startX = 0;
+        let startScroll = 0;
+        let moved = false;
+
+        scroller.addEventListener("pointerdown", function(event) {
+          isDown = true;
+          moved = false;
+          startX = event.clientX;
+          startScroll = scroller.scrollLeft;
+          scroller.classList.add("is-dragging");
+          scroller.setPointerCapture(event.pointerId);
+        });
+
+        scroller.addEventListener("pointermove", function(event) {
+          if (!isDown) return;
+          const delta = event.clientX - startX;
+          if (Math.abs(delta) > 4) moved = true;
+          scroller.scrollLeft = startScroll - delta;
+        });
+
+        const stopDrag = function(event) {
+          if (!isDown) return;
+          isDown = false;
+          scroller.classList.remove("is-dragging");
+          if (event && scroller.hasPointerCapture(event.pointerId)) {
+            scroller.releasePointerCapture(event.pointerId);
+          }
+        };
+
+        scroller.addEventListener("pointerup", stopDrag);
+        scroller.addEventListener("pointercancel", stopDrag);
+        scroller.addEventListener("pointerleave", stopDrag);
+        scroller.addEventListener("click", function(event) {
+          if (!moved) return;
+          event.preventDefault();
+          event.stopPropagation();
+          moved = false;
+        }, true);
+      });
+    }
+
     function initRevealAnimations() {
       const items = Array.from(document.querySelectorAll(".reveal"));
       if (!items.length) return;
@@ -1933,6 +2201,8 @@
       hydrateWhatsAppLinks();
       handleNavbar();
       initQuiz();
+      initStatCounters();
+      initDragCarousels();
       initRevealAnimations();
       window.setTimeout(setLoadingDone, 900);
     });

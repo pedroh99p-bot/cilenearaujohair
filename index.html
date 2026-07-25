@@ -8,7 +8,7 @@
   <title>Lualves Hair | Colorimetria, Mechas e Mega Hair na Freguesia</title>
   <meta property="og:title" content="Lualves Hair | Colorimetria, Mechas e Mega Hair">
   <meta property="og:description" content="Luana Alves: técnica, beleza e acolhimento para colorimetria, mechas, mega hair, loiros e cacheados na Freguesia.">
-  <meta property="og:image" content="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015333/d9df715d-03b2-4171-9dbb-6f5c3d03b79f_boqx67.webp">
+  <meta property="og:image" content="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785017508/eee9d19b-12f4-4940-b3dd-a55b9eb0459b_fhghmh.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Lualves Hair">
   <meta name="twitter:description" content="Colorimetria, mechas, mega hair, loiros e cacheados com atendimento personalizado.">
-  <meta name="twitter:image" content="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015333/d9df715d-03b2-4171-9dbb-6f5c3d03b79f_boqx67.webp">
+  <meta name="twitter:image" content="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785017508/eee9d19b-12f4-4940-b3dd-a55b9eb0459b_fhghmh.webp">
   <link rel="icon" type="image/webp" href="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006542/5512b5dd-7ec6-4ae1-9eb6-d2537d226fda_1_lvmjm0.webp">
   <link rel="apple-touch-icon" href="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006542/5512b5dd-7ec6-4ae1-9eb6-d2537d226fda_1_lvmjm0.webp">
 
@@ -31,7 +31,7 @@
     "name": "Lualves Hair",
     "alternateName": "Luana Alves Cabeleireira Colorimetria Mechas Freguesia",
     "description": "Salão de beleza especializado em colorimetria, mechas, mega hair, loiros e cabelos cacheados.",
-    "image": "https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015333/d9df715d-03b2-4171-9dbb-6f5c3d03b79f_boqx67.webp",
+    "image": "https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785017508/eee9d19b-12f4-4940-b3dd-a55b9eb0459b_fhghmh.webp",
     "telephone": "+55 21 97989-9989",
     "address": {
       "@type": "PostalAddress",
@@ -641,6 +641,22 @@
     }
     .quiz-step { display: none; }
     .quiz-step.active { display: block; }
+    .quiz-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      margin: 0 0 1.2rem;
+      padding: .55rem .75rem;
+      border: 1px solid rgba(198, 163, 106, .3);
+      border-radius: 999px;
+      color: var(--champagne);
+      background: rgba(198, 163, 106, .1);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      animation: quizHintPulse 1.7s var(--ease) infinite;
+    }
     .quiz-step-icon {
       width: 42px;
       height: 42px;
@@ -663,8 +679,12 @@
       margin-top: 1.35rem;
     }
     .quiz-option {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: .85rem;
       min-height: 116px;
-      padding: 1rem;
+      padding: 1rem 2.8rem 1rem 1rem;
       text-align: left;
       border-radius: var(--radius-md);
       border: 1px solid rgba(33, 28, 24, .16);
@@ -672,6 +692,32 @@
       color: var(--espresso);
       cursor: pointer;
       transition: border-color .25s var(--ease), background .25s var(--ease), transform .25s var(--ease);
+    }
+    .quiz-option::after {
+      content: "→";
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      color: var(--gold);
+      font-size: 1rem;
+      opacity: .72;
+      transition: transform .25s var(--ease), opacity .25s var(--ease);
+    }
+    .quiz-option:hover::after,
+    .quiz-option.is-selected::after {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+    .quiz-emoji {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(198, 163, 106, .14);
+      border: 1px solid rgba(198, 163, 106, .28);
+      font-size: 1.2rem;
+      line-height: 1;
     }
     .quiz-section .quiz-option {
       color: var(--off-white);
@@ -724,6 +770,32 @@
     }
     .quiz-result strong {
       color: var(--gold);
+    }
+    .quiz-result-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .8rem;
+      margin-bottom: .9rem;
+    }
+    .quiz-result-head span {
+      color: rgba(245, 241, 234, .62);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .quiz-summary {
+      display: grid;
+      gap: .55rem;
+      padding: 0;
+      margin: 0 0 .9rem;
+      list-style: none;
+    }
+    .quiz-summary li {
+      display: flex;
+      gap: .55rem;
+      color: rgba(245, 241, 234, .78);
     }
 
     .services-grid {
@@ -816,6 +888,10 @@
     }
     .about-copy .eyebrow {
       color: var(--espresso);
+    }
+    .specialist-name {
+      font-size: clamp(1rem, 2.2vw, 1.35rem);
+      letter-spacing: .18em;
     }
     .signature-list {
       display: grid;
@@ -924,6 +1000,9 @@
       gap: clamp(1.2rem, 3vw, 2rem);
       align-items: stretch;
     }
+    .reviews-grid > * {
+      min-width: 0;
+    }
     .reviews-summary,
     .review-card {
       border: 1px solid var(--line-light);
@@ -940,6 +1019,7 @@
     .reviews-summary h2 {
       margin-bottom: .8rem;
       font-size: clamp(2.6rem, 5vw, 4.8rem);
+      overflow-wrap: anywhere;
     }
     .google-mark {
       width: 44px;
@@ -967,6 +1047,10 @@
       color: var(--ink-muted);
       font-weight: 600;
     }
+    .rating-line span:last-child {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
     .stars {
       color: var(--gold);
       font-size: .95rem;
@@ -977,6 +1061,24 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1rem;
+    }
+    .reviews-marquee {
+      max-width: 100%;
+      min-width: 0;
+      overflow: hidden;
+      overflow: clip;
+      contain: layout paint;
+      padding: .1rem 0 1rem;
+    }
+    .reviews-track {
+      display: flex;
+      width: max-content;
+      gap: 0;
+      animation: reviewsRoll 34s linear infinite;
+    }
+    .reviews-track .review-card {
+      flex: 0 0 clamp(260px, 26vw, 340px);
+      margin-right: 1rem;
     }
     .review-card {
       min-height: 260px;
@@ -1028,6 +1130,27 @@
       cursor: grabbing;
       scroll-snap-type: none;
     }
+    .drag-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      margin: 0 0 .8rem;
+      padding: .45rem .7rem;
+      border: 1px solid rgba(198, 163, 106, .38);
+      border-radius: 999px;
+      color: var(--gold);
+      background: rgba(198, 163, 106, .08);
+      box-shadow: 0 0 0 rgba(198, 163, 106, 0);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      animation: dragGlow 1.25s ease-in-out infinite;
+    }
+    .drag-hint::after {
+      content: "→";
+      font-size: .95rem;
+    }
 
     .location {
       border-top: 1px solid var(--line-dark);
@@ -1037,7 +1160,11 @@
       display: grid;
       grid-template-columns: minmax(260px, .65fr) minmax(0, 1fr);
       gap: clamp(1.5rem, 4vw, 3rem);
-      align-items: center;
+      align-items: stretch;
+    }
+    .location-copy {
+      min-width: 0;
+      align-self: center;
     }
     .location-logo {
       width: min(72vw, 280px);
@@ -1048,6 +1175,9 @@
       font-size: clamp(2.7rem, 6vw, 5.4rem);
     }
     .map-frame {
+      width: 100%;
+      min-width: 0;
+      align-self: stretch;
       overflow: hidden;
       min-height: 360px;
       aspect-ratio: 16 / 10;
@@ -1057,6 +1187,7 @@
       box-shadow: var(--shadow-dark);
     }
     .map-frame iframe {
+      display: block;
       width: 100%;
       height: 100%;
       border: 0;
@@ -1194,6 +1325,24 @@
       from { transform: translateX(-50%); }
       to { transform: translateX(0); }
     }
+    @keyframes reviewsRoll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @keyframes dragGlow {
+      0%, 100% {
+        opacity: .74;
+        box-shadow: 0 0 0 rgba(198, 163, 106, 0);
+      }
+      50% {
+        opacity: 1;
+        box-shadow: 0 0 24px rgba(198, 163, 106, .42);
+      }
+    }
+    @keyframes quizHintPulse {
+      0%, 100% { box-shadow: 0 0 0 rgba(198, 163, 106, 0); }
+      50% { box-shadow: 0 0 22px rgba(198, 163, 106, .28); }
+    }
 
     @media (max-width: 980px) {
       .nav-links { display: none; }
@@ -1285,6 +1434,19 @@
       }
       .drag-carousel > * {
         flex-basis: min(84vw, 350px);
+      }
+      .reviews-track .review-card {
+        flex-basis: min(84vw, 350px);
+      }
+      .reviews-summary {
+        overflow: hidden;
+      }
+      .reviews-summary h2 {
+        font-size: clamp(2.05rem, 10.5vw, 3rem);
+        line-height: 1;
+      }
+      .rating-line span:last-child {
+        flex-basis: 100%;
       }
       .specialist-stats {
         gap: .45rem;
@@ -1405,6 +1567,7 @@
           </div>
           <p>Quem busca um salão confiável quer se sentir ouvida, entender o processo e sair com um resultado bonito sem abrir mão da saúde visual dos fios.</p>
         </div>
+        <div class="drag-hint" aria-hidden="true">Arraste pro lado</div>
         <div class="pillars drag-carousel" data-drag-carousel aria-label="Dores principais">
           <article class="pillar-card pain-card reveal" data-reveal-delay="0">
             <div>
@@ -1443,7 +1606,7 @@
           </div>
         </div>
         <div class="about-copy reveal" data-reveal-delay="1">
-          <p class="eyebrow">Luana Alves</p>
+          <p class="eyebrow specialist-name">Luana Alves</p>
           <h2>Colorimetria, mechas e transformações com acabamento natural.</h2>
           <p class="muted">Luana une diagnóstico, escuta e técnica para criar resultados alinhados ao desejo da cliente e à saúde visual dos fios.</p>
           <div class="specialist-stats" aria-label="Números da especialista">
@@ -1566,26 +1729,27 @@
         </aside>
 
         <div class="quiz-card" data-quiz>
+          <p class="quiz-hint">Escolha uma opção para continuar</p>
           <div class="quiz-step active" data-step="1">
             <p class="eyebrow">Passo 1</p>
             <span class="quiz-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20v-6"></path><path d="M8 20h8"></path><path d="M16.5 4.5c1.7 1.7 1.7 4.4 0 6.1L12 15l-4.5-4.4a4.3 4.3 0 0 1 6.1-6.1L12 6l1.5-1.5a4.3 4.3 0 0 1 3 0Z"></path></svg></span>
             <h3>O que você quer transformar agora?</h3>
             <div class="quiz-options">
-              <button class="quiz-option" type="button" data-choice="nicho" data-value="Mega hair">
-                <strong>Mega hair</strong>
-                <small>Quero mais comprimento, volume ou uma mudança marcante.</small>
+              <button class="quiz-option" type="button" data-choice="nicho" data-value="Mega hair" data-emoji="💇‍♀️">
+                <span class="quiz-emoji" aria-hidden="true">💇‍♀️</span>
+                <span><strong>Mega hair</strong><small>Quero mais comprimento, volume ou uma mudança marcante.</small></span>
               </button>
-              <button class="quiz-option" type="button" data-choice="nicho" data-value="Loiros">
-                <strong>Loiros</strong>
-                <small>Quero iluminar, corrigir ou encontrar um tom mais elegante.</small>
+              <button class="quiz-option" type="button" data-choice="nicho" data-value="Loiros" data-emoji="✨">
+                <span class="quiz-emoji" aria-hidden="true">✨</span>
+                <span><strong>Loiros</strong><small>Quero iluminar, corrigir ou encontrar um tom mais elegante.</small></span>
               </button>
-              <button class="quiz-option" type="button" data-choice="nicho" data-value="Cacheados">
-                <strong>Cacheados</strong>
-                <small>Quero definição, forma, brilho e uma rotina mais possível.</small>
+              <button class="quiz-option" type="button" data-choice="nicho" data-value="Cacheados" data-emoji="➿">
+                <span class="quiz-emoji" aria-hidden="true">➿</span>
+                <span><strong>Cacheados</strong><small>Quero definição, forma, brilho e uma rotina mais possível.</small></span>
               </button>
-              <button class="quiz-option" type="button" data-choice="nicho" data-value="Ainda não sei">
-                <strong>Ainda não sei</strong>
-                <small>Preciso de orientação para decidir com segurança.</small>
+              <button class="quiz-option" type="button" data-choice="nicho" data-value="Ainda não sei" data-emoji="💬">
+                <span class="quiz-emoji" aria-hidden="true">💬</span>
+                <span><strong>Ainda não sei</strong><small>Preciso de orientação para decidir com segurança.</small></span>
               </button>
             </div>
           </div>
@@ -1602,27 +1766,32 @@
             <span class="quiz-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.5 5 5.5.8-4 3.9.9 5.5L12 15.6 7.1 18.2l.9-5.5-4-3.9 5.5-.8L12 3Z"></path></svg></span>
             <h3>O que mais importa no resultado?</h3>
             <div class="quiz-options">
-              <button class="quiz-option" type="button" data-choice="prioridade" data-value="Naturalidade">
-                <strong>Naturalidade</strong>
-                <small>Quero um resultado sofisticado e integrado ao meu estilo.</small>
+              <button class="quiz-option" type="button" data-choice="prioridade" data-value="Naturalidade" data-emoji="🌿">
+                <span class="quiz-emoji" aria-hidden="true">🌿</span>
+                <span><strong>Naturalidade</strong><small>Quero um resultado sofisticado e integrado ao meu estilo.</small></span>
               </button>
-              <button class="quiz-option" type="button" data-choice="prioridade" data-value="Impacto">
-                <strong>Impacto</strong>
-                <small>Quero uma mudança visível, com presença e acabamento.</small>
+              <button class="quiz-option" type="button" data-choice="prioridade" data-value="Impacto" data-emoji="🔥">
+                <span class="quiz-emoji" aria-hidden="true">🔥</span>
+                <span><strong>Impacto</strong><small>Quero uma mudança visível, com presença e acabamento.</small></span>
               </button>
-              <button class="quiz-option" type="button" data-choice="prioridade" data-value="Praticidade">
-                <strong>Praticidade</strong>
-                <small>Quero beleza com rotina mais fácil de manter.</small>
+              <button class="quiz-option" type="button" data-choice="prioridade" data-value="Praticidade" data-emoji="⏱️">
+                <span class="quiz-emoji" aria-hidden="true">⏱️</span>
+                <span><strong>Praticidade</strong><small>Quero beleza com rotina mais fácil de manter.</small></span>
               </button>
-              <button class="quiz-option" type="button" data-choice="prioridade" data-value="Saúde dos fios">
-                <strong>Saúde dos fios</strong>
-                <small>Quero entender o que faz sentido para preservar meu cabelo.</small>
+              <button class="quiz-option" type="button" data-choice="prioridade" data-value="Saúde dos fios" data-emoji="🛡️">
+                <span class="quiz-emoji" aria-hidden="true">🛡️</span>
+                <span><strong>Saúde dos fios</strong><small>Quero entender o que faz sentido para preservar meu cabelo.</small></span>
               </button>
             </div>
           </div>
 
           <div class="quiz-result" id="quiz-result">
-            <p><strong>Resultado:</strong> <span id="quiz-result-text">Selecione as opções para ver a indicação.</span></p>
+            <div class="quiz-result-head">
+              <strong>Resumo do seu quiz</strong>
+              <span>Pronto para enviar</span>
+            </div>
+            <ul class="quiz-summary" id="quiz-summary"></ul>
+            <p id="quiz-result-text">Selecione as opções para ver a indicação.</p>
           </div>
 
           <div class="quiz-actions">
@@ -1660,6 +1829,7 @@
           </div>
           <p>Sem promessas prontas: o ideal é entender o cabelo atual, a rotina e a expectativa antes de indicar o caminho mais bonito e responsável.</p>
         </div>
+        <div class="drag-hint" aria-hidden="true">Arraste pro lado</div>
         <div class="services-grid drag-carousel" data-drag-carousel aria-label="Serviços Lualves Hair">
           <article class="service-card reveal">
             <div>
@@ -1740,39 +1910,65 @@
           <div>
             <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
             <p class="eyebrow">Avaliações no Google</p>
-            <h2>5,0 de 5 em 21 avaliações.</h2>
-            <p class="muted">Prova social para reforçar confiança antes do agendamento. Os textos abaixo estão como placeholders para substituir por avaliações reais selecionadas.</p>
+            <h2>5,0 no Google.</h2>
+            <p class="muted">21 avaliações no Google reforçam a confiança antes do agendamento. Os textos abaixo estão como placeholders para substituir por avaliações reais selecionadas.</p>
           </div>
           <div class="rating-line">
             <span class="stars" aria-label="5 estrelas">★★★★★</span>
             <span>Luana Alves Cabeleireira Colorimetria Mechas Freguesia</span>
           </div>
         </div>
-        <div class="reviews-list drag-carousel" data-drag-carousel aria-label="Depoimentos">
-          <article class="review-card reveal">
-            <header>
-              <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
-              <span class="stars" aria-label="5 estrelas">★★★★★</span>
-            </header>
-            <p>Texto do depoimento placeholder para substituir por uma avaliação real sobre atendimento, técnica e resultado.</p>
-            <span class="review-author">Cliente 01</span>
-          </article>
-          <article class="review-card reveal" data-reveal-delay="1">
-            <header>
-              <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
-              <span class="stars" aria-label="5 estrelas">★★★★★</span>
-            </header>
-            <p>Texto do depoimento placeholder para destacar confiança, cuidado no diagnóstico e acabamento do cabelo.</p>
-            <span class="review-author">Cliente 02</span>
-          </article>
-          <article class="review-card reveal" data-reveal-delay="2">
-            <header>
-              <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
-              <span class="stars" aria-label="5 estrelas">★★★★★</span>
-            </header>
-            <p>Texto do depoimento placeholder para falar da experiência no salão e da orientação após o atendimento.</p>
-            <span class="review-author">Cliente 03</span>
-          </article>
+        <div class="reviews-marquee" aria-label="Depoimentos em carrossel automático">
+          <div class="reviews-track">
+            <article class="review-card reveal">
+              <header>
+                <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
+                <span class="stars" aria-label="5 estrelas">★★★★★</span>
+              </header>
+              <p>Texto do depoimento placeholder para substituir por uma avaliação real sobre atendimento, técnica e resultado.</p>
+              <span class="review-author">Cliente 01</span>
+            </article>
+            <article class="review-card reveal" data-reveal-delay="1">
+              <header>
+                <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
+                <span class="stars" aria-label="5 estrelas">★★★★★</span>
+              </header>
+              <p>Texto do depoimento placeholder para destacar confiança, cuidado no diagnóstico e acabamento do cabelo.</p>
+              <span class="review-author">Cliente 02</span>
+            </article>
+            <article class="review-card reveal" data-reveal-delay="2">
+              <header>
+                <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
+                <span class="stars" aria-label="5 estrelas">★★★★★</span>
+              </header>
+              <p>Texto do depoimento placeholder para falar da experiência no salão e da orientação após o atendimento.</p>
+              <span class="review-author">Cliente 03</span>
+            </article>
+            <article class="review-card" aria-hidden="true">
+              <header>
+                <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
+                <span class="stars" aria-label="5 estrelas">★★★★★</span>
+              </header>
+              <p>Texto do depoimento placeholder para substituir por uma avaliação real sobre atendimento, técnica e resultado.</p>
+              <span class="review-author">Cliente 01</span>
+            </article>
+            <article class="review-card" aria-hidden="true">
+              <header>
+                <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
+                <span class="stars" aria-label="5 estrelas">★★★★★</span>
+              </header>
+              <p>Texto do depoimento placeholder para destacar confiança, cuidado no diagnóstico e acabamento do cabelo.</p>
+              <span class="review-author">Cliente 02</span>
+            </article>
+            <article class="review-card" aria-hidden="true">
+              <header>
+                <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
+                <span class="stars" aria-label="5 estrelas">★★★★★</span>
+              </header>
+              <p>Texto do depoimento placeholder para falar da experiência no salão e da orientação após o atendimento.</p>
+              <span class="review-author">Cliente 03</span>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -1902,43 +2098,55 @@
       "Mega hair": {
         question: "Qual é sua principal vontade com o mega hair?",
         options: [
-          ["Mais comprimento", "Quero alongar e mudar o visual."],
-          ["Mais volume", "Quero cabelo mais cheio e com presença."],
-          ["Manutenção", "Já uso mega hair e preciso cuidar do resultado."],
-          ["Naturalidade", "Quero entender o que fica mais integrado."]
+          ["Mais comprimento", "Quero alongar e mudar o visual.", "📏"],
+          ["Mais volume", "Quero cabelo mais cheio e com presença.", "💫"],
+          ["Manutenção", "Já uso mega hair e preciso cuidar do resultado.", "🧴"],
+          ["Naturalidade", "Quero entender o que fica mais integrado.", "🌿"]
         ]
       },
       "Loiros": {
         question: "Qual é seu momento com o loiro?",
         options: [
-          ["Iluminar sem radicalizar", "Quero um loiro elegante e sutil."],
-          ["Ficar mais loira", "Quero uma mudança mais visível."],
-          ["Corrigir o tom", "Meu loiro precisa de ajuste de cor."],
-          ["Cuidar antes de clarear", "Quero preservar a saúde dos fios."]
+          ["Iluminar sem radicalizar", "Quero um loiro elegante e sutil.", "✨"],
+          ["Ficar mais loira", "Quero uma mudança mais visível.", "🌟"],
+          ["Corrigir o tom", "Meu loiro precisa de ajuste de cor.", "🎨"],
+          ["Cuidar antes de clarear", "Quero preservar a saúde dos fios.", "🛡️"]
         ]
       },
       "Cacheados": {
         question: "O que você quer melhorar nos cacheados?",
         options: [
-          ["Mais definição", "Quero cachos com forma e acabamento."],
-          ["Menos frizz", "Quero mais controle e brilho."],
-          ["Mais volume bonito", "Quero presença sem perder forma."],
-          ["Rotina prática", "Quero entender como cuidar melhor."]
+          ["Mais definição", "Quero cachos com forma e acabamento.", "➿"],
+          ["Menos frizz", "Quero mais controle e brilho.", "💧"],
+          ["Mais volume bonito", "Quero presença sem perder forma.", "☁️"],
+          ["Rotina prática", "Quero entender como cuidar melhor.", "⏱️"]
         ]
       },
       "Ainda não sei": {
         question: "O que te incomoda mais hoje?",
         options: [
-          ["Falta de forma", "Quero um cabelo mais alinhado ao meu estilo."],
-          ["Pouco volume", "Sinto falta de presença e movimento."],
-          ["Cor sem vida", "Quero iluminar ou renovar o visual."],
-          ["Dúvida geral", "Quero uma orientação inicial."]
+          ["Falta de forma", "Quero um cabelo mais alinhado ao meu estilo.", "🪞"],
+          ["Pouco volume", "Sinto falta de presença e movimento.", "💫"],
+          ["Cor sem vida", "Quero iluminar ou renovar o visual.", "✨"],
+          ["Dúvida geral", "Quero uma orientação inicial.", "💬"]
         ]
       }
     };
 
     function buildWhatsAppLink(message) {
       return "https://wa.me/" + SITE_CONFIG.whatsappNumber + "?text=" + encodeURIComponent(message);
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, function(char) {
+        return {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          "\"": "&quot;",
+          "'": "&#039;"
+        }[char];
+      });
     }
 
     function hydrateWhatsAppLinks() {
@@ -2005,7 +2213,10 @@
       if (!title || !container) return;
       title.textContent = config.question;
       container.innerHTML = config.options.map(function(item) {
-        return '<button class="quiz-option" type="button" data-choice="detalhe" data-value="' + item[0] + '"><strong>' + item[0] + '</strong><small>' + item[1] + '</small></button>';
+        const emoji = item[2] || "✨";
+        const label = escapeHtml(item[0]);
+        const copy = escapeHtml(item[1]);
+        return '<button class="quiz-option" type="button" data-choice="detalhe" data-value="' + label + '" data-emoji="' + emoji + '"><span class="quiz-emoji" aria-hidden="true">' + emoji + '</span><span><strong>' + label + '</strong><small>' + copy + '</small></span></button>';
       }).join("");
     }
 
@@ -2021,17 +2232,32 @@
     function updateQuizResult() {
       const result = document.getElementById("quiz-result");
       const text = document.getElementById("quiz-result-text");
+      const summary = document.getElementById("quiz-summary");
       const wa = document.getElementById("quiz-wa");
       const path = suggestedPath();
-      if (text) text.textContent = "A melhor próxima conversa é uma " + path + ".";
+      const chosen = {
+        nicho: quizState.nicho || "não definido",
+        detalhe: quizState.detalhe || "não definido",
+        prioridade: quizState.prioridade || "não definida"
+      };
+      if (summary) {
+        summary.innerHTML = [
+          ["💇‍♀️", "Interesse", chosen.nicho],
+          ["📝", "Detalhe", chosen.detalhe],
+          ["⭐", "Prioridade", chosen.prioridade]
+        ].map(function(item) {
+          return "<li><span>" + item[0] + "</span><span><strong>" + item[1] + ":</strong> " + escapeHtml(item[2]) + "</span></li>";
+        }).join("");
+      }
+      if (text) text.textContent = "✨ A melhor próxima conversa é uma " + path + ".";
       if (result) result.classList.add("active");
       if (wa) {
         const message = [
-          "Olá, Luana! Fiz o quiz no site da Lualves Hair.",
-          "Meu interesse: " + (quizState.nicho || "não definido"),
-          "Detalhe: " + (quizState.detalhe || "não definido"),
-          "Prioridade: " + (quizState.prioridade || "não definida"),
-          "Gostaria de agendar uma orientação."
+          "✨ Olá, Luana! Fiz o quiz no site da Lualves Hair.",
+          "💇‍♀️ Meu interesse: " + chosen.nicho,
+          "📝 Detalhe: " + chosen.detalhe,
+          "⭐ Prioridade: " + chosen.prioridade,
+          "📅 Gostaria de agendar uma orientação."
         ].join("\\n");
         wa.href = buildWhatsAppLink(message);
       }
@@ -2044,7 +2270,28 @@
       const prev = document.getElementById("quiz-prev");
       const next = document.getElementById("quiz-next");
       const wa = document.getElementById("quiz-wa");
+      const result = document.getElementById("quiz-result");
       if (wa) wa.style.display = "none";
+      if (next) next.style.display = "none";
+      if (prev) prev.style.display = "none";
+
+      function setCurrentStep(step) {
+        currentStep = step;
+        showQuizStep(currentStep);
+        if (result) result.classList.remove("active");
+        if (wa) wa.style.display = "none";
+        if (prev) prev.style.display = currentStep > 1 ? "" : "none";
+      }
+
+      function finishQuiz() {
+        updateQuizResult();
+        document.querySelectorAll(".quiz-step").forEach(function(el) {
+          el.classList.remove("active");
+        });
+        if (prev) prev.style.display = "";
+        if (next) next.style.display = "none";
+        if (wa) wa.style.display = "";
+      }
 
       quiz.addEventListener("click", function(event) {
         const button = event.target.closest(".quiz-option");
@@ -2053,15 +2300,25 @@
         const value = button.getAttribute("data-value");
         quizState[choice] = value;
         setSelected(button);
-        if (choice === "nicho") renderDynamicOptions();
+        if (choice === "nicho") {
+          renderDynamicOptions();
+          window.setTimeout(function() { setCurrentStep(2); }, 160);
+        }
+        if (choice === "detalhe") {
+          window.setTimeout(function() { setCurrentStep(3); }, 160);
+        }
+        if (choice === "prioridade") {
+          window.setTimeout(finishQuiz, 160);
+        }
       });
 
       if (prev) {
         prev.addEventListener("click", function() {
-          currentStep = Math.max(1, currentStep - 1);
-          showQuizStep(currentStep);
-          if (wa) wa.style.display = "none";
-          if (next) next.style.display = "";
+          if (result && result.classList.contains("active")) {
+            setCurrentStep(3);
+            return;
+          }
+          setCurrentStep(Math.max(1, currentStep - 1));
         });
       }
 
@@ -2071,13 +2328,10 @@
           if (currentStep === 2 && !quizState.detalhe) return;
           if (currentStep === 3 && !quizState.prioridade) return;
           if (currentStep < 3) {
-            currentStep += 1;
-            showQuizStep(currentStep);
+            setCurrentStep(currentStep + 1);
             return;
           }
-          updateQuizResult();
-          next.style.display = "none";
-          if (wa) wa.style.display = "";
+          finishQuiz();
         });
       }
 

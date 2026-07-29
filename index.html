@@ -63,6 +63,8 @@
       --sand: #D2BEA7;
       --gold: #C6A36A;
       --pain-red: #A8463D;
+      --terracotta: #C56A4F;
+      --terracotta-deep: #9E4C39;
       --ink-muted: #6B5C50;
       --line-light: rgba(33, 28, 24, .13);
       --line-dark: rgba(245, 241, 234, .16);
@@ -177,6 +179,7 @@
     .nav-logo img {
       width: clamp(118px, 13vw, 178px);
       height: auto;
+      filter: brightness(0) invert(1);
     }
     .nav-links {
       display: flex;
@@ -258,7 +261,7 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(90deg, rgba(33, 28, 24, .9) 0%, rgba(33, 28, 24, .68) 44%, rgba(33, 28, 24, .18) 100%),
+        linear-gradient(90deg, rgba(33, 28, 24, .82) 0%, rgba(33, 28, 24, .58) 30%, rgba(33, 28, 24, .22) 58%, rgba(33, 28, 24, 0) 100%),
         url("https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785013029/b7c83bc0-f39e-4e1f-b707-25364451ca66_sudpgf.webp");
       background-size: cover;
       background-position: 74% center;
@@ -271,7 +274,7 @@
       right: 0;
       bottom: 0;
       height: 28vh;
-      background: linear-gradient(0deg, var(--espresso), transparent);
+      background: linear-gradient(0deg, rgba(33, 28, 24, .72), transparent);
       pointer-events: none;
     }
     .hero-inner {
@@ -358,6 +361,101 @@
     }
     .section-champagne {
       background: var(--champagne);
+    }
+    .surface-terracotta {
+      position: relative;
+      isolation: isolate;
+      color: var(--off-white);
+      background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
+    }
+    .surface-terracotta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        radial-gradient(circle at 16% 18%, rgba(247, 244, 241, .08) 0 1px, transparent 1px 100%),
+        radial-gradient(circle at 84% 24%, rgba(247, 244, 241, .06) 0 1px, transparent 1px 100%),
+        radial-gradient(circle at 46% 68%, rgba(33, 28, 24, .06) 0 1px, transparent 1px 100%),
+        linear-gradient(135deg, rgba(247, 244, 241, .05), rgba(247, 244, 241, 0) 44%),
+        linear-gradient(45deg, rgba(33, 28, 24, .05), rgba(33, 28, 24, 0) 58%);
+      background-size: 128px 128px, 176px 176px, 148px 148px, 100% 100%, 100% 100%;
+      opacity: .38;
+      mix-blend-mode: soft-light;
+    }
+    .surface-terracotta > * {
+      position: relative;
+      z-index: 1;
+    }
+    .surface-terracotta .eyebrow,
+    .surface-terracotta .portfolio-label span,
+    .surface-terracotta .footer-title {
+      color: rgba(247, 244, 241, .84);
+    }
+    .surface-terracotta .section-head p,
+    .surface-terracotta .muted,
+    .surface-terracotta .quiz-result-head span,
+    .surface-terracotta .final-cta p,
+    .surface-terracotta .location-copy p,
+    .surface-terracotta .footer p,
+    .surface-terracotta .footer a,
+    .surface-terracotta .footer span {
+      color: rgba(247, 244, 241, .74);
+    }
+    .surface-terracotta .marquee::before {
+      background: linear-gradient(90deg, var(--terracotta-deep), transparent);
+    }
+    .surface-terracotta .marquee::after {
+      background: linear-gradient(270deg, var(--terracotta-deep), transparent);
+    }
+    .surface-terracotta .portfolio-card {
+      border-color: rgba(247, 244, 241, .14);
+      background: rgba(158, 76, 57, .72);
+    }
+    .surface-terracotta.quiz-section .quiz-brand {
+      border-color: rgba(247, 244, 241, .12);
+      background: rgba(158, 76, 57, .8);
+      box-shadow: 0 24px 64px rgba(36, 18, 10, .18);
+    }
+    .surface-terracotta.quiz-section .quiz-card {
+      border-color: rgba(247, 244, 241, .14);
+      background: rgba(158, 76, 57, .86);
+      box-shadow: 0 28px 84px rgba(36, 18, 10, .22);
+    }
+    .surface-terracotta.quiz-section .quiz-option {
+      color: var(--off-white);
+      border-color: rgba(247, 244, 241, .16);
+      background: rgba(247, 244, 241, .08);
+    }
+    .surface-terracotta.quiz-section .quiz-option:hover,
+    .surface-terracotta.quiz-section .quiz-option.is-selected {
+      border-color: rgba(247, 244, 241, .32);
+      background: rgba(247, 244, 241, .14);
+    }
+    .surface-terracotta.quiz-section .quiz-emoji {
+      border-color: rgba(247, 244, 241, .24);
+      background: rgba(247, 244, 241, .14);
+    }
+    .surface-terracotta.quiz-section .quiz-result {
+      border-color: rgba(247, 244, 241, .14);
+      background: rgba(158, 76, 57, .74);
+    }
+    .surface-terracotta .faq-item {
+      border-color: rgba(247, 244, 241, .14);
+      background: rgba(247, 244, 241, .05);
+    }
+    .surface-terracotta .faq-item p {
+      border-top-color: rgba(247, 244, 241, .1);
+      color: rgba(247, 244, 241, .68);
+    }
+    .surface-terracotta .map-frame {
+      border-color: rgba(247, 244, 241, .14);
+      background: rgba(247, 244, 241, .08);
+      box-shadow: 0 28px 84px rgba(36, 18, 10, .22);
+    }
+    .surface-terracotta .footer-grid {
+      border-bottom-color: rgba(247, 244, 241, .14);
     }
     .section-head {
       display: grid;
@@ -1288,6 +1386,26 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
+    .section-dark.surface-terracotta {
+      background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
+    }
+    .text-roller--dark.surface-terracotta {
+      color: rgba(245, 241, 234, .42);
+      background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
+      border-color: rgba(245, 241, 234, .12);
+    }
+    .quiz-section.surface-terracotta {
+      background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
+    }
+    .location.surface-terracotta {
+      background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
+    }
+    .final-cta.surface-terracotta {
+      background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
+    }
+    .footer.surface-terracotta {
+      background: linear-gradient(180deg, var(--terracotta-deep) 0%, #7B4536 100%);
+    }
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -1390,7 +1508,7 @@
       }
       .hero-bg {
         background-image:
-          linear-gradient(90deg, rgba(33, 28, 24, .94) 0%, rgba(33, 28, 24, .76) 52%, rgba(33, 28, 24, .22) 100%),
+          linear-gradient(90deg, rgba(33, 28, 24, .92) 0%, rgba(33, 28, 24, .84) 26%, rgba(33, 28, 24, .48) 50%, rgba(33, 28, 24, 0) 72%),
           url("https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785013029/b7c83bc0-f39e-4e1f-b707-25364451ca66_sudpgf.webp");
         background-position: 82% center;
       }
@@ -1498,7 +1616,7 @@
   <div class="loader-curtain" id="loader-curtain" aria-hidden="true"></div>
   <div class="page-loader" id="page-loader" role="status" aria-label="Carregando">
     <div class="loader-card">
-      <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006494/e956f94b-cc3a-402c-bd37-282c936a69fa_1_fwuuqd.webp" alt="Lualves Hair" width="300" height="92">
+      <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365370/1eff30d1-7e3c-4d92-8d1d-d33d4f57392e_2_lxdtzn.png" alt="Lualves Hair" width="300" height="92">
       <div class="loader-line"></div>
     </div>
   </div>
@@ -1506,7 +1624,7 @@
   <header class="navbar" id="navbar">
     <div class="container nav-inner">
       <a class="nav-logo" href="#inicio" aria-label="Lualves Hair">
-        <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006494/e956f94b-cc3a-402c-bd37-282c936a69fa_1_fwuuqd.webp" alt="Lualves Hair" width="300" height="92">
+        <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365592/Captura_de_tela_2026-07-29_195227_kwzrgp.png" alt="Lualves Hair" width="300" height="92">
       </a>
       <nav class="nav-links" aria-label="Navegação principal">
         <a href="#sobre">Especialista</a>
@@ -1627,7 +1745,7 @@
       </div>
     </section>
 
-    <section class="text-roller text-roller--dark" data-direction="right" aria-label="Assinatura técnica Lualves Hair">
+    <section class="text-roller text-roller--dark surface-terracotta" data-direction="right" aria-label="Assinatura técnica Lualves Hair">
       <div class="text-roller-track" aria-hidden="true">
         <span>Luana Alves</span>
         <span>Técnica</span>
@@ -1644,7 +1762,7 @@
       </div>
     </section>
 
-    <section class="section section-dark portfolio reveal" id="portfolio">
+    <section class="section section-dark portfolio reveal surface-terracotta" id="portfolio">
       <div class="container">
         <div class="section-head">
           <div>
@@ -1717,10 +1835,10 @@
       </div>
     </section>
 
-    <section class="section section-dark quiz-section reveal" id="quiz">
+    <section class="section section-dark quiz-section reveal surface-terracotta" id="quiz">
       <div class="container quiz-shell">
         <aside class="quiz-brand">
-          <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006494/e956f94b-cc3a-402c-bd37-282c936a69fa_1_fwuuqd.webp" alt="Lualves Hair" width="300" height="92">
+          <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365650/e956f94b-cc3a-402c-bd37-282c936a69fa_1_zpavqr.png" alt="Lualves Hair" width="300" height="92">
           <div>
             <p class="eyebrow">Quiz capilar</p>
             <h2>Qual caminho combina com seu momento?</h2>
@@ -1874,7 +1992,7 @@
       </div>
     </section>
 
-    <section class="section section-dark reveal" id="faq">
+    <section class="section section-dark reveal surface-terracotta" id="faq">
       <div class="container">
         <div class="section-head">
           <div>
@@ -1973,10 +2091,10 @@
       </div>
     </section>
 
-    <section class="section section-dark location reveal" id="localizacao">
+    <section class="section section-dark location reveal surface-terracotta" id="localizacao">
       <div class="container location-grid">
         <div class="location-copy">
-          <img class="location-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006494/e956f94b-cc3a-402c-bd37-282c936a69fa_1_fwuuqd.webp" alt="Lualves Hair" loading="lazy" width="300" height="92">
+          <img class="location-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365650/e956f94b-cc3a-402c-bd37-282c936a69fa_1_zpavqr.png" alt="Lualves Hair" loading="lazy" width="300" height="92">
           <p class="eyebrow">Localização</p>
           <h2>Planeje sua visita com horário agendado.</h2>
           <p class="muted">Três Rios 830, Freguesia, Condomínio Gêneses 830, sala 722 - Rio de Janeiro - RJ, 22745-005. Confirme horários disponíveis antes de ir.</p>
@@ -2005,9 +2123,9 @@
       </div>
     </section>
 
-    <section class="section section-dark final-cta reveal">
+    <section class="section section-dark final-cta reveal surface-terracotta">
       <div class="container">
-        <img class="final-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006494/e956f94b-cc3a-402c-bd37-282c936a69fa_1_fwuuqd.webp" alt="Lualves Hair" loading="lazy" width="300" height="92">
+        <img class="final-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365650/e956f94b-cc3a-402c-bd37-282c936a69fa_1_zpavqr.png" alt="Lualves Hair" loading="lazy" width="300" height="92">
         <h2>Seu próximo cabelo começa com uma conversa.</h2>
         <p>Chame a Luana no WhatsApp, conte se você pensa em mega hair, loiro ou cacheados, e receba uma orientação inicial.</p>
         <div class="final-actions">
@@ -2017,7 +2135,7 @@
       </div>
     </section>
 
-    <section class="text-roller text-roller--dark" data-direction="left" aria-label="Agendamento Lualves Hair">
+    <section class="text-roller text-roller--dark surface-terracotta" data-direction="left" aria-label="Agendamento Lualves Hair">
       <div class="text-roller-track" aria-hidden="true">
         <span>Agende</span>
         <span>WhatsApp</span>
@@ -2035,11 +2153,11 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer surface-terracotta">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img class="footer-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785006494/e956f94b-cc3a-402c-bd37-282c936a69fa_1_fwuuqd.webp" alt="Lualves Hair" loading="lazy" width="300" height="92">
+          <img class="footer-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365650/e956f94b-cc3a-402c-bd37-282c936a69fa_1_zpavqr.png" alt="Lualves Hair" loading="lazy" width="300" height="92">
           <p>Lualves Hair trabalha com mega hair, loiros e cacheados em uma proposta premium, acolhedora e personalizada.</p>
         </div>
         <div>

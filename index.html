@@ -65,6 +65,7 @@
       --pain-red: #A8463D;
       --terracotta: #C56A4F;
       --terracotta-deep: #9E4C39;
+      --medium-brown: #7A5A44;
       --ink-muted: #6B5C50;
       --line-light: rgba(33, 28, 24, .13);
       --line-dark: rgba(245, 241, 234, .16);
@@ -110,7 +111,7 @@
       position: fixed;
       inset: 0;
       z-index: 9998;
-      background: var(--espresso);
+      background: var(--off-white);
       pointer-events: none;
       transform: translateY(0);
       transition: transform 1s var(--ease);
@@ -124,7 +125,7 @@
       z-index: 9999;
       display: grid;
       place-items: center;
-      background: var(--espresso);
+      background: var(--off-white);
       transition: opacity .48s var(--ease), visibility .48s var(--ease), transform .72s var(--ease);
     }
     .page-loader.done {
@@ -140,13 +141,13 @@
     .loader-card img {
       width: min(64vw, 300px);
       height: auto;
-      filter: drop-shadow(0 18px 34px rgba(0, 0, 0, .22));
+      filter: drop-shadow(0 18px 34px rgba(33, 28, 24, .16));
       animation: loaderIn .9s var(--ease) both;
     }
     .loader-line {
       width: 148px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      background: linear-gradient(90deg, transparent, var(--terracotta), transparent);
       transform-origin: center;
       animation: loaderLine 1.5s var(--ease) both;
     }
@@ -222,15 +223,15 @@
     }
     .btn-primary {
       color: var(--off-white);
-      background: var(--espresso);
-      border-color: var(--espresso);
-      box-shadow: 0 16px 42px rgba(33, 28, 24, .18);
+      background: var(--terracotta-deep);
+      border-color: var(--terracotta-deep);
+      box-shadow: 0 16px 42px rgba(197, 106, 79, .2);
     }
     .btn-gold {
-      color: var(--espresso);
-      background: var(--gold);
-      border-color: rgba(198, 163, 106, .72);
-      box-shadow: 0 16px 38px rgba(198, 163, 106, .18);
+      color: var(--off-white);
+      background: var(--terracotta);
+      border-color: rgba(158, 76, 57, .72);
+      box-shadow: 0 16px 38px rgba(197, 106, 79, .22);
     }
     .btn-outline {
       color: inherit;
@@ -242,9 +243,9 @@
       min-width: 118px;
       min-height: 34px;
       padding: .48rem .9rem;
-      color: var(--espresso);
-      background: var(--gold);
-      border-color: var(--gold);
+      color: var(--off-white);
+      background: var(--terracotta);
+      border-color: var(--terracotta);
       font-size: .64rem;
     }
 
@@ -457,6 +458,132 @@
     .surface-terracotta .footer-grid {
       border-bottom-color: rgba(247, 244, 241, .14);
     }
+    .surface-gold {
+      position: relative;
+      isolation: isolate;
+      color: var(--espresso);
+      background: linear-gradient(180deg, var(--gold) 0%, var(--sand) 100%);
+    }
+    .surface-gold::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        radial-gradient(circle at 18% 22%, rgba(247, 244, 241, .12) 0 1px, transparent 1px 100%),
+        radial-gradient(circle at 72% 20%, rgba(33, 28, 24, .07) 0 1px, transparent 1px 100%),
+        radial-gradient(circle at 52% 76%, rgba(33, 28, 24, .05) 0 1px, transparent 1px 100%),
+        linear-gradient(135deg, rgba(247, 244, 241, .12), rgba(247, 244, 241, 0) 44%),
+        linear-gradient(45deg, rgba(122, 90, 68, .08), rgba(122, 90, 68, 0) 58%);
+      background-size: 132px 132px, 186px 186px, 154px 154px, 100% 100%, 100% 100%;
+      opacity: .34;
+      mix-blend-mode: soft-light;
+    }
+    .surface-gold > * {
+      position: relative;
+      z-index: 1;
+    }
+    .surface-gold .eyebrow,
+    .surface-gold .portfolio-label span,
+    .surface-gold .footer-title {
+      color: var(--terracotta-deep);
+    }
+    .surface-gold .section-head p,
+    .surface-gold .muted,
+    .surface-gold .quiz-result-head span,
+    .surface-gold .footer p,
+    .surface-gold .footer a,
+    .surface-gold .footer span {
+      color: var(--medium-brown);
+    }
+    .surface-gold .marquee::before {
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .surface-gold .marquee::after {
+      background: linear-gradient(270deg, var(--sand), transparent);
+    }
+    .surface-gold .portfolio-card {
+      border-color: rgba(33, 28, 24, .14);
+      background: rgba(247, 244, 241, .28);
+    }
+    .surface-gold .portfolio-label {
+      border-bottom-color: rgba(33, 28, 24, .14);
+    }
+    .surface-gold.quiz-section .quiz-brand {
+      color: var(--espresso);
+      border-color: rgba(33, 28, 24, .14);
+      background: rgba(247, 244, 241, .34);
+      box-shadow: 0 24px 64px rgba(122, 90, 68, .14);
+    }
+    .surface-gold.quiz-section .quiz-card {
+      color: var(--espresso);
+      border-color: rgba(33, 28, 24, .14);
+      background: rgba(247, 244, 241, .44);
+      box-shadow: 0 28px 84px rgba(122, 90, 68, .16);
+    }
+    .surface-gold.quiz-section .quiz-hint {
+      color: var(--terracotta-deep);
+      border-color: rgba(197, 106, 79, .34);
+      background: rgba(197, 106, 79, .1);
+    }
+    .surface-gold.quiz-section .quiz-step-icon,
+    .surface-gold.quiz-section .quiz-emoji {
+      color: var(--terracotta-deep);
+      border-color: rgba(197, 106, 79, .3);
+      background: rgba(197, 106, 79, .12);
+    }
+    .surface-gold.quiz-section .quiz-option {
+      color: var(--espresso);
+      border-color: rgba(33, 28, 24, .14);
+      background: rgba(247, 244, 241, .54);
+    }
+    .surface-gold.quiz-section .quiz-option::after {
+      color: var(--terracotta-deep);
+    }
+    .surface-gold.quiz-section .quiz-option:hover,
+    .surface-gold.quiz-section .quiz-option.is-selected {
+      border-color: rgba(158, 76, 57, .55);
+      background: rgba(247, 244, 241, .78);
+    }
+    .surface-gold.quiz-section .quiz-option small,
+    .surface-gold.quiz-section .quiz-summary li {
+      color: var(--medium-brown);
+    }
+    .surface-gold.quiz-section .quiz-result {
+      color: var(--espresso);
+      border-color: rgba(33, 28, 24, .12);
+      background: rgba(247, 244, 241, .5);
+    }
+    .surface-gold.quiz-section .quiz-result strong,
+    .surface-gold .faq-item summary::after {
+      color: var(--terracotta-deep);
+    }
+    .surface-gold .faq-item {
+      border-color: rgba(33, 28, 24, .14);
+      background: rgba(247, 244, 241, .28);
+    }
+    .surface-gold .faq-item summary {
+      color: var(--espresso);
+    }
+    .surface-gold .faq-item summary::after {
+      border-color: rgba(158, 76, 57, .28);
+    }
+    .surface-gold .faq-item p {
+      border-top-color: rgba(33, 28, 24, .1);
+      color: var(--medium-brown);
+    }
+    .surface-gold.footer {
+      color: var(--espresso);
+    }
+    .surface-gold.footer .footer-grid {
+      border-bottom-color: rgba(33, 28, 24, .14);
+    }
+    .surface-gold.footer p,
+    .surface-gold.footer a,
+    .surface-gold.footer span {
+      color: var(--medium-brown);
+    }
     .section-head {
       display: grid;
       grid-template-columns: minmax(0, .9fr) minmax(280px, .72fr);
@@ -662,7 +789,7 @@
       width: max-content;
       gap: .18rem;
       padding: .5rem 0 1rem;
-      animation: marqueeLeft 42s linear infinite;
+      animation: marqueeLeft 38s linear infinite;
     }
     .marquee[data-direction="right"] .marquee-track {
       animation-name: marqueeRight;
@@ -1234,11 +1361,11 @@
       gap: .5rem;
       margin: 0 0 .8rem;
       padding: .45rem .7rem;
-      border: 1px solid rgba(198, 163, 106, .38);
+      border: 1px solid rgba(197, 106, 79, .42);
       border-radius: 999px;
-      color: var(--gold);
-      background: rgba(198, 163, 106, .08);
-      box-shadow: 0 0 0 rgba(198, 163, 106, 0);
+      color: var(--terracotta-deep);
+      background: rgba(197, 106, 79, .1);
+      box-shadow: 0 0 0 rgba(197, 106, 79, 0);
       font-size: .68rem;
       font-weight: 800;
       letter-spacing: .16em;
@@ -1373,9 +1500,9 @@
       display: grid;
       place-items: center;
       border-radius: 50%;
-      color: var(--espresso);
-      background: var(--gold);
-      box-shadow: 0 14px 32px rgba(33, 28, 24, .22);
+      color: var(--off-white);
+      background: var(--terracotta);
+      box-shadow: 0 14px 32px rgba(197, 106, 79, .26);
     }
     .float-btn svg {
       width: 23px;
@@ -1405,6 +1532,21 @@
     }
     .footer.surface-terracotta {
       background: linear-gradient(180deg, var(--terracotta-deep) 0%, #7B4536 100%);
+    }
+    .section-dark.surface-gold {
+      color: var(--espresso);
+      background: linear-gradient(180deg, var(--gold) 0%, var(--sand) 100%);
+    }
+    .text-roller--dark.surface-gold {
+      color: rgba(33, 28, 24, .42);
+      background: linear-gradient(180deg, var(--gold) 0%, var(--sand) 100%);
+      border-color: rgba(33, 28, 24, .14);
+    }
+    .quiz-section.surface-gold {
+      background: linear-gradient(180deg, var(--gold) 0%, var(--sand) 100%);
+    }
+    .footer.surface-gold {
+      background: linear-gradient(180deg, var(--gold) 0%, var(--sand) 100%);
     }
     .reveal {
       opacity: 0;
@@ -1450,11 +1592,11 @@
     @keyframes dragGlow {
       0%, 100% {
         opacity: .74;
-        box-shadow: 0 0 0 rgba(198, 163, 106, 0);
+        box-shadow: 0 0 0 rgba(197, 106, 79, 0);
       }
       50% {
         opacity: 1;
-        box-shadow: 0 0 24px rgba(198, 163, 106, .42);
+        box-shadow: 0 0 24px rgba(197, 106, 79, .42);
       }
     }
     @keyframes quizHintPulse {
@@ -1616,7 +1758,7 @@
   <div class="loader-curtain" id="loader-curtain" aria-hidden="true"></div>
   <div class="page-loader" id="page-loader" role="status" aria-label="Carregando">
     <div class="loader-card">
-      <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365370/1eff30d1-7e3c-4d92-8d1d-d33d4f57392e_2_lxdtzn.png" alt="Lualves Hair" width="300" height="92">
+      <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365592/Captura_de_tela_2026-07-29_195227_kwzrgp.png" alt="Lualves Hair" width="300" height="92">
       <div class="loader-line"></div>
     </div>
   </div>
@@ -1745,7 +1887,7 @@
       </div>
     </section>
 
-    <section class="text-roller text-roller--dark surface-terracotta" data-direction="right" aria-label="Assinatura técnica Lualves Hair">
+    <section class="text-roller text-roller--dark surface-gold" data-direction="right" aria-label="Assinatura técnica Lualves Hair">
       <div class="text-roller-track" aria-hidden="true">
         <span>Luana Alves</span>
         <span>Técnica</span>
@@ -1762,7 +1904,7 @@
       </div>
     </section>
 
-    <section class="section section-dark portfolio reveal surface-terracotta" id="portfolio">
+    <section class="section section-dark portfolio reveal surface-gold" id="portfolio">
       <div class="container">
         <div class="section-head">
           <div>
@@ -1835,10 +1977,10 @@
       </div>
     </section>
 
-    <section class="section section-dark quiz-section reveal surface-terracotta" id="quiz">
+    <section class="section section-dark quiz-section reveal surface-gold" id="quiz">
       <div class="container quiz-shell">
         <aside class="quiz-brand">
-          <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365650/e956f94b-cc3a-402c-bd37-282c936a69fa_1_zpavqr.png" alt="Lualves Hair" width="300" height="92">
+          <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365592/Captura_de_tela_2026-07-29_195227_kwzrgp.png" alt="Lualves Hair" width="300" height="92">
           <div>
             <p class="eyebrow">Quiz capilar</p>
             <h2>Qual caminho combina com seu momento?</h2>
@@ -1992,7 +2134,7 @@
       </div>
     </section>
 
-    <section class="section section-dark reveal surface-terracotta" id="faq">
+    <section class="section section-dark reveal surface-gold" id="faq">
       <div class="container">
         <div class="section-head">
           <div>
@@ -2135,7 +2277,7 @@
       </div>
     </section>
 
-    <section class="text-roller text-roller--dark surface-terracotta" data-direction="left" aria-label="Agendamento Lualves Hair">
+    <section class="text-roller text-roller--dark surface-gold" data-direction="left" aria-label="Agendamento Lualves Hair">
       <div class="text-roller-track" aria-hidden="true">
         <span>Agende</span>
         <span>WhatsApp</span>
@@ -2153,11 +2295,11 @@
     </section>
   </main>
 
-  <footer class="footer surface-terracotta">
+  <footer class="footer surface-gold">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img class="footer-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365650/e956f94b-cc3a-402c-bd37-282c936a69fa_1_zpavqr.png" alt="Lualves Hair" loading="lazy" width="300" height="92">
+          <img class="footer-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365592/Captura_de_tela_2026-07-29_195227_kwzrgp.png" alt="Lualves Hair" loading="lazy" width="300" height="92">
           <p>Lualves Hair trabalha com mega hair, loiros e cacheados em uma proposta premium, acolhedora e personalizada.</p>
         </div>
         <div>

@@ -62,10 +62,9 @@
       --champagne: #E6DACB;
       --sand: #D2BEA7;
       --gold: #C6A36A;
-      --pain-red: #A8463D;
-      --terracotta: #C56A4F;
-      --terracotta-deep: #9E4C39;
       --medium-brown: #7A5A44;
+      --whatsapp-green: #25D366;
+      --whatsapp-green-dark: #128C4A;
       --ink-muted: #6B5C50;
       --line-light: rgba(33, 28, 24, .13);
       --line-dark: rgba(245, 241, 234, .16);
@@ -147,7 +146,7 @@
     .loader-line {
       width: 148px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--terracotta), transparent);
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
       transform-origin: center;
       animation: loaderLine 1.5s var(--ease) both;
     }
@@ -223,15 +222,22 @@
     }
     .btn-primary {
       color: var(--off-white);
-      background: var(--terracotta-deep);
-      border-color: var(--terracotta-deep);
-      box-shadow: 0 16px 42px rgba(197, 106, 79, .2);
+      background: var(--whatsapp-green-dark);
+      border-color: var(--whatsapp-green-dark);
+      box-shadow: 0 16px 42px rgba(37, 211, 102, .2);
     }
     .btn-gold {
       color: var(--off-white);
-      background: var(--terracotta);
-      border-color: rgba(158, 76, 57, .72);
-      box-shadow: 0 16px 38px rgba(197, 106, 79, .22);
+      background: var(--whatsapp-green);
+      border-color: rgba(18, 140, 74, .72);
+      box-shadow: 0 16px 38px rgba(37, 211, 102, .22);
+    }
+    .btn-instagram {
+      color: #fff;
+      background:
+        radial-gradient(circle at 28% 108%, #FDF497 0 10%, #FDF497 12%, #FD5949 34%, #D6249F 62%, #285AEB 100%);
+      border-color: transparent;
+      box-shadow: 0 16px 38px rgba(214, 36, 159, .2);
     }
     .btn-outline {
       color: inherit;
@@ -244,9 +250,22 @@
       min-height: 34px;
       padding: .48rem .9rem;
       color: var(--off-white);
-      background: var(--terracotta);
-      border-color: var(--terracotta);
+      background: var(--whatsapp-green);
+      border-color: var(--whatsapp-green);
       font-size: .64rem;
+    }
+    .brand-icon {
+      width: 1.12em;
+      height: 1.12em;
+      display: block;
+      flex: 0 0 auto;
+      fill: currentColor;
+    }
+    .svg-symbols {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
     }
 
     .hero {
@@ -363,101 +382,6 @@
     .section-champagne {
       background: var(--champagne);
     }
-    .surface-terracotta {
-      position: relative;
-      isolation: isolate;
-      color: var(--off-white);
-      background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
-    }
-    .surface-terracotta::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background-image:
-        radial-gradient(circle at 16% 18%, rgba(247, 244, 241, .08) 0 1px, transparent 1px 100%),
-        radial-gradient(circle at 84% 24%, rgba(247, 244, 241, .06) 0 1px, transparent 1px 100%),
-        radial-gradient(circle at 46% 68%, rgba(33, 28, 24, .06) 0 1px, transparent 1px 100%),
-        linear-gradient(135deg, rgba(247, 244, 241, .05), rgba(247, 244, 241, 0) 44%),
-        linear-gradient(45deg, rgba(33, 28, 24, .05), rgba(33, 28, 24, 0) 58%);
-      background-size: 128px 128px, 176px 176px, 148px 148px, 100% 100%, 100% 100%;
-      opacity: .38;
-      mix-blend-mode: soft-light;
-    }
-    .surface-terracotta > * {
-      position: relative;
-      z-index: 1;
-    }
-    .surface-terracotta .eyebrow,
-    .surface-terracotta .portfolio-label span,
-    .surface-terracotta .footer-title {
-      color: rgba(247, 244, 241, .84);
-    }
-    .surface-terracotta .section-head p,
-    .surface-terracotta .muted,
-    .surface-terracotta .quiz-result-head span,
-    .surface-terracotta .final-cta p,
-    .surface-terracotta .location-copy p,
-    .surface-terracotta .footer p,
-    .surface-terracotta .footer a,
-    .surface-terracotta .footer span {
-      color: rgba(247, 244, 241, .74);
-    }
-    .surface-terracotta .marquee::before {
-      background: linear-gradient(90deg, var(--terracotta-deep), transparent);
-    }
-    .surface-terracotta .marquee::after {
-      background: linear-gradient(270deg, var(--terracotta-deep), transparent);
-    }
-    .surface-terracotta .portfolio-card {
-      border-color: rgba(247, 244, 241, .14);
-      background: rgba(158, 76, 57, .72);
-    }
-    .surface-terracotta.quiz-section .quiz-brand {
-      border-color: rgba(247, 244, 241, .12);
-      background: rgba(158, 76, 57, .8);
-      box-shadow: 0 24px 64px rgba(36, 18, 10, .18);
-    }
-    .surface-terracotta.quiz-section .quiz-card {
-      border-color: rgba(247, 244, 241, .14);
-      background: rgba(158, 76, 57, .86);
-      box-shadow: 0 28px 84px rgba(36, 18, 10, .22);
-    }
-    .surface-terracotta.quiz-section .quiz-option {
-      color: var(--off-white);
-      border-color: rgba(247, 244, 241, .16);
-      background: rgba(247, 244, 241, .08);
-    }
-    .surface-terracotta.quiz-section .quiz-option:hover,
-    .surface-terracotta.quiz-section .quiz-option.is-selected {
-      border-color: rgba(247, 244, 241, .32);
-      background: rgba(247, 244, 241, .14);
-    }
-    .surface-terracotta.quiz-section .quiz-emoji {
-      border-color: rgba(247, 244, 241, .24);
-      background: rgba(247, 244, 241, .14);
-    }
-    .surface-terracotta.quiz-section .quiz-result {
-      border-color: rgba(247, 244, 241, .14);
-      background: rgba(158, 76, 57, .74);
-    }
-    .surface-terracotta .faq-item {
-      border-color: rgba(247, 244, 241, .14);
-      background: rgba(247, 244, 241, .05);
-    }
-    .surface-terracotta .faq-item p {
-      border-top-color: rgba(247, 244, 241, .1);
-      color: rgba(247, 244, 241, .68);
-    }
-    .surface-terracotta .map-frame {
-      border-color: rgba(247, 244, 241, .14);
-      background: rgba(247, 244, 241, .08);
-      box-shadow: 0 28px 84px rgba(36, 18, 10, .22);
-    }
-    .surface-terracotta .footer-grid {
-      border-bottom-color: rgba(247, 244, 241, .14);
-    }
     .surface-gold {
       position: relative;
       isolation: isolate;
@@ -487,7 +411,7 @@
     .surface-gold .eyebrow,
     .surface-gold .portfolio-label span,
     .surface-gold .footer-title {
-      color: var(--terracotta-deep);
+      color: var(--medium-brown);
     }
     .surface-gold .section-head p,
     .surface-gold .muted,
@@ -523,15 +447,15 @@
       box-shadow: 0 28px 84px rgba(122, 90, 68, .16);
     }
     .surface-gold.quiz-section .quiz-hint {
-      color: var(--terracotta-deep);
-      border-color: rgba(197, 106, 79, .34);
-      background: rgba(197, 106, 79, .1);
+      color: var(--medium-brown);
+      border-color: rgba(122, 90, 68, .34);
+      background: rgba(247, 244, 241, .2);
     }
     .surface-gold.quiz-section .quiz-step-icon,
     .surface-gold.quiz-section .quiz-emoji {
-      color: var(--terracotta-deep);
-      border-color: rgba(197, 106, 79, .3);
-      background: rgba(197, 106, 79, .12);
+      color: var(--medium-brown);
+      border-color: rgba(122, 90, 68, .3);
+      background: rgba(247, 244, 241, .24);
     }
     .surface-gold.quiz-section .quiz-option {
       color: var(--espresso);
@@ -539,11 +463,11 @@
       background: rgba(247, 244, 241, .54);
     }
     .surface-gold.quiz-section .quiz-option::after {
-      color: var(--terracotta-deep);
+      color: var(--medium-brown);
     }
     .surface-gold.quiz-section .quiz-option:hover,
     .surface-gold.quiz-section .quiz-option.is-selected {
-      border-color: rgba(158, 76, 57, .55);
+      border-color: rgba(122, 90, 68, .55);
       background: rgba(247, 244, 241, .78);
     }
     .surface-gold.quiz-section .quiz-option small,
@@ -557,7 +481,7 @@
     }
     .surface-gold.quiz-section .quiz-result strong,
     .surface-gold .faq-item summary::after {
-      color: var(--terracotta-deep);
+      color: var(--medium-brown);
     }
     .surface-gold .faq-item {
       border-color: rgba(33, 28, 24, .14);
@@ -567,7 +491,7 @@
       color: var(--espresso);
     }
     .surface-gold .faq-item summary::after {
-      border-color: rgba(158, 76, 57, .28);
+      border-color: rgba(122, 90, 68, .28);
     }
     .surface-gold .faq-item p {
       border-top-color: rgba(33, 28, 24, .1);
@@ -583,6 +507,22 @@
     .surface-gold.footer a,
     .surface-gold.footer span {
       color: var(--medium-brown);
+    }
+    .surface-gold .map-frame {
+      border-color: rgba(33, 28, 24, .14);
+      background: rgba(247, 244, 241, .3);
+      box-shadow: var(--shadow-soft);
+    }
+    .surface-offwhite {
+      color: var(--espresso);
+      background: var(--off-white);
+    }
+    .final-cta.surface-offwhite p {
+      color: var(--ink-muted);
+    }
+    .final-cta.surface-offwhite .btn-outline {
+      color: var(--espresso);
+      border-color: rgba(33, 28, 24, .24);
     }
     .section-head {
       display: grid;
@@ -615,12 +555,12 @@
     }
     .pain-section {
       background:
-        linear-gradient(135deg, rgba(168, 70, 61, .1), transparent 38%),
+        linear-gradient(135deg, rgba(122, 90, 68, .1), transparent 38%),
         var(--off-white);
     }
     .pain-section .eyebrow,
     .pain-section .pillar-card span {
-      color: var(--pain-red);
+      color: var(--medium-brown);
     }
     .pillar-card {
       padding: clamp(1.3rem, 2.4vw, 2rem);
@@ -650,7 +590,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      border-color: rgba(168, 70, 61, .2);
+      border-color: rgba(122, 90, 68, .2);
     }
     .pain-card h3 {
       max-width: 11ch;
@@ -666,9 +606,9 @@
       place-items: center;
       margin-bottom: 1.2rem;
       border-radius: 50%;
-      color: var(--pain-red);
-      background: rgba(168, 70, 61, .1);
-      border: 1px solid rgba(168, 70, 61, .22);
+      color: var(--medium-brown);
+      background: rgba(122, 90, 68, .1);
+      border: 1px solid rgba(122, 90, 68, .22);
     }
     .pain-icon svg,
     .quiz-step-icon svg {
@@ -1136,6 +1076,12 @@
       gap: .8rem;
       margin-top: 1.7rem;
     }
+    .specialist-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .85rem;
+      margin-top: 1.4rem;
+    }
     .stat-card {
       min-height: 132px;
       display: grid;
@@ -1363,11 +1309,11 @@
       gap: .5rem;
       margin: 0 0 .8rem;
       padding: .45rem .7rem;
-      border: 1px solid rgba(197, 106, 79, .42);
+      border: 1px solid rgba(198, 163, 106, .42);
       border-radius: 999px;
-      color: var(--terracotta-deep);
-      background: rgba(197, 106, 79, .1);
-      box-shadow: 0 0 0 rgba(197, 106, 79, 0);
+      color: var(--medium-brown);
+      background: rgba(198, 163, 106, .14);
+      box-shadow: 0 0 0 rgba(198, 163, 106, 0);
       font-size: .68rem;
       font-weight: 800;
       letter-spacing: .16em;
@@ -1510,37 +1456,17 @@
       place-items: center;
       border-radius: 50%;
       color: var(--off-white);
-      background: var(--terracotta);
-      box-shadow: 0 14px 32px rgba(197, 106, 79, .26);
+      background: var(--whatsapp-green);
+      box-shadow: 0 14px 32px rgba(37, 211, 102, .26);
     }
-    .float-btn svg {
-      width: 23px;
-      height: 23px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .float-btn--instagram {
+      background:
+        radial-gradient(circle at 30% 110%, #FDF497 0 10%, #FDF497 12%, #FD5949 34%, #D6249F 62%, #285AEB 100%);
+      box-shadow: 0 14px 32px rgba(214, 36, 159, .28);
     }
-    .section-dark.surface-terracotta {
-      background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
-    }
-    .text-roller--dark.surface-terracotta {
-      color: rgba(245, 241, 234, .42);
-      background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
-      border-color: rgba(245, 241, 234, .12);
-    }
-    .quiz-section.surface-terracotta {
-      background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
-    }
-    .location.surface-terracotta {
-      background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
-    }
-    .final-cta.surface-terracotta {
-      background: linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-deep) 100%);
-    }
-    .footer.surface-terracotta {
-      background: linear-gradient(180deg, var(--terracotta-deep) 0%, #7B4536 100%);
+    .float-btn .brand-icon {
+      width: 24px;
+      height: 24px;
     }
     .section-dark.surface-gold {
       color: var(--espresso);
@@ -1607,11 +1533,11 @@
     @keyframes dragGlow {
       0%, 100% {
         opacity: .74;
-        box-shadow: 0 0 0 rgba(197, 106, 79, 0);
+        box-shadow: 0 0 0 rgba(198, 163, 106, 0);
       }
       50% {
         opacity: 1;
-        box-shadow: 0 0 24px rgba(197, 106, 79, .42);
+        box-shadow: 0 0 24px rgba(198, 163, 106, .42);
       }
     }
     @keyframes quizHintPulse {
@@ -1771,6 +1697,14 @@
   </style>
 </head>
 <body class="loading">
+  <svg class="svg-symbols" aria-hidden="true" focusable="false">
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Zm-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88Zm8.41-18.29A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.48-8.41Z"></path>
+    </symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24">
+      <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm4.75-2.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"></path>
+    </symbol>
+  </svg>
   <div class="loader-curtain" id="loader-curtain" aria-hidden="true"></div>
   <div class="page-loader" id="page-loader" role="status" aria-label="Carregando">
     <div class="loader-card">
@@ -1791,7 +1725,7 @@
         <a href="#avaliacoes">Avaliações</a>
         <a href="#servicos">Serviços</a>
       </nav>
-      <a class="btn btn-gold wa-link" href="#" data-wa-message="Olá, Luana! Vim pelo site da Lualves Hair e quero agendar uma orientação para meu cabelo." target="_blank" rel="noopener noreferrer">Agendar</a>
+      <a class="btn btn-gold wa-link" href="#" data-wa-message="Olá, Luana! Vim pelo site da Lualves Hair e quero agendar uma orientação para meu cabelo." target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Agendar</a>
     </div>
   </header>
 
@@ -1804,7 +1738,7 @@
           <h1>Cabelo com presença, técnica e <em>movimento.</em></h1>
           <p class="hero-sub">Lualves Hair cria transformações personalizadas para quem quer alongar, iluminar ou cuidar da curvatura com acabamento elegante e orientação de perto.</p>
           <div class="hero-actions">
-            <a class="btn btn-gold wa-link" href="#" data-wa-message="Olá, Luana! Quero agendar uma orientação na Lualves Hair para entender o melhor caminho para meu cabelo." target="_blank" rel="noopener noreferrer">Agendar pelo WhatsApp</a>
+            <a class="btn btn-gold wa-link" href="#" data-wa-message="Olá, Luana! Quero agendar uma orientação na Lualves Hair para entender o melhor caminho para meu cabelo." target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Agendar pelo WhatsApp</a>
             <a class="btn btn-outline" href="#portfolio">Ver transformações</a>
           </div>
           <ul class="hero-proof" aria-label="Especialidades">
@@ -1898,6 +1832,9 @@
               <strong><span class="stat-number" data-count="3">0</span></strong>
               <span>especialidades principais</span>
             </article>
+          </div>
+          <div class="specialist-actions">
+            <a class="btn btn-instagram" href="https://www.instagram.com/lualves_hairr/" target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-instagram"></use></svg>Ver Instagram</a>
           </div>
         </div>
       </div>
@@ -2073,7 +2010,7 @@
           <div class="quiz-actions">
             <button class="btn btn-outline" type="button" id="quiz-prev">Voltar</button>
             <button class="btn btn-primary" type="button" id="quiz-next">Próximo</button>
-            <a class="btn btn-gold" href="#" id="quiz-wa" target="_blank" rel="noopener noreferrer">Enviar no WhatsApp</a>
+            <a class="btn btn-gold wa-cta" href="#" id="quiz-wa" target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Enviar no WhatsApp</a>
           </div>
         </div>
       </div>
@@ -2118,7 +2055,7 @@
                 <li>Manutenção guiada conforme necessidade</li>
               </ul>
             </div>
-            <a class="btn btn-primary wa-link" href="#" data-wa-message="Olá, Luana! Quero saber mais sobre mega hair na Lualves Hair." target="_blank" rel="noopener noreferrer">Falar sobre mega hair</a>
+            <a class="btn btn-primary wa-link" href="#" data-wa-message="Olá, Luana! Quero saber mais sobre mega hair na Lualves Hair." target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Falar sobre mega hair</a>
           </article>
           <article class="service-card reveal" data-reveal-delay="1">
             <div>
@@ -2131,7 +2068,7 @@
                 <li>Orientação para manutenção do loiro</li>
               </ul>
             </div>
-            <a class="btn btn-primary wa-link" href="#" data-wa-message="Olá, Luana! Quero conversar sobre loiros na Lualves Hair." target="_blank" rel="noopener noreferrer">Falar sobre loiros</a>
+            <a class="btn btn-primary wa-link" href="#" data-wa-message="Olá, Luana! Quero conversar sobre loiros na Lualves Hair." target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Falar sobre loiros</a>
           </article>
           <article class="service-card reveal" data-reveal-delay="2">
             <div>
@@ -2144,7 +2081,7 @@
                 <li>Orientação de cuidado em casa</li>
               </ul>
             </div>
-            <a class="btn btn-primary wa-link" href="#" data-wa-message="Olá, Luana! Quero saber mais sobre atendimento para cacheados na Lualves Hair." target="_blank" rel="noopener noreferrer">Falar sobre cacheados</a>
+            <a class="btn btn-primary wa-link" href="#" data-wa-message="Olá, Luana! Quero saber mais sobre atendimento para cacheados na Lualves Hair." target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Falar sobre cacheados</a>
           </article>
         </div>
       </div>
@@ -2249,14 +2186,14 @@
       </div>
     </section>
 
-    <section class="section section-dark location reveal surface-terracotta" id="localizacao">
+    <section class="section section-dark location reveal surface-gold" id="localizacao">
       <div class="container location-grid">
         <div class="location-copy">
-          <img class="location-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365650/e956f94b-cc3a-402c-bd37-282c936a69fa_1_zpavqr.png" alt="Lualves Hair" loading="lazy" width="300" height="92">
+          <img class="location-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365592/Captura_de_tela_2026-07-29_195227_kwzrgp.png" alt="Lualves Hair" loading="lazy" width="300" height="92">
           <p class="eyebrow">Localização</p>
           <h2>Planeje sua visita com horário agendado.</h2>
           <p class="muted">Três Rios 830, Freguesia, Condomínio Gêneses 830, sala 722 - Rio de Janeiro - RJ, 22745-005. Confirme horários disponíveis antes de ir.</p>
-          <a class="btn btn-gold wa-link" href="#" data-wa-message="Olá, Luana! Quero confirmar endereço e horários da Lualves Hair na Freguesia." target="_blank" rel="noopener noreferrer">Confirmar localização</a>
+          <a class="btn btn-gold wa-link" href="#" data-wa-message="Olá, Luana! Quero confirmar endereço e horários da Lualves Hair na Freguesia." target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Confirmar localização</a>
         </div>
         <div class="map-frame reveal" data-reveal-delay="1">
           <iframe title="Mapa da Lualves Hair na Freguesia" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Luana%20Alves%20Cabeleireira%20Colorimetria%20Mechas%20Freguesia%20Tr%C3%AAs%20Rios%20830%20sala%20722%20Rio%20de%20Janeiro%20RJ%2022745-005&z=16&output=embed"></iframe>
@@ -2281,14 +2218,14 @@
       </div>
     </section>
 
-    <section class="section section-dark final-cta reveal surface-terracotta">
+    <section class="section section-light final-cta reveal surface-offwhite">
       <div class="container">
-        <img class="final-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365650/e956f94b-cc3a-402c-bd37-282c936a69fa_1_zpavqr.png" alt="Lualves Hair" loading="lazy" width="300" height="92">
+        <img class="final-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365592/Captura_de_tela_2026-07-29_195227_kwzrgp.png" alt="Lualves Hair" loading="lazy" width="300" height="92">
         <h2>Seu próximo cabelo começa com uma conversa.</h2>
         <p>Chame a Luana no WhatsApp, conte se você pensa em mega hair, loiro ou cacheados, e receba uma orientação inicial.</p>
         <div class="final-actions">
-          <a class="btn btn-gold wa-link" href="#" data-wa-message="Olá, Luana! Quero agendar um horário na Lualves Hair." target="_blank" rel="noopener noreferrer">Agendar pelo WhatsApp</a>
-          <a class="btn btn-outline" href="https://www.instagram.com/lualves_hairr/" target="_blank" rel="noopener noreferrer">Ver Instagram</a>
+          <a class="btn btn-gold wa-link" href="#" data-wa-message="Olá, Luana! Quero agendar um horário na Lualves Hair." target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Agendar pelo WhatsApp</a>
+          <a class="btn btn-instagram" href="https://www.instagram.com/lualves_hairr/" target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-instagram"></use></svg>Ver Instagram</a>
         </div>
       </div>
     </section>
@@ -2347,11 +2284,11 @@
   </footer>
 
   <div class="floating-actions" aria-label="Ações rápidas">
-    <a class="float-btn" href="https://www.instagram.com/lualves_hairr/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="3.6"></circle><path d="M17.5 6.5h.01"></path></svg>
+    <a class="float-btn float-btn--instagram" href="https://www.instagram.com/lualves_hairr/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram">
+      <svg class="brand-icon" aria-hidden="true"><use href="#icon-instagram"></use></svg>
     </a>
-    <a class="float-btn wa-link" href="#" data-wa-message="Olá, Luana! Vim pelo site da Lualves Hair e quero falar pelo WhatsApp." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.4 20.2 4 21l.9-3.3a8.3 8.3 0 1 1 2.5 2.5Z"></path><path d="M9 8.8c.2 3 2.4 5.1 5.4 5.8l1.4-1.4c.2-.2.5-.3.8-.2 1 .3 1.8.5 2.4.5"></path></svg>
+    <a class="float-btn float-btn--whatsapp wa-link" href="#" data-wa-message="Olá, Luana! Vim pelo site da Lualves Hair e quero falar pelo WhatsApp." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+      <svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
     </a>
   </div>
 

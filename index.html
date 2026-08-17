@@ -2609,6 +2609,43 @@
       font-weight: 700;
       letter-spacing: .06em;
     }
+    .hero-mobile-break,
+    .specialist-mobile {
+      display: none;
+    }
+
+    .booking-section.surface-gold {
+      color: var(--espresso);
+      background: linear-gradient(180deg, var(--gold) 0%, var(--sand) 100%);
+    }
+    .booking-section.surface-gold::before {
+      background:
+        radial-gradient(circle at 18% 22%, rgba(247, 244, 241, .16) 0 1px, transparent 1px 100%),
+        radial-gradient(circle at 72% 20%, rgba(33, 28, 24, .07) 0 1px, transparent 1px 100%),
+        linear-gradient(135deg, rgba(247, 244, 241, .18), transparent 44%);
+      background-size: 132px 132px, 186px 186px, 100% 100%;
+      opacity: .48;
+    }
+    .booking-section.surface-gold .booking-intro .eyebrow,
+    .booking-section.surface-gold .booking-process li > span,
+    .booking-section.surface-gold .booking-assurance .ui-icon {
+      color: var(--medium-brown);
+    }
+    .booking-section.surface-gold .booking-intro h2,
+    .booking-section.surface-gold .booking-process strong,
+    .booking-section.surface-gold .booking-assurance {
+      color: var(--espresso);
+    }
+    .booking-section.surface-gold .booking-intro p:not(.eyebrow):not(.booking-assurance),
+    .booking-section.surface-gold .booking-process small {
+      color: var(--medium-brown);
+    }
+    .booking-section.surface-gold .booking-process li {
+      border-top-color: rgba(33, 28, 24, .14);
+    }
+    .booking-section.surface-gold .booking-card {
+      box-shadow: 0 32px 90px rgba(122, 90, 68, .22);
+    }
 
     @media (max-width: 980px) {
       .specialist-frame {
@@ -2662,57 +2699,309 @@
     }
 
     @media (max-width: 620px) {
+      .hero,
+      .hero-layout,
+      .hero-inner {
+        min-height: max(780px, 100svh);
+      }
+      .hero-layout::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: linear-gradient(90deg, rgba(245, 241, 234, .99) 0%, rgba(245, 241, 234, .96) 32%, rgba(245, 241, 234, .68) 48%, rgba(245, 241, 234, 0) 70%);
+      }
+      .hero-inner {
+        z-index: 2;
+        padding: 11.6rem 0 1.5rem .8rem;
+      }
+      .hero .eyebrow {
+        width: 52%;
+        max-width: 12rem;
+        font-size: .56rem;
+        line-height: 1.65;
+      }
+      .hero h1 {
+        max-width: 72%;
+        margin-top: .8rem;
+        font-size: clamp(2.85rem, 12.4vw, 3.12rem);
+        line-height: .86;
+      }
+      .hero-mobile-break {
+        display: block;
+      }
+      .hero-sub {
+        max-width: 49%;
+        font-size: .82rem;
+        line-height: 1.42;
+      }
+      .hero-rating {
+        display: none;
+      }
+      .hero-actions {
+        width: min(46%, 180px);
+        margin-top: 1rem;
+      }
+      .hero-actions .btn {
+        min-height: 46px;
+        padding: .65rem .55rem;
+        font-size: .55rem;
+        letter-spacing: .1em;
+      }
+      .hero-proof {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 1.2rem;
+        z-index: 3;
+        width: 100%;
+        max-width: none;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: .35rem;
+        margin: 0;
+      }
+      .hero-proof li {
+        min-height: 52px;
+        flex-direction: column;
+        gap: .25rem;
+        padding: .4rem .22rem;
+        border-radius: 14px;
+        background: rgba(250, 247, 241, .82);
+        font-size: .48rem;
+        line-height: 1.15;
+      }
+      .hero-proof .ui-icon {
+        width: 17px;
+        height: 17px;
+      }
       .hero-portrait {
-        right: -28%;
+        position: absolute;
+        top: 1.5rem;
+        right: -48%;
+        bottom: 0;
+        z-index: 0;
+        width: 136%;
+        height: auto;
+        min-height: 0;
+        justify-content: flex-end;
       }
       .hero-portrait img {
-        transform: translateX(-.35rem);
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+        object-fit: contain;
+        object-position: right top;
+        transform: none;
+      }
+
+      .specialist-showcase {
+        padding: 1.5rem 0 3rem;
       }
       .specialist-frame {
-        width: min(100% - 1rem, 1180px);
-        padding: 1.5rem 1.1rem 0;
+        display: none;
       }
-      .specialist-logo {
-        width: 155px;
-        margin-bottom: 1.9rem;
+      .specialist-mobile {
+        position: relative;
+        display: block;
       }
-      .specialist-copy h2 {
-        max-width: 8ch;
-        margin-bottom: 1.1rem;
-        font-size: clamp(3.3rem, 16vw, 4.35rem);
+      .specialist-mobile-header {
+        position: relative;
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-      .specialist-copy h2 em {
-        font-size: .9em;
+      .specialist-mobile-header > img {
+        width: 166px;
+        height: auto;
       }
-      .specialist-rule {
-        margin-bottom: 1.2rem;
+      .specialist-mobile-header > a {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 50px;
+        height: 50px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        color: var(--gold);
+        background: var(--espresso);
+        box-shadow: 0 12px 28px rgba(33, 28, 24, .18);
+        transform: translateY(-50%);
       }
-      .specialist-copy > p {
-        font-size: .93rem;
-        line-height: 1.5;
-      }
-      .specialist-signatures {
-        margin-top: 1.25rem;
-      }
-      .specialist-signatures li {
-        min-height: 65px;
-        grid-template-columns: 48px minmax(0, 1fr);
-        gap: .75rem;
-      }
-      .specialist-detail-icon {
-        width: 48px;
-        height: 48px;
-      }
-      .specialist-detail-icon .ui-icon {
+      .specialist-mobile-header .ui-icon {
         width: 23px;
         height: 23px;
       }
-      .specialist-signatures strong {
-        font-size: clamp(1.45rem, 7.4vw, 1.85rem);
+      .specialist-mobile-main {
+        position: relative;
+        min-height: 438px;
+        display: grid;
+        grid-template-columns: 47% 53%;
+        align-items: stretch;
+        margin-top: .8rem;
       }
-      .specialist-portrait {
-        width: 100%;
-        margin-top: .7rem;
+      .specialist-mobile-watermark {
+        position: absolute;
+        left: 0;
+        top: 3%;
+        z-index: 0;
+        color: rgba(154, 110, 50, .07);
+        font-family: var(--font-serif);
+        font-size: 12rem;
+        font-weight: 500;
+        line-height: .72;
+        letter-spacing: -.08em;
+        pointer-events: none;
+      }
+      .specialist-mobile-copy {
+        position: relative;
+        z-index: 2;
+        align-self: center;
+        padding: 3.5rem .5rem 1rem 0;
+      }
+      .specialist-mobile-copy .eyebrow {
+        margin-bottom: .7rem;
+        color: #8F652E;
+        font-size: .58rem;
+      }
+      .specialist-mobile-copy .eyebrow::before {
+        display: none;
+      }
+      .specialist-mobile-copy h2 {
+        margin-bottom: .9rem;
+        color: var(--espresso);
+        font-size: clamp(1.58rem, 6.7vw, 1.72rem);
+        line-height: .96;
+      }
+      .specialist-mobile-rule {
+        width: 38px;
+        height: 2px;
+        display: block;
+        margin-bottom: .85rem;
+        background: #A8732E;
+      }
+      .specialist-mobile-copy > p {
+        margin-bottom: .65rem;
+        color: var(--medium-brown);
+        font-size: .72rem;
+        line-height: 1.45;
+      }
+      .specialist-mobile-copy > p strong {
+        color: #8F652E;
+        font-weight: 600;
+      }
+      .specialist-mobile-copy > b {
+        display: block;
+        color: var(--espresso);
+        font-size: .75rem;
+        line-height: 1.35;
+      }
+      .specialist-mobile-portrait {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        margin: 0;
+        border-radius: 92px 14px 92px 14px;
+        background: rgba(230, 218, 203, .38);
+        box-shadow: 0 18px 46px rgba(122, 90, 68, .13);
+      }
+      .specialist-mobile-portrait::before {
+        content: "";
+        position: absolute;
+        left: -52%;
+        top: -8%;
+        width: 115%;
+        height: 116%;
+        border: 22px solid rgba(33, 28, 24, .88);
+        border-radius: 50%;
+      }
+      .specialist-mobile-portrait img {
+        position: absolute;
+        right: -40%;
+        bottom: -2%;
+        z-index: 1;
+        width: auto;
+        max-width: none;
+        height: 116%;
+        object-fit: contain;
+        object-position: center bottom;
+        filter: drop-shadow(-12px 18px 24px rgba(33, 28, 24, .12));
+      }
+      .specialist-mobile-cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: .55rem;
+        margin-top: .8rem;
+      }
+      .specialist-mobile-cards article {
+        min-width: 0;
+        min-height: 188px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: .75rem .45rem;
+        border: 1px solid rgba(168, 115, 46, .16);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, .48);
+        box-shadow: 0 12px 30px rgba(122, 90, 68, .08);
+        text-align: center;
+      }
+      .specialist-mobile-cards article > span {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        flex: 0 0 auto;
+        border: 1px solid #A8732E;
+        border-radius: 50%;
+        color: #8F652E;
+      }
+      .specialist-mobile-cards .ui-icon {
+        width: 22px;
+        height: 22px;
+      }
+      .specialist-mobile-cards h3 {
+        min-height: 2.45em;
+        margin: .65rem 0 .45rem;
+        color: var(--espresso);
+        font-size: clamp(1rem, 5.1vw, 1.24rem);
+        line-height: .98;
+      }
+      .specialist-mobile-cards i {
+        width: 24px;
+        height: 2px;
+        display: block;
+        margin-bottom: .45rem;
+        background: #A8732E;
+      }
+      .specialist-mobile-cards p {
+        margin: 0;
+        color: var(--medium-brown);
+        font-size: .62rem;
+        line-height: 1.35;
+      }
+      .specialist-mobile-booking {
+        width: min(76%, 280px);
+        min-height: 52px;
+        margin: 1.5rem auto .7rem;
+      }
+      .specialist-mobile-whatsapp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem;
+        width: max-content;
+        margin: 0 auto;
+        color: #8F652E;
+        font-size: .86rem;
+        font-weight: 600;
+      }
+      .specialist-mobile-whatsapp .brand-icon {
+        width: 20px;
+        height: 20px;
       }
       .service-card {
         min-height: 520px;
@@ -2799,7 +3088,7 @@
       <div class="container hero-layout">
         <div class="hero-inner reveal">
           <p class="eyebrow">Especialista em mega hair personalizado e colorimetria</p>
-          <h1>Mega hair feito para combinar com <em>seu cabelo.</em></h1>
+          <h1>Mega hair<br class="hero-mobile-break"> feito para<br class="hero-mobile-break"> combinar&nbsp;com<br class="hero-mobile-break"> o <em>seu cabelo.</em></h1>
           <p class="hero-sub">Cor, textura e caimento preparados para uma integração natural, elegante e personalizada.</p>
           <p class="hero-rating"><span aria-hidden="true">★★★★★</span><strong>5,0 no Google</strong><small>21 avaliações • Freguesia, RJ</small></p>
           <div class="hero-actions">
@@ -2810,7 +3099,7 @@
             <li><svg class="ui-icon" aria-hidden="true"><use href="#icon-ruler"></use></svg>Mega hair</li>
             <li><svg class="ui-icon" aria-hidden="true"><use href="#icon-droplet"></use></svg>Colorimetria</li>
             <li><svg class="ui-icon" aria-hidden="true"><use href="#icon-sparkles"></use></svg>Loiros</li>
-            <li><svg class="ui-icon" aria-hidden="true"><use href="#icon-scissors"></use></svg>Corte com tesoura</li>
+            <li><svg class="ui-icon" aria-hidden="true"><use href="#icon-scissors"></use></svg>Corte</li>
           </ul>
         </div>
         <figure class="hero-portrait reveal" data-reveal-delay="1">
@@ -2819,10 +3108,10 @@
       </div>
     </section>
 
-    <section class="section quiz-section booking-section reveal" id="agendamento">
+    <section class="section quiz-section booking-section surface-gold reveal" id="agendamento">
       <div class="container quiz-shell booking-shell">
         <aside class="booking-intro reveal">
-          <img class="booking-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365650/e956f94b-cc3a-402c-bd37-282c936a69fa_1_zpavqr.png" alt="Lualves Hair" width="300" height="92">
+          <img class="booking-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365592/Captura_de_tela_2026-07-29_195227_kwzrgp.png" alt="Lualves Hair" width="300" height="92">
           <div>
             <p class="eyebrow">Agendamento personalizado</p>
             <h2>Sua avaliação começa aqui.</h2>
@@ -2941,6 +3230,47 @@
         <figure class="specialist-portrait reveal" data-reveal-delay="1">
           <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1786925094/IMG_7897_1_dqzjzp.webp" alt="Luana Alves, especialista da Lualves Hair" width="718" height="1080" loading="lazy" decoding="async">
         </figure>
+      </div>
+      <div class="container specialist-mobile">
+        <div class="specialist-mobile-header">
+          <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365592/Captura_de_tela_2026-07-29_195227_kwzrgp.png" alt="Lualves Hair" width="300" height="92" loading="lazy">
+          <a href="#agendamento" aria-label="Agendar avaliação"><svg class="ui-icon" aria-hidden="true"><use href="#icon-calendar"></use></svg></a>
+        </div>
+        <div class="specialist-mobile-main">
+          <span class="specialist-mobile-watermark" aria-hidden="true">LA</span>
+          <div class="specialist-mobile-copy">
+            <p class="eyebrow">Luana Alves</p>
+            <h2>Especialista em<br>mega hair<br>personalizado e<br>colorimetria.</h2>
+            <span class="specialist-mobile-rule" aria-hidden="true"></span>
+            <p>Cada transformação é pensada em cada detalhe: <strong>cor, textura, movimento</strong> e o resultado que você deseja.</p>
+            <b>Beleza que realça quem você é.</b>
+          </div>
+          <figure class="specialist-mobile-portrait">
+            <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1786925094/IMG_7897_1_dqzjzp.webp" alt="Luana Alves, especialista da Lualves Hair" width="718" height="1080" loading="lazy" decoding="async">
+          </figure>
+        </div>
+        <div class="specialist-mobile-cards" aria-label="Diferenciais da Luana Alves">
+          <article>
+            <span><svg class="ui-icon" aria-hidden="true"><use href="#icon-strands"></use></svg></span>
+            <h3>Mega hair personalizado</h3>
+            <i aria-hidden="true"></i>
+            <p>Aplicações que respeitam seu fio e seu estilo.</p>
+          </article>
+          <article>
+            <span><svg class="ui-icon" aria-hidden="true"><use href="#icon-palette"></use></svg></span>
+            <h3>Colorimetria sob medida</h3>
+            <i aria-hidden="true"></i>
+            <p>Cores que harmonizam com você e iluminam sua beleza.</p>
+          </article>
+          <article>
+            <span><svg class="ui-icon" aria-hidden="true"><use href="#icon-sparkles"></use></svg></span>
+            <h3>Resultado natural</h3>
+            <i aria-hidden="true"></i>
+            <p>Movimento, leveza e acabamento impecável.</p>
+          </article>
+        </div>
+        <a class="btn btn-booking specialist-mobile-booking" href="#agendamento"><svg class="ui-icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>Agendar avaliação</a>
+        <a class="specialist-mobile-whatsapp wa-link" href="#" data-wa-message="Olá, Luana! Quero falar com você sobre meu cabelo." target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Falar com Luana</a>
       </div>
     </section>
 

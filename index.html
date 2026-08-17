@@ -2647,6 +2647,340 @@
       box-shadow: 0 32px 90px rgba(122, 90, 68, .22);
     }
 
+    body.booking-modal-open {
+      overflow: hidden;
+    }
+    .booking-app {
+      display: grid;
+      grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+      align-items: center;
+      gap: clamp(2rem, 5vw, 5rem);
+    }
+    .booking-app-intro h2 {
+      max-width: 9ch;
+      margin-bottom: 1.25rem;
+      color: var(--espresso);
+      font-size: clamp(3.7rem, 6.3vw, 6.2rem);
+      line-height: .86;
+    }
+    .booking-app-intro h2 em {
+      color: var(--medium-brown);
+      font-weight: 400;
+    }
+    .booking-app-intro > p:not(.eyebrow) {
+      max-width: 31rem;
+      margin-bottom: 1.5rem;
+      color: var(--medium-brown);
+    }
+    .booking-app-intro ul {
+      display: grid;
+      gap: .7rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      color: var(--espresso);
+    }
+    .booking-app-intro li {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      font-size: .9rem;
+    }
+    .booking-app-intro li .ui-icon {
+      width: 17px;
+      height: 17px;
+      color: var(--medium-brown);
+    }
+    .booking-service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .85rem;
+    }
+    .booking-service-card {
+      position: relative;
+      min-height: 270px;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      padding: clamp(1.2rem, 2.4vw, 1.8rem);
+      overflow: hidden;
+      border: 1px solid rgba(122, 90, 68, .2);
+      border-radius: 18px;
+      color: var(--espresso);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .94), rgba(247, 244, 241, .72)),
+        var(--off-white);
+      box-shadow: 0 18px 44px rgba(122, 90, 68, .12);
+      text-align: left;
+      cursor: pointer;
+      transition: transform .28s var(--ease), border-color .28s var(--ease), box-shadow .28s var(--ease);
+    }
+    .booking-service-card::after {
+      content: "";
+      position: absolute;
+      right: -34px;
+      bottom: -38px;
+      width: 120px;
+      height: 120px;
+      border: 1px solid rgba(198, 163, 106, .22);
+      border-radius: 50%;
+    }
+    .booking-service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(122, 90, 68, .44);
+      box-shadow: 0 24px 54px rgba(122, 90, 68, .18);
+    }
+    .booking-service-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(168, 115, 46, .36);
+      border-radius: 50%;
+      color: #8F652E;
+      background: rgba(198, 163, 106, .14);
+    }
+    .booking-service-icon .ui-icon {
+      width: 27px;
+      height: 27px;
+    }
+    .booking-service-card > strong {
+      max-width: 10ch;
+      color: var(--espresso);
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      font-weight: 500;
+      line-height: .92;
+    }
+    .booking-service-card > small {
+      margin-top: .75rem;
+      color: var(--medium-brown);
+      font-size: .78rem;
+      line-height: 1.4;
+    }
+    .booking-service-card > b {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      margin-top: auto;
+      padding-top: 1rem;
+      color: #815A28;
+      font-size: .68rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .booking-service-card > b span {
+      font-size: 1.15rem;
+      transition: transform .25s var(--ease);
+    }
+    .booking-service-card:hover > b span {
+      transform: translateX(4px);
+    }
+    .booking-app-note {
+      grid-column: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      margin: -2.5rem 0 0;
+      color: var(--medium-brown);
+      font-size: .82rem;
+      text-align: center;
+    }
+    .booking-app-note .ui-icon {
+      width: 17px;
+      height: 17px;
+    }
+
+    .booking-modal[hidden] {
+      display: none;
+    }
+    .booking-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+    }
+    .booking-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: 0;
+      background: rgba(33, 28, 24, .76);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      cursor: pointer;
+    }
+    .booking-modal-panel {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 620px);
+      max-height: calc(100svh - 2rem);
+      overflow-y: auto;
+      padding: clamp(1.25rem, 4vw, 2.35rem);
+      border: 1px solid rgba(198, 163, 106, .38);
+      border-radius: 24px;
+      color: var(--espresso);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .82), transparent 50%),
+        var(--off-white);
+      box-shadow: 0 32px 90px rgba(0, 0, 0, .32);
+      transform: translateY(18px) scale(.98);
+      opacity: 0;
+      transition: transform .28s var(--ease), opacity .28s var(--ease);
+    }
+    .booking-modal.is-open .booking-modal-panel {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    .booking-modal-close {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      padding: 0 0 .2rem;
+      border: 1px solid rgba(122, 90, 68, .22);
+      border-radius: 50%;
+      color: var(--espresso);
+      background: rgba(255, 255, 255, .66);
+      font-family: Arial, sans-serif;
+      font-size: 1.65rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .booking-modal-service {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      padding-right: 3rem;
+      margin-bottom: 1.65rem;
+    }
+    .booking-modal-service > span {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      color: var(--off-white);
+      background: linear-gradient(145deg, #D1AF72, #94652D);
+    }
+    .booking-modal-service .ui-icon {
+      width: 25px;
+      height: 25px;
+    }
+    .booking-modal-service small,
+    .booking-modal-service strong {
+      display: block;
+    }
+    .booking-modal-service small {
+      color: var(--medium-brown);
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .booking-modal-service strong {
+      margin-top: .15rem;
+      font-size: .98rem;
+    }
+    .booking-modal .eyebrow {
+      margin-bottom: .65rem;
+      color: #8F652E;
+    }
+    .booking-modal h2 {
+      max-width: 12ch;
+      margin-bottom: 1.25rem;
+      color: var(--espresso);
+      font-size: clamp(2.6rem, 7vw, 4.25rem);
+      line-height: .9;
+    }
+    .booking-modal-field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+    }
+    .booking-modal-field {
+      display: grid;
+      gap: .45rem;
+      margin-bottom: .9rem;
+    }
+    .booking-modal-field > span {
+      color: var(--medium-brown);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .booking-modal-field input {
+      width: 100%;
+      min-width: 0;
+      min-height: 52px;
+      padding: .78rem .9rem;
+      border: 1px solid rgba(122, 90, 68, .26);
+      border-radius: 12px;
+      color: var(--espresso);
+      background: rgba(255, 255, 255, .72);
+      font: inherit;
+      font-size: .92rem;
+    }
+    .booking-modal-field input:focus {
+      outline: 2px solid rgba(198, 163, 106, .68);
+      border-color: #A8732E;
+    }
+    .booking-modal-error {
+      min-height: 1.35rem;
+      margin: 0 0 .6rem;
+      color: #9B342D;
+      font-size: .76rem;
+      font-weight: 600;
+    }
+    .booking-modal-form-view .btn {
+      width: 100%;
+    }
+    .booking-modal-review > p:not(.eyebrow) {
+      color: var(--medium-brown);
+    }
+    .booking-modal-review h2:focus {
+      outline: none;
+    }
+    .booking-modal-review ul {
+      display: grid;
+      gap: .65rem;
+      padding: 0;
+      margin: 0 0 1rem;
+      list-style: none;
+    }
+    .booking-modal-review li {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: .6rem;
+      padding: .8rem;
+      border: 1px solid rgba(122, 90, 68, .15);
+      border-radius: 12px;
+      background: rgba(230, 218, 203, .32);
+      color: var(--medium-brown);
+    }
+    .booking-modal-review li strong {
+      color: var(--espresso);
+    }
+    .booking-modal-actions {
+      display: flex;
+      gap: .7rem;
+      margin-top: 1.2rem;
+    }
+    .booking-modal-actions .btn {
+      flex: 1;
+    }
+
     @media (max-width: 980px) {
       .specialist-frame {
         min-height: 720px;
@@ -2710,7 +3044,7 @@
         inset: 0;
         z-index: 1;
         pointer-events: none;
-        background: linear-gradient(90deg, rgba(245, 241, 234, .99) 0%, rgba(245, 241, 234, .96) 32%, rgba(245, 241, 234, .68) 48%, rgba(245, 241, 234, 0) 70%);
+        background: linear-gradient(90deg, rgba(245, 241, 234, .99) 0%, rgba(245, 241, 234, .98) 40%, rgba(245, 241, 234, .9) 55%, rgba(245, 241, 234, .48) 68%, rgba(245, 241, 234, 0) 80%);
       }
       .hero-inner {
         z-index: 2;
@@ -2725,7 +3059,7 @@
       .hero h1 {
         max-width: 72%;
         margin-top: .8rem;
-        font-size: clamp(2.85rem, 12.4vw, 3.12rem);
+        font-size: clamp(2.5rem, 10.7vw, 2.72rem);
         line-height: .86;
       }
       .hero-mobile-break {
@@ -2777,11 +3111,11 @@
       }
       .hero-portrait {
         position: absolute;
-        top: 1.5rem;
-        right: -48%;
+        top: 4rem;
+        right: -42%;
         bottom: 0;
         z-index: 0;
-        width: 136%;
+        width: 118%;
         height: auto;
         min-height: 0;
         justify-content: flex-end;
@@ -2792,7 +3126,7 @@
         max-width: none;
         max-height: none;
         object-fit: contain;
-        object-position: right top;
+        object-position: right bottom;
         transform: none;
       }
 
@@ -2841,7 +3175,7 @@
         display: grid;
         grid-template-columns: 47% 53%;
         align-items: stretch;
-        margin-top: .8rem;
+        margin-top: 0;
       }
       .specialist-mobile-watermark {
         position: absolute;
@@ -2909,23 +3243,16 @@
         box-shadow: 0 18px 46px rgba(122, 90, 68, .13);
       }
       .specialist-mobile-portrait::before {
-        content: "";
-        position: absolute;
-        left: -52%;
-        top: -8%;
-        width: 115%;
-        height: 116%;
-        border: 22px solid rgba(33, 28, 24, .88);
-        border-radius: 50%;
+        display: none;
       }
       .specialist-mobile-portrait img {
         position: absolute;
-        right: -40%;
-        bottom: -2%;
+        right: -22%;
+        bottom: 0;
         z-index: 1;
         width: auto;
         max-width: none;
-        height: 116%;
+        height: 100%;
         object-fit: contain;
         object-position: center bottom;
         filter: drop-shadow(-12px 18px 24px rgba(33, 28, 24, .12));
@@ -3002,6 +3329,73 @@
       .specialist-mobile-whatsapp .brand-icon {
         width: 20px;
         height: 20px;
+      }
+      .booking-app {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .booking-app-intro h2 {
+        max-width: 10ch;
+        font-size: clamp(3.25rem, 14.5vw, 4rem);
+      }
+      .booking-app-intro > p:not(.eyebrow) {
+        font-size: .9rem;
+        line-height: 1.5;
+      }
+      .booking-app-intro li {
+        font-size: .78rem;
+      }
+      .booking-service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .65rem;
+      }
+      .booking-service-card {
+        min-height: 215px;
+        padding: 1rem;
+        border-radius: 16px;
+      }
+      .booking-service-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 1rem;
+      }
+      .booking-service-icon .ui-icon {
+        width: 23px;
+        height: 23px;
+      }
+      .booking-service-card > strong {
+        max-width: 100%;
+        font-size: clamp(1.35rem, 6vw, 1.55rem);
+        overflow-wrap: anywhere;
+      }
+      .booking-service-card > small {
+        display: none;
+      }
+      .booking-app-note {
+        grid-column: auto;
+        width: calc(100% - 88px);
+        margin: -1rem 0 0;
+        font-size: .72rem;
+      }
+      .booking-modal {
+        align-items: end;
+        padding: .5rem;
+      }
+      .booking-modal-panel {
+        width: 100%;
+        max-height: calc(100svh - 1rem);
+        padding: 1.15rem;
+        border-radius: 22px 22px 14px 14px;
+      }
+      .booking-modal-field-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .booking-modal h2 {
+        font-size: clamp(2.5rem, 12vw, 3.25rem);
+      }
+      .booking-modal-actions {
+        flex-direction: column;
       }
       .service-card {
         min-height: 520px;
@@ -3108,107 +3502,95 @@
       </div>
     </section>
 
-    <section class="section quiz-section booking-section surface-gold reveal" id="agendamento">
-      <div class="container quiz-shell booking-shell">
-        <aside class="booking-intro reveal">
-          <img class="booking-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365592/Captura_de_tela_2026-07-29_195227_kwzrgp.png" alt="Lualves Hair" width="300" height="92">
-          <div>
-            <p class="eyebrow">Agendamento personalizado</p>
-            <h2>Sua avaliação começa aqui.</h2>
-            <p>Conte o que você deseja e informe sua preferência de data e horário. A Luana recebe tudo organizado no WhatsApp para confirmar a disponibilidade.</p>
-          </div>
-          <ol class="booking-process" aria-label="Etapas do agendamento">
-            <li><span>01</span><div><strong>Escolha o serviço</strong><small>Mega hair, colorimetria, corte ou loiros.</small></div></li>
-            <li><span>02</span><div><strong>Defina sua preferência</strong><small>Data e horário que funcionam para você.</small></div></li>
-            <li><span>03</span><div><strong>Confirme no WhatsApp</strong><small>A Luana retorna com a disponibilidade.</small></div></li>
-          </ol>
-          <p class="booking-assurance"><svg class="ui-icon" aria-hidden="true"><use href="#icon-check"></use></svg>Atendimento exclusivo e com hora marcada.</p>
-        </aside>
+    <section class="section booking-section surface-gold reveal" id="agendamento">
+      <div class="container booking-app" data-booking-app>
+        <div class="booking-app-intro reveal">
+          <p class="eyebrow">Agendamento personalizado</p>
+          <h2>Escolha seu serviço e o melhor <em>horário.</em></h2>
+          <p>Selecione o atendimento, informe seu nome, data e horário preferidos. A solicitação chega organizada para a Luana confirmar no WhatsApp.</p>
+          <ul>
+            <li><svg class="ui-icon" aria-hidden="true"><use href="#icon-check"></use></svg>Sem cadastro</li>
+            <li><svg class="ui-icon" aria-hidden="true"><use href="#icon-check"></use></svg>Preferência em poucos passos</li>
+            <li><svg class="ui-icon" aria-hidden="true"><use href="#icon-check"></use></svg>Confirmação final pelo WhatsApp</li>
+          </ul>
+        </div>
+        <div class="booking-service-grid reveal" data-reveal-delay="1" aria-label="Escolha um serviço para agendar">
+          <button class="booking-service-card" type="button" data-booking-service="Mega hair personalizado" data-service-icon="icon-strands">
+            <span class="booking-service-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-strands"></use></svg></span>
+            <strong>Mega Hair personalizado</strong>
+            <small>Comprimento, volume e integração natural.</small>
+            <b>Começar <span aria-hidden="true">→</span></b>
+          </button>
+          <button class="booking-service-card" type="button" data-booking-service="Colorimetria" data-service-icon="icon-palette">
+            <span class="booking-service-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-palette"></use></svg></span>
+            <strong>Colorimetria</strong>
+            <small>Diagnóstico, renovação e correção de cor.</small>
+            <b>Começar <span aria-hidden="true">→</span></b>
+          </button>
+          <button class="booking-service-card" type="button" data-booking-service="Corte com técnica de tesoura" data-service-icon="icon-scissors">
+            <span class="booking-service-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-scissors"></use></svg></span>
+            <strong>Corte com técnica de tesoura</strong>
+            <small>Forma, leveza e movimento com precisão.</small>
+            <b>Começar <span aria-hidden="true">→</span></b>
+          </button>
+          <button class="booking-service-card" type="button" data-booking-service="Loiros" data-service-icon="icon-sun">
+            <span class="booking-service-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-sun"></use></svg></span>
+            <strong>Loiros</strong>
+            <small>Iluminação personalizada e #blondedossonhos.</small>
+            <b>Começar <span aria-hidden="true">→</span></b>
+          </button>
+        </div>
+        <p class="booking-app-note"><svg class="ui-icon" aria-hidden="true"><use href="#icon-clock"></use></svg>Serviço, nome, data e horário em poucos passos.</p>
+      </div>
+    </section>
 
-        <div class="quiz-card booking-card reveal" data-reveal-delay="1" data-booking>
-          <div class="booking-progress">
-            <div>
-              <span id="booking-progress-label">Passo 1 de 4</span>
-              <strong id="booking-progress-title">Serviço</strong>
-            </div>
-            <div class="booking-progress-bar" role="progressbar" aria-label="Progresso do agendamento" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1"><span id="booking-progress-fill"></span></div>
-          </div>
-          <p class="quiz-hint">Escolha uma opção para avançar</p>
-
-          <div class="quiz-step active" data-step="1">
-            <span class="quiz-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20v-6"></path><path d="M8 20h8"></path><path d="M16.5 4.5c1.7 1.7 1.7 4.4 0 6.1L12 15l-4.5-4.4a4.3 4.3 0 0 1 6.1-6.1L12 6l1.5-1.5a4.3 4.3 0 0 1 3 0Z"></path></svg></span>
-            <h3 tabindex="-1">Qual serviço você procura?</h3>
-            <div class="quiz-options">
-              <button class="quiz-option" type="button" data-choice="servico" data-value="Mega hair personalizado" data-emoji="💇🏾‍♀️">
-                <span class="quiz-emoji" aria-hidden="true">💇🏾‍♀️</span>
-                <span><strong>Mega Hair personalizado</strong><small>Comprimento, volume, naturalidade ou manutenção.</small></span>
-              </button>
-              <button class="quiz-option" type="button" data-choice="servico" data-value="Colorimetria" data-emoji="🎨">
-                <span class="quiz-emoji" aria-hidden="true">🎨</span>
-                <span><strong>Colorimetria</strong><small>Diagnóstico, correção ou renovação da cor.</small></span>
-              </button>
-              <button class="quiz-option" type="button" data-choice="servico" data-value="Corte com técnica de tesoura" data-emoji="✂️">
-                <span class="quiz-emoji" aria-hidden="true">✂️</span>
-                <span><strong>Corte com técnica de tesoura</strong><small>Forma, movimento e acabamento construídos com precisão.</small></span>
-              </button>
-              <button class="quiz-option" type="button" data-choice="servico" data-value="Loiros" data-emoji="✨">
-                <span class="quiz-emoji" aria-hidden="true">✨</span>
-                <span><strong>Loiros</strong><small>Iluminação, mechas e o seu #blondedossonhos.</small></span>
-              </button>
-            </div>
-          </div>
-
-          <div class="quiz-step" data-step="2">
-            <span class="quiz-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20c1.7-4 4.3-6 8-6s6.3 2 8 6"></path><circle cx="12" cy="7" r="4"></circle><path d="M8 7c1.5 1 3 1.5 4.5 1.5S15.3 8 16 7"></path></svg></span>
-            <h3 id="booking-question" tabindex="-1">Conte um pouco mais.</h3>
-            <div class="quiz-options" id="booking-dynamic-options"></div>
-          </div>
-
-          <div class="quiz-step" data-step="3">
-            <span class="quiz-step-icon" aria-hidden="true"><svg class="ui-icon"><use href="#icon-calendar"></use></svg></span>
-            <h3 tabindex="-1">Qual é a melhor data para você?</h3>
-            <label class="booking-field" for="booking-date">
-              <span>Data preferida</span>
-              <input type="date" id="booking-date" autocomplete="off" required>
-              <small>A data será confirmada pela Luana no WhatsApp.</small>
+    <div class="booking-modal" id="booking-modal" hidden>
+      <button class="booking-modal-backdrop" type="button" data-booking-close aria-label="Fechar agendamento"></button>
+      <div class="booking-modal-panel" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+        <button class="booking-modal-close" type="button" data-booking-close aria-label="Fechar agendamento">×</button>
+        <div class="booking-modal-service">
+          <span><svg class="ui-icon" aria-hidden="true"><use id="booking-modal-icon" href="#icon-strands"></use></svg></span>
+          <div><small>Serviço selecionado</small><strong id="booking-modal-service">Mega Hair personalizado</strong></div>
+        </div>
+        <div class="booking-modal-form-view" id="booking-modal-form-view">
+          <p class="eyebrow">Monte sua preferência</p>
+          <h2 id="booking-modal-title">Quando você gostaria de vir?</h2>
+          <form id="booking-form" novalidate>
+            <label class="booking-modal-field" for="booking-name">
+              <span>Seu nome</span>
+              <input type="text" id="booking-name" name="name" autocomplete="name" placeholder="Como podemos te chamar?" required>
             </label>
-            <p class="booking-error" id="booking-date-error" role="alert"></p>
-          </div>
-
-          <div class="quiz-step" data-step="4">
-            <span class="quiz-step-icon" aria-hidden="true"><svg class="ui-icon"><use href="#icon-clock"></use></svg></span>
-            <h3 tabindex="-1">Qual horário você prefere?</h3>
-            <label class="booking-field" for="booking-time">
-              <span>Horário preferido</span>
-              <input type="time" id="booking-time" autocomplete="off" required>
-              <small>Informe uma preferência; a disponibilidade será confirmada no atendimento.</small>
-            </label>
-            <p class="booking-error" id="booking-time-error" role="alert"></p>
-          </div>
-
-          <div class="quiz-result" id="booking-result" aria-live="polite">
-            <div class="quiz-result-head">
-              <strong>Resumo do agendamento</strong>
-              <span>Pronto para enviar</span>
+            <div class="booking-modal-field-row">
+              <label class="booking-modal-field" for="booking-date">
+                <span>Data preferida</span>
+                <input type="date" id="booking-date" name="date" autocomplete="off" required>
+              </label>
+              <label class="booking-modal-field" for="booking-time">
+                <span>Horário preferido</span>
+                <input type="time" id="booking-time" name="time" autocomplete="off" required>
+              </label>
             </div>
-            <ul class="quiz-summary" id="booking-summary"></ul>
-            <p>Revise as informações e envie sua solicitação para a Luana.</p>
-          </div>
-
-          <div class="quiz-actions">
-            <button class="btn btn-outline" type="button" id="booking-prev">Voltar</button>
-            <button class="btn btn-booking" type="button" id="booking-next">Continuar</button>
-            <a class="btn btn-gold wa-cta" href="#" id="booking-wa" target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Enviar solicitação</a>
+            <p class="booking-modal-error" id="booking-modal-error" role="alert"></p>
+            <button class="btn btn-booking" type="submit"><svg class="ui-icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>Revisar agendamento</button>
+          </form>
+        </div>
+        <div class="booking-modal-review" id="booking-modal-review" hidden aria-live="polite">
+          <p class="eyebrow">Confirme seus dados</p>
+          <h2>Está tudo certo?</h2>
+          <ul id="booking-modal-summary"></ul>
+          <p>A data e o horário serão confirmados pela Luana no WhatsApp.</p>
+          <div class="booking-modal-actions">
+            <button class="btn btn-outline" type="button" id="booking-modal-edit">Editar dados</button>
+            <a class="btn btn-gold" href="#" id="booking-modal-whatsapp" target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Confirmar no WhatsApp</a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <section class="section specialist-showcase reveal" id="sobre">
       <div class="container specialist-frame">
         <span class="specialist-watermark" aria-hidden="true">LA</span>
         <div class="specialist-copy reveal">
-          <img class="specialist-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365592/Captura_de_tela_2026-07-29_195227_kwzrgp.png" alt="Lualves Hair" width="300" height="92" loading="lazy">
           <h2>Prazer,<br>eu sou <em>Luana Alves</em></h2>
           <span class="specialist-rule" aria-hidden="true"></span>
           <p>Especialista em mega hair personalizado e colorimetria, com olhar técnico para integrar cor, textura e estilo de forma natural.</p>
@@ -3232,10 +3614,6 @@
         </figure>
       </div>
       <div class="container specialist-mobile">
-        <div class="specialist-mobile-header">
-          <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365592/Captura_de_tela_2026-07-29_195227_kwzrgp.png" alt="Lualves Hair" width="300" height="92" loading="lazy">
-          <a href="#agendamento" aria-label="Agendar avaliação"><svg class="ui-icon" aria-hidden="true"><use href="#icon-calendar"></use></svg></a>
-        </div>
         <div class="specialist-mobile-main">
           <span class="specialist-mobile-watermark" aria-hidden="true">LA</span>
           <div class="specialist-mobile-copy">
@@ -3598,7 +3976,6 @@
 
     <section class="section section-light final-cta reveal surface-offwhite">
       <div class="container">
-        <img class="final-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365592/Captura_de_tela_2026-07-29_195227_kwzrgp.png" alt="Lualves Hair" loading="lazy" width="300" height="92">
         <h2>Seu próximo cabelo começa com uma conversa.</h2>
         <p>Chame a Luana no WhatsApp, conte se você pensa em mega hair, colorimetria, corte ou loiros, e receba uma orientação inicial.</p>
         <div class="final-actions">
@@ -3678,7 +4055,7 @@
 
     const bookingState = {
       servico: "",
-      objetivo: "",
+      nome: "",
       data: "",
       horario: ""
     };
@@ -3686,43 +4063,11 @@
     let loadingScheduled = false;
     let loadingFinished = false;
 
-    const bookingOptions = {
-      "Mega hair personalizado": {
-        question: "Qual é sua principal vontade com o mega hair?",
-        options: [
-          ["Mais comprimento", "Quero alongar e mudar o visual.", "📏"],
-          ["Mais volume", "Quero cabelo mais cheio e com presença.", "💫"],
-          ["Manutenção", "Já uso mega hair e preciso cuidar do resultado.", "🧴"],
-          ["Naturalidade", "Quero entender o que fica mais integrado.", "🌿"]
-        ]
-      },
-      "Colorimetria": {
-        question: "O que você deseja transformar na cor?",
-        options: [
-          ["Diagnóstico de cor", "Quero entender quais tons harmonizam comigo.", "🔎"],
-          ["Corrigir o tom", "Minha cor precisa de ajuste ou equilíbrio.", "🎨"],
-          ["Renovar a cor", "Quero atualizar o visual sem perder naturalidade.", "✨"],
-          ["Planejar uma mudança", "Quero orientação antes de decidir.", "💬"]
-        ]
-      },
-      "Corte com técnica de tesoura": {
-        question: "O que você espera do novo corte?",
-        options: [
-          ["Mais movimento", "Quero leveza e um caimento mais bonito.", "〰️"],
-          ["Renovar o formato", "Quero atualizar o corte e o estilo.", "✂️"],
-          ["Valorizar textura e volume", "Quero uma forma que respeite meu cabelo.", "🌿"],
-          ["Manutenção do corte", "Quero recuperar acabamento e desenho.", "🪞"]
-        ]
-      },
-      "Loiros": {
-        question: "Como é o seu #blondedossonhos?",
-        options: [
-          ["Iluminar sem radicalizar", "Quero um loiro elegante e sutil.", "✨"],
-          ["Ficar mais loira", "Quero uma mudança mais visível.", "🌟"],
-          ["Corrigir o tom", "Meu loiro precisa de ajuste de cor.", "🎨"],
-          ["Cuidar antes de clarear", "Quero preservar a saúde dos fios.", "🛡️"]
-        ]
-      }
+    const bookingServiceEmoji = {
+      "Mega hair personalizado": "💇🏾‍♀️",
+      "Colorimetria": "🎨",
+      "Corte com técnica de tesoura": "✂️",
+      "Loiros": "✨"
     };
 
     function buildWhatsAppLink(message) {
@@ -3782,37 +4127,6 @@
       window.addEventListener("scroll", update, { passive: true });
     }
 
-    function showBookingStep(root, step) {
-      root.querySelectorAll(".quiz-step").forEach(function(element) {
-        element.classList.toggle("active", element.getAttribute("data-step") === String(step));
-      });
-    }
-
-    function setSelected(button) {
-      const group = button.closest(".quiz-options");
-      if (!group) return;
-      group.querySelectorAll(".quiz-option").forEach(function(option) {
-        option.classList.remove("is-selected");
-      });
-      button.classList.add("is-selected");
-    }
-
-    function renderDynamicBookingOptions() {
-      const key = bookingState.servico || "Mega hair personalizado";
-      const config = bookingOptions[key] || bookingOptions["Mega hair personalizado"];
-      const title = document.getElementById("booking-question");
-      const container = document.getElementById("booking-dynamic-options");
-      if (!title || !container) return;
-      title.textContent = config.question;
-      container.innerHTML = config.options.map(function(item) {
-        const emoji = item[2] || "✨";
-        const label = escapeHtml(item[0]);
-        const copy = escapeHtml(item[1]);
-        const selected = bookingState.objetivo === item[0] ? " is-selected" : "";
-        return '<button class="quiz-option' + selected + '" type="button" data-choice="objetivo" data-value="' + label + '"><span class="quiz-emoji" aria-hidden="true">' + emoji + '</span><span><strong>' + label + '</strong><small>' + copy + '</small></span></button>';
-      }).join("");
-    }
-
     function getLocalDateValue(date) {
       const year = date.getFullYear();
       const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -3826,177 +4140,138 @@
       return parts[2] + "/" + parts[1] + "/" + parts[0];
     }
 
-    function updateBookingProgress(step, review) {
-      const label = document.getElementById("booking-progress-label");
-      const title = document.getElementById("booking-progress-title");
-      const bar = document.querySelector(".booking-progress-bar");
-      const fill = document.getElementById("booking-progress-fill");
-      const titles = ["Serviço", "Objetivo", "Data preferida", "Horário preferido"];
-      const progress = review ? 100 : step * 25;
-      if (label) label.textContent = review ? "Tudo pronto" : "Passo " + step + " de 4";
-      if (title) title.textContent = review ? "Revisar e enviar" : titles[step - 1];
-      if (fill) fill.style.width = progress + "%";
-      if (bar) bar.setAttribute("aria-valuenow", review ? "4" : String(step));
-    }
-
-    function updateBookingResult() {
-      const result = document.getElementById("booking-result");
-      const summary = document.getElementById("booking-summary");
-      const whatsapp = document.getElementById("booking-wa");
-      const chosen = {
-        servico: bookingState.servico || "não definido",
-        objetivo: bookingState.objetivo || "não definido",
-        data: bookingState.data ? formatBookingDate(bookingState.data) : "não definida",
-        horario: bookingState.horario || "não definido"
-      };
-      if (summary) {
-        summary.innerHTML = [
-          ["💇🏾‍♀️", "Serviço", chosen.servico],
-          ["📝", "Objetivo", chosen.objetivo],
-          ["📅", "Data preferida", chosen.data],
-          ["⏰", "Horário preferido", chosen.horario]
-        ].map(function(item) {
-          return "<li><span>" + item[0] + "</span><span><strong>" + item[1] + ":</strong> " + escapeHtml(item[2]) + "</span></li>";
-        }).join("");
-      }
-      if (result) result.classList.add("active");
-      if (whatsapp) {
-        const message = [
-          "✨ Olá, Luana! Gostaria de solicitar uma avaliação na Lualves Hair.",
-          "💇🏾‍♀️ Serviço: " + chosen.servico,
-          "📝 Objetivo: " + chosen.objetivo,
-          "📅 Data preferida: " + chosen.data,
-          "⏰ Horário preferido: " + chosen.horario,
-          "💬 Pode confirmar a disponibilidade para mim?"
-        ].join("\n");
-        whatsapp.href = buildWhatsAppLink(message);
-      }
-    }
-
-    function initBooking() {
-      const booking = document.querySelector("[data-booking]");
-      if (!booking) return;
-      let currentStep = 1;
-      const previous = document.getElementById("booking-prev");
-      const next = document.getElementById("booking-next");
-      const whatsapp = document.getElementById("booking-wa");
-      const result = document.getElementById("booking-result");
+    function initBookingApp() {
+      const app = document.querySelector("[data-booking-app]");
+      const modal = document.getElementById("booking-modal");
+      if (!app || !modal) return;
+      const serviceButtons = app.querySelectorAll("[data-booking-service]");
+      const serviceLabel = document.getElementById("booking-modal-service");
+      const serviceIcon = document.getElementById("booking-modal-icon");
+      const formView = document.getElementById("booking-modal-form-view");
+      const reviewView = document.getElementById("booking-modal-review");
+      const form = document.getElementById("booking-form");
+      const nameInput = document.getElementById("booking-name");
       const dateInput = document.getElementById("booking-date");
       const timeInput = document.getElementById("booking-time");
-      const dateError = document.getElementById("booking-date-error");
-      const timeError = document.getElementById("booking-time-error");
+      const error = document.getElementById("booking-modal-error");
+      const summary = document.getElementById("booking-modal-summary");
+      const edit = document.getElementById("booking-modal-edit");
+      const whatsapp = document.getElementById("booking-modal-whatsapp");
       const minimumDate = getLocalDateValue(new Date());
+      let lastTrigger = null;
+      let closeTimer = null;
 
       if (dateInput) dateInput.min = minimumDate;
-      if (whatsapp) whatsapp.style.display = "none";
-      if (next) next.style.display = "none";
-      if (previous) previous.style.display = "none";
 
-      function clearErrors() {
-        if (dateError) dateError.textContent = "";
-        if (timeError) timeError.textContent = "";
+      function showForm() {
+        formView.hidden = false;
+        reviewView.hidden = true;
+        if (error) error.textContent = "";
       }
 
-      function setCurrentStep(step, shouldFocus) {
-        currentStep = step;
-        showBookingStep(booking, currentStep);
-        clearErrors();
-        if (result) result.classList.remove("active");
-        if (whatsapp) whatsapp.style.display = "none";
-        if (previous) previous.style.display = currentStep > 1 ? "" : "none";
-        if (next) {
-          next.style.display = currentStep >= 3 ? "" : "none";
-          next.textContent = currentStep === 4 ? "Revisar pedido" : "Continuar";
-        }
-        updateBookingProgress(currentStep, false);
-        if (shouldFocus !== false) {
+      function openBooking(button) {
+        if (closeTimer) window.clearTimeout(closeTimer);
+        lastTrigger = button;
+        bookingState.servico = button.getAttribute("data-booking-service") || "";
+        const icon = button.getAttribute("data-service-icon") || "icon-sparkles";
+        if (serviceLabel) serviceLabel.textContent = bookingState.servico;
+        if (serviceIcon) serviceIcon.setAttribute("href", "#" + icon);
+        showForm();
+        modal.hidden = false;
+        document.body.classList.add("booking-modal-open");
+        window.requestAnimationFrame(function() {
+          modal.classList.add("is-open");
           window.setTimeout(function() {
-            const heading = booking.querySelector(".quiz-step.active h3");
-            if (heading) heading.focus({ preventScroll: true });
+            if (nameInput) nameInput.focus({ preventScroll: true });
           }, 180);
-        }
-      }
-
-      function finishBooking() {
-        updateBookingResult();
-        booking.querySelectorAll(".quiz-step").forEach(function(element) {
-          element.classList.remove("active");
         });
-        if (previous) previous.style.display = "";
-        if (next) next.style.display = "none";
-        if (whatsapp) whatsapp.style.display = "";
-        updateBookingProgress(4, true);
       }
 
-      booking.addEventListener("click", function(event) {
-        const button = event.target.closest(".quiz-option");
-        if (!button) return;
-        const choice = button.getAttribute("data-choice");
-        const value = button.getAttribute("data-value");
-        setSelected(button);
-        if (choice === "servico") {
-          if (bookingState.servico !== value) bookingState.objetivo = "";
-          bookingState.servico = value;
-          renderDynamicBookingOptions();
-          window.setTimeout(function() { setCurrentStep(2); }, 150);
+      function closeBooking() {
+        modal.classList.remove("is-open");
+        document.body.classList.remove("booking-modal-open");
+        closeTimer = window.setTimeout(function() {
+          modal.hidden = true;
+          if (lastTrigger) lastTrigger.focus({ preventScroll: true });
+        }, 280);
+      }
+
+      function renderReview() {
+        const emoji = bookingServiceEmoji[bookingState.servico] || "✨";
+        const formattedDate = formatBookingDate(bookingState.data);
+        if (summary) {
+          summary.innerHTML = [
+            ["👤", "Nome", bookingState.nome],
+            [emoji, "Serviço", bookingState.servico],
+            ["📅", "Data preferida", formattedDate],
+            ["⏰", "Horário preferido", bookingState.horario]
+          ].map(function(item) {
+            return "<li><span>" + item[0] + "</span><span><strong>" + item[1] + ":</strong> " + escapeHtml(item[2]) + "</span></li>";
+          }).join("");
         }
-        if (choice === "objetivo") {
-          bookingState.objetivo = value;
-          window.setTimeout(function() { setCurrentStep(3); }, 150);
+        if (whatsapp) {
+          const message = [
+            "✨ Olá, Luana! Quero solicitar um agendamento na Lualves Hair.",
+            "👤 Nome: " + bookingState.nome,
+            emoji + " Serviço: " + bookingState.servico,
+            "📅 Data preferida: " + formattedDate,
+            "⏰ Horário preferido: " + bookingState.horario,
+            "💬 Pode confirmar a disponibilidade para mim?"
+          ].join("\n");
+          whatsapp.href = buildWhatsAppLink(message);
         }
+        formView.hidden = true;
+        reviewView.hidden = false;
+        const heading = reviewView.querySelector("h2");
+        if (heading) heading.setAttribute("tabindex", "-1");
+        if (heading) heading.focus({ preventScroll: true });
+      }
+
+      serviceButtons.forEach(function(button) {
+        button.addEventListener("click", function() { openBooking(button); });
       });
 
-      if (dateInput) {
-        dateInput.addEventListener("input", function() {
-          bookingState.data = dateInput.value;
-          if (dateError) dateError.textContent = "";
-        });
-      }
-      if (timeInput) {
-        timeInput.addEventListener("input", function() {
-          bookingState.horario = timeInput.value;
-          if (timeError) timeError.textContent = "";
+      modal.querySelectorAll("[data-booking-close]").forEach(function(button) {
+        button.addEventListener("click", closeBooking);
+      });
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const name = nameInput ? nameInput.value.trim() : "";
+        const date = dateInput ? dateInput.value : "";
+        const time = timeInput ? timeInput.value : "";
+        if (name.length < 2) {
+          if (error) error.textContent = "Informe seu nome para continuar.";
+          if (nameInput) nameInput.focus();
+          return;
+        }
+        if (!date || date < minimumDate) {
+          if (error) error.textContent = "Escolha uma data válida a partir de hoje.";
+          if (dateInput) dateInput.focus();
+          return;
+        }
+        if (!time) {
+          if (error) error.textContent = "Informe seu horário preferido.";
+          if (timeInput) timeInput.focus();
+          return;
+        }
+        bookingState.nome = name;
+        bookingState.data = date;
+        bookingState.horario = time;
+        if (error) error.textContent = "";
+        renderReview();
+      });
+
+      if (edit) {
+        edit.addEventListener("click", function() {
+          showForm();
+          if (nameInput) nameInput.focus({ preventScroll: true });
         });
       }
 
-      if (previous) {
-        previous.addEventListener("click", function() {
-          if (result && result.classList.contains("active")) {
-            setCurrentStep(4);
-            return;
-          }
-          setCurrentStep(Math.max(1, currentStep - 1));
-        });
-      }
-
-      if (next) {
-        next.addEventListener("click", function() {
-          if (currentStep === 3) {
-            const value = dateInput ? dateInput.value : "";
-            if (!value || value < minimumDate) {
-              if (dateError) dateError.textContent = "Escolha uma data válida a partir de hoje.";
-              if (dateInput) dateInput.focus();
-              return;
-            }
-            bookingState.data = value;
-            setCurrentStep(4);
-            return;
-          }
-          if (currentStep === 4) {
-            const value = timeInput ? timeInput.value : "";
-            if (!value) {
-              if (timeError) timeError.textContent = "Informe seu horário preferido.";
-              if (timeInput) timeInput.focus();
-              return;
-            }
-            bookingState.horario = value;
-            finishBooking();
-          }
-        });
-      }
-
-      renderDynamicBookingOptions();
-      setCurrentStep(1, false);
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape" && !modal.hidden) closeBooking();
+      });
     }
 
     function formatCounterValue(element, value) {
@@ -4115,7 +4390,7 @@
     document.addEventListener("DOMContentLoaded", function() {
       hydrateWhatsAppLinks();
       handleNavbar();
-      initBooking();
+      initBookingApp();
       initStatCounters();
       initDragCarousels();
       initRevealAnimations();

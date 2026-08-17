@@ -548,69 +548,6 @@
       color: var(--ink-muted);
     }
 
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-    .pain-section {
-      background:
-        linear-gradient(135deg, rgba(122, 90, 68, .1), transparent 38%),
-        var(--off-white);
-    }
-    .pain-section .eyebrow,
-    .pain-section .pillar-card span {
-      color: var(--medium-brown);
-    }
-    .pillar-card {
-      padding: clamp(1.3rem, 2.4vw, 2rem);
-      border: 1px solid var(--line-light);
-      border-radius: var(--radius-lg);
-      background: rgba(255, 255, 255, .38);
-      box-shadow: var(--shadow-soft);
-    }
-    .pillar-card span {
-      display: block;
-      margin-bottom: 3.4rem;
-      color: var(--gold);
-      font-size: .76rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-    }
-    .pillar-card h3 {
-      margin-bottom: .85rem;
-      font-size: clamp(2rem, 4vw, 3rem);
-    }
-    .pillar-card p {
-      margin-bottom: 0;
-      color: var(--ink-muted);
-    }
-    .pain-card {
-      min-height: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-color: rgba(122, 90, 68, .2);
-    }
-    .pain-card h3 {
-      max-width: 11ch;
-    }
-    .pain-card strong {
-      color: var(--espresso);
-      font-weight: 600;
-    }
-    .pain-icon {
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 1.2rem;
-      border-radius: 50%;
-      color: var(--medium-brown);
-      background: rgba(122, 90, 68, .1);
-      border: 1px solid rgba(122, 90, 68, .22);
-    }
-    .pain-icon svg,
     .quiz-step-icon svg {
       width: 22px;
       height: 22px;
@@ -1555,7 +1492,6 @@
       .footer-grid {
         grid-template-columns: 1fr;
       }
-      .pillars,
       .services-grid,
       .faq-list,
       .reviews-list {
@@ -1694,6 +1630,743 @@
         transform: none;
       }
     }
+
+    /* Conversion-focused top remodel */
+    .ui-icon {
+      width: 1.18em;
+      height: 1.18em;
+      display: block;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    :is(a, button, input):focus-visible {
+      outline: 3px solid rgba(198, 163, 106, .85);
+      outline-offset: 3px;
+    }
+    .quiz-step h3[tabindex="-1"]:focus {
+      outline: none;
+    }
+    .btn-booking {
+      color: var(--espresso);
+      background: var(--gold);
+      border-color: rgba(122, 90, 68, .32);
+      box-shadow: 0 16px 38px rgba(122, 90, 68, .2);
+    }
+    .btn-booking:hover {
+      background: #D2B27D;
+      box-shadow: 0 18px 44px rgba(122, 90, 68, .27);
+    }
+
+    .navbar,
+    .navbar.scrolled {
+      padding: calc(env(safe-area-inset-top, 0px) + .7rem) 0 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    .nav-inner {
+      min-height: 58px;
+      padding: .55rem .7rem .55rem 1rem;
+      border: 1px solid rgba(245, 241, 234, .14);
+      border-radius: 22px;
+      background: rgba(26, 21, 18, .94);
+      box-shadow: 0 18px 46px rgba(33, 28, 24, .2);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .navbar.scrolled .nav-inner {
+      background: rgba(26, 21, 18, .98);
+      box-shadow: 0 15px 38px rgba(33, 28, 24, .28);
+    }
+    .nav-logo img {
+      width: clamp(126px, 12vw, 174px);
+    }
+    .navbar .btn-booking {
+      width: auto;
+      min-width: 174px;
+      min-height: 40px;
+      padding: .62rem 1rem;
+      color: var(--espresso);
+      background: var(--gold);
+      border-color: rgba(230, 218, 203, .18);
+      font-size: .64rem;
+    }
+
+    .hero {
+      min-height: clamp(690px, 92svh, 860px);
+      display: block;
+      color: var(--espresso);
+      background: var(--off-white);
+      isolation: isolate;
+    }
+    .hero-bg {
+      inset: 0;
+      background-color: var(--off-white);
+      background-image:
+        linear-gradient(118deg, rgba(230, 218, 203, .66), transparent 42%),
+        repeating-linear-gradient(96deg, rgba(122, 90, 68, .026) 0 1px, transparent 1px 18px);
+      background-size: auto;
+      background-position: center;
+      transform: none;
+    }
+    .hero::after {
+      display: none;
+    }
+    .hero-monogram {
+      position: absolute;
+      left: 43%;
+      top: 16%;
+      z-index: 0;
+      color: rgba(122, 90, 68, .07);
+      font-family: var(--font-serif);
+      font-size: clamp(15rem, 28vw, 31rem);
+      font-weight: 500;
+      line-height: .7;
+      letter-spacing: -.04em;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .hero-layout {
+      position: relative;
+      z-index: 1;
+      min-height: clamp(690px, 92svh, 860px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, .86fr);
+      align-items: end;
+      gap: clamp(1rem, 3vw, 3.5rem);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      align-self: center;
+      width: min(100%, 610px);
+      padding: 8rem 0 3.5rem;
+    }
+    .hero .eyebrow {
+      max-width: 38rem;
+      color: var(--medium-brown);
+    }
+    .hero h1 {
+      max-width: 9.5ch;
+      margin-bottom: 1.15rem;
+      color: var(--espresso);
+      font-size: clamp(4rem, 6.5vw, 6.25rem);
+      line-height: .9;
+    }
+    .hero h1 em {
+      color: #9A6E32;
+    }
+    .hero-sub {
+      max-width: 31rem;
+      margin-bottom: 0;
+      color: var(--medium-brown);
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
+      line-height: 1.55;
+    }
+    .hero-rating {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .45rem .65rem;
+      margin: 1.15rem 0 0;
+      color: var(--espresso);
+      font-size: .82rem;
+    }
+    .hero-rating > span {
+      color: #A8732E;
+      letter-spacing: .08em;
+    }
+    .hero-rating strong {
+      font-size: .86rem;
+    }
+    .hero-rating small {
+      color: var(--medium-brown);
+      font-size: .76rem;
+    }
+    .hero-actions {
+      margin-top: 1.5rem;
+    }
+    .hero-actions .btn {
+      min-height: 52px;
+      padding-inline: 1.35rem;
+    }
+    .hero-actions .btn-outline {
+      color: var(--espresso);
+      border-color: rgba(33, 28, 24, .42);
+      background: rgba(247, 244, 241, .58);
+    }
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .6rem;
+      max-width: 610px;
+      margin-top: 1.35rem;
+      color: var(--espresso);
+    }
+    .hero-proof li {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .6rem .7rem;
+      border-color: rgba(122, 90, 68, .2);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .48);
+      box-shadow: 0 10px 26px rgba(122, 90, 68, .08);
+      color: var(--espresso);
+      font-size: .65rem;
+      font-weight: 600;
+      line-height: 1.25;
+      text-align: center;
+    }
+    .hero-proof .ui-icon {
+      width: 19px;
+      height: 19px;
+      color: #9A6E32;
+    }
+    .hero-portrait {
+      position: relative;
+      z-index: 1;
+      min-height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      margin: 0;
+      pointer-events: none;
+    }
+    .hero-portrait::before {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      bottom: 2%;
+      height: 16%;
+      border-radius: 50%;
+      background: rgba(122, 90, 68, .16);
+      filter: blur(26px);
+    }
+    .hero-portrait img {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 580px);
+      max-height: min(84svh, 790px);
+      object-fit: contain;
+      object-position: center bottom;
+      filter: drop-shadow(0 22px 30px rgba(33, 28, 24, .13));
+    }
+
+    .booking-section {
+      position: relative;
+      overflow: hidden;
+      color: var(--off-white);
+      background: var(--espresso);
+    }
+    .booking-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(198, 163, 106, .1), transparent 40%),
+        repeating-linear-gradient(98deg, rgba(245, 241, 234, .018) 0 1px, transparent 1px 22px);
+      pointer-events: none;
+    }
+    .booking-shell {
+      position: relative;
+      z-index: 1;
+      grid-template-columns: minmax(0, .78fr) minmax(0, 1.12fr);
+      align-items: center;
+    }
+    .booking-intro {
+      display: grid;
+      align-content: start;
+      gap: 1.45rem;
+    }
+    .booking-logo {
+      width: min(72%, 250px);
+      max-height: 90px;
+      object-fit: contain;
+      object-position: left center;
+    }
+    .booking-intro .eyebrow {
+      margin-bottom: .85rem;
+      color: var(--gold);
+    }
+    .booking-intro h2 {
+      max-width: 9ch;
+      margin-bottom: 1rem;
+      font-size: clamp(3.2rem, 5vw, 5.4rem);
+    }
+    .booking-intro p:not(.eyebrow):not(.booking-assurance) {
+      max-width: 31rem;
+      margin-bottom: 0;
+      color: rgba(245, 241, 234, .7);
+    }
+    .booking-process {
+      display: grid;
+      gap: .65rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .booking-process li {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      align-items: center;
+      gap: .85rem;
+      padding: .85rem 0;
+      border-top: 1px solid rgba(245, 241, 234, .12);
+    }
+    .booking-process li > span {
+      color: var(--gold);
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+    .booking-process strong,
+    .booking-process small {
+      display: block;
+    }
+    .booking-process strong {
+      color: var(--off-white);
+      font-size: .92rem;
+    }
+    .booking-process small {
+      color: rgba(245, 241, 234, .6);
+      font-size: .78rem;
+    }
+    .booking-assurance {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin: 0;
+      color: var(--champagne);
+      font-size: .84rem;
+    }
+    .booking-assurance .ui-icon {
+      color: var(--gold);
+    }
+    .booking-section .booking-card {
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: var(--espresso);
+      border-color: rgba(198, 163, 106, .28);
+      background: var(--off-white);
+      box-shadow: 0 32px 90px rgba(0, 0, 0, .28);
+    }
+    .booking-progress {
+      display: grid;
+      gap: .75rem;
+      margin-bottom: 1.25rem;
+    }
+    .booking-progress > div:first-child {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .booking-progress span,
+    .booking-progress strong {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .booking-progress span {
+      color: var(--medium-brown);
+    }
+    .booking-progress strong {
+      color: var(--espresso);
+    }
+    .booking-progress-bar {
+      height: 5px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(122, 90, 68, .13);
+    }
+    .booking-progress-bar span {
+      display: block;
+      width: 25%;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--gold);
+      transition: width .4s var(--ease);
+    }
+    .booking-section .quiz-hint {
+      align-self: flex-start;
+      color: var(--medium-brown);
+      border-color: rgba(122, 90, 68, .24);
+      background: rgba(198, 163, 106, .11);
+      animation: none;
+    }
+    .booking-section .quiz-step h3 {
+      color: var(--espresso);
+    }
+    .booking-section .quiz-step-icon,
+    .booking-section .quiz-emoji {
+      color: var(--medium-brown);
+      border-color: rgba(122, 90, 68, .22);
+      background: rgba(198, 163, 106, .13);
+    }
+    .booking-section .quiz-step-icon .ui-icon {
+      width: 22px;
+      height: 22px;
+    }
+    .booking-section .quiz-option {
+      color: var(--espresso);
+      border-color: rgba(122, 90, 68, .17);
+      background: rgba(255, 255, 255, .7);
+      box-shadow: 0 10px 26px rgba(122, 90, 68, .07);
+    }
+    .booking-section .quiz-option small {
+      color: var(--ink-muted);
+    }
+    .booking-section .quiz-option:hover,
+    .booking-section .quiz-option.is-selected {
+      color: var(--espresso);
+      border-color: var(--gold);
+      background: #FFF9EF;
+    }
+    .booking-section .quiz-option::after {
+      color: var(--medium-brown);
+    }
+    .booking-field {
+      display: grid;
+      gap: .6rem;
+      margin-top: 1.2rem;
+    }
+    .booking-field > span {
+      color: var(--espresso);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .booking-field input {
+      width: 100%;
+      min-height: 58px;
+      padding: .85rem 1rem;
+      border: 1px solid rgba(122, 90, 68, .25);
+      border-radius: var(--radius-md);
+      color: var(--espresso);
+      background: #FFFCF7;
+      font: 500 1rem var(--font-sans);
+      color-scheme: light;
+    }
+    .booking-field input:hover {
+      border-color: rgba(122, 90, 68, .48);
+    }
+    .booking-field small {
+      color: var(--ink-muted);
+      font-size: .78rem;
+    }
+    .booking-error {
+      min-height: 1.4rem;
+      margin: .45rem 0 0;
+      color: #9B342D;
+      font-size: .78rem;
+      font-weight: 600;
+    }
+    .booking-section .quiz-result {
+      color: var(--espresso);
+      border: 1px solid rgba(122, 90, 68, .18);
+      background: rgba(230, 218, 203, .45);
+    }
+    .booking-section .quiz-result strong {
+      color: var(--medium-brown);
+    }
+    .booking-section .quiz-result-head span,
+    .booking-section .quiz-summary li,
+    .booking-section .quiz-result p {
+      color: var(--medium-brown);
+    }
+    .booking-section .quiz-actions {
+      margin-top: auto;
+      padding-top: 1.4rem;
+    }
+    .booking-section .quiz-actions .btn-outline {
+      color: var(--medium-brown);
+      border-color: rgba(122, 90, 68, .4);
+    }
+
+    .about-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, .34), transparent 48%),
+        var(--champagne);
+    }
+    .about-monogram {
+      position: absolute;
+      left: 3%;
+      top: 7%;
+      color: rgba(122, 90, 68, .07);
+      font-family: var(--font-serif);
+      font-size: clamp(14rem, 28vw, 30rem);
+      font-weight: 500;
+      line-height: .75;
+      pointer-events: none;
+    }
+    .about-section .about-grid {
+      position: relative;
+      z-index: 1;
+    }
+    .about-section .specialist-media {
+      width: min(100%, 520px);
+      justify-self: center;
+    }
+    .about-section .about-image {
+      border-radius: 110px 22px 110px 22px;
+      border-color: rgba(122, 90, 68, .18);
+      box-shadow: 0 28px 75px rgba(122, 90, 68, .18);
+    }
+    .about-section .specialist-kicker {
+      left: auto;
+      right: 1.25rem;
+      color: var(--off-white);
+      background: rgba(33, 28, 24, .82);
+    }
+    .about-section .specialist-name {
+      color: var(--medium-brown);
+      font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+    }
+    .about-section .about-copy h2 {
+      max-width: 11ch;
+      font-size: clamp(3.2rem, 5.6vw, 5.5rem);
+      line-height: .93;
+    }
+    .specialist-manifesto {
+      margin: 1rem 0 0;
+      color: var(--espresso);
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 500;
+    }
+    .about-section .stat-card {
+      border-color: rgba(122, 90, 68, .16);
+      background: rgba(255, 255, 255, .42);
+      box-shadow: 0 12px 30px rgba(122, 90, 68, .07);
+    }
+
+    @media (max-width: 980px) {
+      .hero-layout {
+        grid-template-columns: minmax(0, .95fr) minmax(320px, .75fr);
+      }
+      .hero h1 {
+        font-size: clamp(3.65rem, 7.3vw, 5.2rem);
+      }
+      .hero-proof {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 420px;
+      }
+      .booking-shell {
+        grid-template-columns: 1fr;
+      }
+      .booking-intro {
+        grid-template-columns: minmax(0, 1fr) minmax(280px, .85fr);
+        align-items: end;
+      }
+      .booking-logo,
+      .booking-assurance {
+        grid-column: 1 / -1;
+      }
+      .booking-section .booking-card {
+        min-height: 560px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .navbar,
+      .navbar.scrolled {
+        padding: calc(env(safe-area-inset-top, 0px) + .38rem) 0 0;
+      }
+      .nav-inner {
+        min-height: 52px;
+        gap: .65rem;
+        padding: .4rem .45rem .4rem .7rem;
+        border-radius: 17px;
+      }
+      .nav-logo img {
+        width: min(108px, calc(100vw - 10rem));
+      }
+      .navbar .btn-booking {
+        min-width: min(142px, 40vw);
+        min-height: 36px;
+        padding: .48rem .72rem;
+        font-size: .54rem;
+        white-space: nowrap;
+      }
+      .hero,
+      .hero-layout {
+        min-height: 790px;
+      }
+      .hero-layout {
+        display: block;
+      }
+      .hero-monogram {
+        left: 2%;
+        top: 24%;
+        font-size: 15rem;
+      }
+      .hero-inner {
+        min-height: 790px;
+        width: 100%;
+        padding: 6.8rem 0 2.2rem;
+      }
+      .hero-inner::before {
+        display: none;
+      }
+      .hero .eyebrow {
+        max-width: 19rem;
+        margin-bottom: .7rem;
+        font-size: .62rem;
+        line-height: 1.55;
+      }
+      .hero h1 {
+        max-width: 8.4ch;
+        margin-bottom: .85rem;
+        font-size: clamp(2.75rem, 13vw, 3.35rem);
+        line-height: .91;
+      }
+      .hero-sub {
+        max-width: 15rem;
+        font-size: .91rem;
+        line-height: 1.48;
+      }
+      .hero-rating {
+        max-width: 18rem;
+        margin-top: .8rem;
+        gap: .25rem .45rem;
+      }
+      .hero-rating small {
+        flex-basis: 100%;
+      }
+      .hero-actions {
+        width: min(100%, 335px);
+        margin-top: 1rem;
+        gap: .6rem;
+      }
+      .hero-actions .btn {
+        min-height: 46px;
+        padding: .72rem .95rem;
+        font-size: .64rem;
+      }
+      .hero-proof {
+        width: min(62%, 235px);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .4rem;
+        margin-top: .9rem;
+      }
+      .hero-proof li {
+        min-height: 44px;
+        gap: .3rem;
+        padding: .42rem .45rem;
+        border-radius: 10px;
+        font-size: .54rem;
+      }
+      .hero-proof .ui-icon {
+        width: 15px;
+        height: 15px;
+      }
+      .hero-portrait {
+        position: absolute;
+        right: -32%;
+        bottom: 0;
+        z-index: 0;
+        width: 94%;
+        min-height: auto;
+      }
+      .hero-portrait::before {
+        display: none;
+      }
+      .hero-portrait img {
+        width: 100%;
+        max-height: none;
+      }
+      .booking-section {
+        padding: 3.6rem 0 4.2rem;
+      }
+      .booking-intro {
+        grid-template-columns: 1fr;
+        gap: .75rem;
+      }
+      .booking-logo,
+      .booking-assurance {
+        grid-column: auto;
+      }
+      .booking-logo {
+        width: min(48%, 170px);
+        margin-bottom: .2rem;
+      }
+      .booking-intro h2 {
+        max-width: none;
+        margin-bottom: .7rem;
+        font-size: clamp(2.55rem, 11.5vw, 3.15rem);
+      }
+      .booking-intro p:not(.eyebrow):not(.booking-assurance) {
+        line-height: 1.5;
+      }
+      .booking-process {
+        display: none;
+      }
+      .booking-section .booking-card {
+        min-height: 600px;
+        padding: 1rem;
+        border-radius: 20px;
+      }
+      .booking-progress > div:first-child {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: .15rem;
+      }
+      .booking-section .quiz-step h3 {
+        font-size: clamp(2rem, 9.8vw, 2.7rem);
+      }
+      .booking-section .quiz-options {
+        grid-template-columns: 1fr;
+        gap: .65rem;
+      }
+      .booking-section .quiz-option {
+        min-height: 92px;
+        padding: .8rem 2.4rem .8rem .8rem;
+      }
+      .booking-section .quiz-option small {
+        font-size: .78rem;
+      }
+      .booking-section .quiz-actions {
+        flex-direction: column;
+      }
+      .about-section {
+        padding: 4.5rem 0;
+      }
+      .about-section .about-grid {
+        gap: 2.2rem;
+      }
+      .about-section .about-image {
+        border-radius: 72px 16px 72px 16px;
+      }
+      .about-section .specialist-kicker {
+        right: .9rem;
+        top: .9rem;
+      }
+      .about-section .about-copy h2 {
+        font-size: clamp(2.8rem, 13vw, 3.75rem);
+      }
+      .about-section .specialist-actions {
+        flex-direction: column;
+      }
+      .about-section .specialist-actions .btn {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body class="loading">
@@ -1703,6 +2376,27 @@
     </symbol>
     <symbol id="icon-instagram" viewBox="0 0 24 24">
       <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm4.75-2.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"></path>
+    </symbol>
+    <symbol id="icon-calendar" viewBox="0 0 24 24">
+      <path d="M8 2v4M16 2v4M3 9h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"></path>
+    </symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 24 24">
+      <path d="m12 3-1.3 3.7L7 8l3.7 1.3L12 13l1.3-3.7L17 8l-3.7-1.3L12 3ZM5 14l-.8 2.2L2 17l2.2.8L5 20l.8-2.2L8 17l-2.2-.8L5 14ZM18 13l-1 2.8-2.8 1L17 18l1 2.8 1-2.8 2.8-1-2.8-1L18 13Z"></path>
+    </symbol>
+    <symbol id="icon-ruler" viewBox="0 0 24 24">
+      <path d="m14 3 7 7L10 21l-7-7L14 3ZM12 5l2 2M9 8l2 2M6 11l2 2M15 8l2 2M12 11l2 2"></path>
+    </symbol>
+    <symbol id="icon-droplet" viewBox="0 0 24 24">
+      <path d="M12 2.5S5.5 9.4 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 9.4 12 2.5 12 2.5Z"></path>
+    </symbol>
+    <symbol id="icon-waves" viewBox="0 0 24 24">
+      <path d="M4 6c2.5 0 2.5 3 5 3s2.5-3 5-3 2.5 3 5 3M4 12c2.5 0 2.5 3 5 3s2.5-3 5-3 2.5 3 5 3M4 18c2.5 0 2.5 3 5 3s2.5-3 5-3 2.5 3 5 3"></path>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="m5 12 4 4L19 6"></path>
     </symbol>
   </svg>
   <div class="loader-curtain" id="loader-curtain" aria-hidden="true"></div>
@@ -1721,93 +2415,139 @@
       <nav class="nav-links" aria-label="Navegação principal">
         <a href="#sobre">Especialista</a>
         <a href="#portfolio">Portfólio</a>
-        <a href="#quiz">Quiz</a>
+        <a href="#agendamento">Agendamento</a>
         <a href="#avaliacoes">Avaliações</a>
         <a href="#servicos">Serviços</a>
       </nav>
-      <a class="btn btn-gold wa-link" href="#" data-wa-message="Olá, Luana! Vim pelo site da Lualves Hair e quero agendar uma orientação para meu cabelo." target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Agendar</a>
+      <a class="btn btn-booking" href="#agendamento"><svg class="ui-icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>Agendar avaliação</a>
     </div>
   </header>
 
   <main>
     <section class="hero" id="inicio">
       <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container">
+      <span class="hero-monogram" aria-hidden="true">LA</span>
+      <div class="container hero-layout">
         <div class="hero-inner reveal">
-          <p class="eyebrow">Mega hair • loiros • cacheados</p>
-          <h1>Cabelo com presença, técnica e <em>movimento.</em></h1>
-          <p class="hero-sub">Lualves Hair cria transformações personalizadas para quem quer alongar, iluminar ou cuidar da curvatura com acabamento elegante e orientação de perto.</p>
+          <p class="eyebrow">Especialista em mega hair personalizado e colorimetria</p>
+          <h1>Mega hair feito para combinar com <em>seu cabelo.</em></h1>
+          <p class="hero-sub">Cor, textura e caimento preparados para uma integração natural, elegante e personalizada.</p>
+          <p class="hero-rating"><span aria-hidden="true">★★★★★</span><strong>5,0 no Google</strong><small>21 avaliações • Freguesia, RJ</small></p>
           <div class="hero-actions">
-            <a class="btn btn-gold wa-link" href="#" data-wa-message="Olá, Luana! Quero agendar uma orientação na Lualves Hair para entender o melhor caminho para meu cabelo." target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Agendar pelo WhatsApp</a>
-            <a class="btn btn-outline" href="#portfolio">Ver transformações</a>
+            <a class="btn btn-booking" href="#agendamento"><svg class="ui-icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>Agendar avaliação</a>
+            <a class="btn btn-outline" href="#portfolio"><svg class="ui-icon" aria-hidden="true"><use href="#icon-sparkles"></use></svg>Ver transformações</a>
           </div>
-          <ul class="hero-proof" aria-label="Especialidades">
-            <li>Mega hair</li>
-            <li>Loiros</li>
-            <li>Cacheados</li>
-            <li>Atendimento personalizado</li>
+          <ul class="hero-proof" aria-label="Especialidades Lualves Hair">
+            <li><svg class="ui-icon" aria-hidden="true"><use href="#icon-ruler"></use></svg>Mega hair</li>
+            <li><svg class="ui-icon" aria-hidden="true"><use href="#icon-droplet"></use></svg>Colorimetria</li>
+            <li><svg class="ui-icon" aria-hidden="true"><use href="#icon-sparkles"></use></svg>Loiros</li>
+            <li><svg class="ui-icon" aria-hidden="true"><use href="#icon-waves"></use></svg>Cacheados</li>
           </ul>
         </div>
+        <figure class="hero-portrait reveal" data-reveal-delay="1">
+          <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1786925094/IMG_7897_1_dqzjzp.webp" alt="Luana Alves, especialista da Lualves Hair" width="718" height="1080" fetchpriority="high" decoding="async">
+        </figure>
       </div>
     </section>
 
-    <section class="text-roller text-roller--gold" data-direction="left" aria-label="Especialidades Lualves Hair">
-      <div class="text-roller-track" aria-hidden="true">
-        <span>Colorimetria</span>
-        <span>Mechas</span>
-        <span>Mega hair</span>
-        <span>Loiros</span>
-        <span>Cacheados</span>
-        <span>Freguesia</span>
-        <span>Colorimetria</span>
-        <span>Mechas</span>
-        <span>Mega hair</span>
-        <span>Loiros</span>
-        <span>Cacheados</span>
-        <span>Freguesia</span>
-      </div>
-    </section>
-
-    <section class="section section-light pain-section reveal" aria-label="Dores de quem procura um salão confiável">
-      <div class="container">
-        <div class="section-head">
+    <section class="section quiz-section booking-section reveal" id="agendamento">
+      <div class="container quiz-shell booking-shell">
+        <aside class="booking-intro reveal">
+          <img class="booking-logo" src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365650/e956f94b-cc3a-402c-bd37-282c936a69fa_1_zpavqr.png" alt="Lualves Hair" width="300" height="92">
           <div>
-            <p class="eyebrow">Escolha com segurança</p>
-            <h2>Quando o cabelo precisa de confiança antes da transformação.</h2>
+            <p class="eyebrow">Agendamento personalizado</p>
+            <h2>Sua avaliação começa aqui.</h2>
+            <p>Conte o que você deseja e informe sua preferência de data e horário. A Luana recebe tudo organizado no WhatsApp para confirmar a disponibilidade.</p>
           </div>
-          <p>Quem busca um salão confiável quer se sentir ouvida, entender o processo e sair com um resultado bonito sem abrir mão da saúde visual dos fios.</p>
-        </div>
-        <div class="drag-hint" aria-hidden="true">Arraste pro lado</div>
-        <div class="pillars drag-carousel" data-drag-carousel aria-label="Dores principais">
-          <article class="pillar-card pain-card reveal" data-reveal-delay="0">
+          <ol class="booking-process" aria-label="Etapas do agendamento">
+            <li><span>01</span><div><strong>Escolha o serviço</strong><small>Mega hair, loiros ou cacheados.</small></div></li>
+            <li><span>02</span><div><strong>Defina sua preferência</strong><small>Data e horário que funcionam para você.</small></div></li>
+            <li><span>03</span><div><strong>Confirme no WhatsApp</strong><small>A Luana retorna com a disponibilidade.</small></div></li>
+          </ol>
+          <p class="booking-assurance"><svg class="ui-icon" aria-hidden="true"><use href="#icon-check"></use></svg>Atendimento exclusivo e com hora marcada.</p>
+        </aside>
+
+        <div class="quiz-card booking-card reveal" data-reveal-delay="1" data-booking>
+          <div class="booking-progress">
             <div>
-              <div class="pain-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 2.8 19h18.4L12 3Z"></path><path d="M12 8v5"></path><path d="M12 17h.01"></path></svg></div>
-              <span>01</span>
+              <span id="booking-progress-label">Passo 1 de 4</span>
+              <strong id="booking-progress-title">Serviço</strong>
             </div>
-            <h3>Medo de não ficar natural</h3>
-            <p><strong>Mega hair, loiro ou cachos</strong> precisam combinar com seu rosto, rotina e estilo. O acabamento precisa parecer pensado para você.</p>
-          </article>
-          <article class="pillar-card pain-card reveal" data-reveal-delay="1">
-            <div>
-              <div class="pain-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 4.6-2.9 8.7-7 10-4.1-1.3-7-5.4-7-10V6l7-3Z"></path><path d="m9.5 12.5 1.7 1.7 3.6-4.2"></path></svg></div>
-              <span>02</span>
+            <div class="booking-progress-bar" role="progressbar" aria-label="Progresso do agendamento" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1"><span id="booking-progress-fill"></span></div>
+          </div>
+          <p class="quiz-hint">Escolha uma opção para avançar</p>
+
+          <div class="quiz-step active" data-step="1">
+            <span class="quiz-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20v-6"></path><path d="M8 20h8"></path><path d="M16.5 4.5c1.7 1.7 1.7 4.4 0 6.1L12 15l-4.5-4.4a4.3 4.3 0 0 1 6.1-6.1L12 6l1.5-1.5a4.3 4.3 0 0 1 3 0Z"></path></svg></span>
+            <h3 tabindex="-1">Qual serviço você procura?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" type="button" data-choice="servico" data-value="Mega hair" data-emoji="💇🏾‍♀️">
+                <span class="quiz-emoji" aria-hidden="true">💇🏾‍♀️</span>
+                <span><strong>Mega hair</strong><small>Comprimento, volume, naturalidade ou manutenção.</small></span>
+              </button>
+              <button class="quiz-option" type="button" data-choice="servico" data-value="Loiros" data-emoji="✨">
+                <span class="quiz-emoji" aria-hidden="true">✨</span>
+                <span><strong>Loiros e colorimetria</strong><small>Iluminação, correção de tom ou uma mudança mais marcante.</small></span>
+              </button>
+              <button class="quiz-option" type="button" data-choice="servico" data-value="Cacheados" data-emoji="➿">
+                <span class="quiz-emoji" aria-hidden="true">➿</span>
+                <span><strong>Cacheados</strong><small>Definição, forma, brilho e cuidado com a curvatura.</small></span>
+              </button>
+              <button class="quiz-option" type="button" data-choice="servico" data-value="Ainda não sei" data-emoji="💬">
+                <span class="quiz-emoji" aria-hidden="true">💬</span>
+                <span><strong>Quero orientação</strong><small>Preciso entender qual caminho combina comigo.</small></span>
+              </button>
             </div>
-            <h3>Receio de danificar os fios</h3>
-            <p>A transformação começa com diagnóstico, leitura do cabelo atual e orientação clara sobre o que faz sentido executar naquele momento.</p>
-          </article>
-          <article class="pillar-card pain-card reveal" data-reveal-delay="2">
-            <div>
-              <div class="pain-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="M4 9h16"></path><rect x="4" y="5" width="16" height="16" rx="2"></rect><path d="M9 14h.01"></path><path d="M15 14h.01"></path></svg></div>
-              <span>03</span>
+          </div>
+
+          <div class="quiz-step" data-step="2">
+            <span class="quiz-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20c1.7-4 4.3-6 8-6s6.3 2 8 6"></path><circle cx="12" cy="7" r="4"></circle><path d="M8 7c1.5 1 3 1.5 4.5 1.5S15.3 8 16 7"></path></svg></span>
+            <h3 id="booking-question" tabindex="-1">Conte um pouco mais.</h3>
+            <div class="quiz-options" id="booking-dynamic-options"></div>
+          </div>
+
+          <div class="quiz-step" data-step="3">
+            <span class="quiz-step-icon" aria-hidden="true"><svg class="ui-icon"><use href="#icon-calendar"></use></svg></span>
+            <h3 tabindex="-1">Qual é a melhor data para você?</h3>
+            <label class="booking-field" for="booking-date">
+              <span>Data preferida</span>
+              <input type="date" id="booking-date" autocomplete="off" required>
+              <small>A data será confirmada pela Luana no WhatsApp.</small>
+            </label>
+            <p class="booking-error" id="booking-date-error" role="alert"></p>
+          </div>
+
+          <div class="quiz-step" data-step="4">
+            <span class="quiz-step-icon" aria-hidden="true"><svg class="ui-icon"><use href="#icon-clock"></use></svg></span>
+            <h3 tabindex="-1">Qual horário você prefere?</h3>
+            <label class="booking-field" for="booking-time">
+              <span>Horário preferido</span>
+              <input type="time" id="booking-time" autocomplete="off" required>
+              <small>Informe uma preferência; a disponibilidade será confirmada no atendimento.</small>
+            </label>
+            <p class="booking-error" id="booking-time-error" role="alert"></p>
+          </div>
+
+          <div class="quiz-result" id="booking-result" aria-live="polite">
+            <div class="quiz-result-head">
+              <strong>Resumo do agendamento</strong>
+              <span>Pronto para enviar</span>
             </div>
-            <h3>Dúvida sobre manutenção</h3>
-            <p>O resultado precisa continuar bonito depois do atendimento, com cuidados possíveis e indicação honesta sobre manutenção.</p>
-          </article>
+            <ul class="quiz-summary" id="booking-summary"></ul>
+            <p>Revise as informações e envie sua solicitação para a Luana.</p>
+          </div>
+
+          <div class="quiz-actions">
+            <button class="btn btn-outline" type="button" id="booking-prev">Voltar</button>
+            <button class="btn btn-booking" type="button" id="booking-next">Continuar</button>
+            <a class="btn btn-gold wa-cta" href="#" id="booking-wa" target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Enviar solicitação</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-champagne reveal" id="sobre">
+    <section class="section section-champagne about-section reveal" id="sobre">
+      <span class="about-monogram" aria-hidden="true">LA</span>
       <div class="container about-grid">
         <div class="specialist-media reveal">
           <p class="specialist-kicker">ESPECIALISTA</p>
@@ -1817,8 +2557,9 @@
         </div>
         <div class="about-copy reveal" data-reveal-delay="1">
           <p class="eyebrow specialist-name">Luana Alves</p>
-          <h2>Colorimetria, mechas e transformações com acabamento natural.</h2>
-          <p class="muted">Luana une diagnóstico, escuta e técnica para criar resultados alinhados ao desejo da cliente e à saúde visual dos fios.</p>
+          <h2>Especialista em mega hair personalizado e colorimetria.</h2>
+          <p class="muted">Cada transformação é pensada em cada detalhe: cor, textura, movimento e o resultado que você deseja.</p>
+          <p class="specialist-manifesto">Beleza que realça quem você é.</p>
           <div class="specialist-stats" aria-label="Números da especialista">
             <article class="stat-card">
               <strong><span class="stat-number" data-count="5" data-suffix=",0">0</span></strong>
@@ -1928,92 +2669,6 @@
             </div>
           </div>
         </article>
-      </div>
-    </section>
-
-    <section class="section section-dark quiz-section reveal surface-gold" id="quiz">
-      <div class="container quiz-shell">
-        <aside class="quiz-brand">
-          <img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785365592/Captura_de_tela_2026-07-29_195227_kwzrgp.png" alt="Lualves Hair" width="300" height="92">
-          <div>
-            <p class="eyebrow">Quiz capilar</p>
-            <h2>Qual caminho combina com seu momento?</h2>
-            <p class="muted">Responda em poucos cliques e envie seu contexto para a Luana pelo WhatsApp.</p>
-          </div>
-        </aside>
-
-        <div class="quiz-card" data-quiz>
-          <p class="quiz-hint">Escolha uma opção para continuar</p>
-          <div class="quiz-step active" data-step="1">
-            <p class="eyebrow">Passo 1</p>
-            <span class="quiz-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20v-6"></path><path d="M8 20h8"></path><path d="M16.5 4.5c1.7 1.7 1.7 4.4 0 6.1L12 15l-4.5-4.4a4.3 4.3 0 0 1 6.1-6.1L12 6l1.5-1.5a4.3 4.3 0 0 1 3 0Z"></path></svg></span>
-            <h3>O que você quer transformar agora?</h3>
-            <div class="quiz-options">
-              <button class="quiz-option" type="button" data-choice="nicho" data-value="Mega hair" data-emoji="💇‍♀️">
-                <span class="quiz-emoji" aria-hidden="true">💇‍♀️</span>
-                <span><strong>Mega hair</strong><small>Quero mais comprimento, volume ou uma mudança marcante.</small></span>
-              </button>
-              <button class="quiz-option" type="button" data-choice="nicho" data-value="Loiros" data-emoji="✨">
-                <span class="quiz-emoji" aria-hidden="true">✨</span>
-                <span><strong>Loiros</strong><small>Quero iluminar, corrigir ou encontrar um tom mais elegante.</small></span>
-              </button>
-              <button class="quiz-option" type="button" data-choice="nicho" data-value="Cacheados" data-emoji="➿">
-                <span class="quiz-emoji" aria-hidden="true">➿</span>
-                <span><strong>Cacheados</strong><small>Quero definição, forma, brilho e uma rotina mais possível.</small></span>
-              </button>
-              <button class="quiz-option" type="button" data-choice="nicho" data-value="Ainda não sei" data-emoji="💬">
-                <span class="quiz-emoji" aria-hidden="true">💬</span>
-                <span><strong>Ainda não sei</strong><small>Preciso de orientação para decidir com segurança.</small></span>
-              </button>
-            </div>
-          </div>
-
-          <div class="quiz-step" data-step="2">
-            <p class="eyebrow">Passo 2</p>
-            <span class="quiz-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20c1.7-4 4.3-6 8-6s6.3 2 8 6"></path><circle cx="12" cy="7" r="4"></circle><path d="M8 7c1.5 1 3 1.5 4.5 1.5S15.3 8 16 7"></path></svg></span>
-            <h3 id="quiz-question">Conte um pouco mais.</h3>
-            <div class="quiz-options" id="quiz-dynamic-options"></div>
-          </div>
-
-          <div class="quiz-step" data-step="3">
-            <p class="eyebrow">Passo 3</p>
-            <span class="quiz-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.5 5 5.5.8-4 3.9.9 5.5L12 15.6 7.1 18.2l.9-5.5-4-3.9 5.5-.8L12 3Z"></path></svg></span>
-            <h3>O que mais importa no resultado?</h3>
-            <div class="quiz-options">
-              <button class="quiz-option" type="button" data-choice="prioridade" data-value="Naturalidade" data-emoji="🌿">
-                <span class="quiz-emoji" aria-hidden="true">🌿</span>
-                <span><strong>Naturalidade</strong><small>Quero um resultado sofisticado e integrado ao meu estilo.</small></span>
-              </button>
-              <button class="quiz-option" type="button" data-choice="prioridade" data-value="Impacto" data-emoji="🔥">
-                <span class="quiz-emoji" aria-hidden="true">🔥</span>
-                <span><strong>Impacto</strong><small>Quero uma mudança visível, com presença e acabamento.</small></span>
-              </button>
-              <button class="quiz-option" type="button" data-choice="prioridade" data-value="Praticidade" data-emoji="⏱️">
-                <span class="quiz-emoji" aria-hidden="true">⏱️</span>
-                <span><strong>Praticidade</strong><small>Quero beleza com rotina mais fácil de manter.</small></span>
-              </button>
-              <button class="quiz-option" type="button" data-choice="prioridade" data-value="Saúde dos fios" data-emoji="🛡️">
-                <span class="quiz-emoji" aria-hidden="true">🛡️</span>
-                <span><strong>Saúde dos fios</strong><small>Quero entender o que faz sentido para preservar meu cabelo.</small></span>
-              </button>
-            </div>
-          </div>
-
-          <div class="quiz-result" id="quiz-result">
-            <div class="quiz-result-head">
-              <strong>Resumo do seu quiz</strong>
-              <span>Pronto para enviar</span>
-            </div>
-            <ul class="quiz-summary" id="quiz-summary"></ul>
-            <p id="quiz-result-text">Selecione as opções para ver a indicação.</p>
-          </div>
-
-          <div class="quiz-actions">
-            <button class="btn btn-outline" type="button" id="quiz-prev">Voltar</button>
-            <button class="btn btn-primary" type="button" id="quiz-next">Próximo</button>
-            <a class="btn btn-gold wa-cta" href="#" id="quiz-wa" target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Enviar no WhatsApp</a>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -2261,7 +2916,7 @@
           <nav class="footer-links" aria-label="Links do rodapé">
             <a href="#sobre">Especialista</a>
             <a href="#portfolio">Portfólio</a>
-            <a href="#quiz">Quiz</a>
+            <a href="#agendamento">Agendamento</a>
             <a href="#servicos">Serviços</a>
             <a href="#avaliacoes">Avaliações</a>
             <a href="#localizacao">Localização</a>
@@ -2299,16 +2954,17 @@
       instagramUrl: "https://www.instagram.com/lualves_hairr/"
     };
 
-    const quizState = {
-      nicho: "",
-      detalhe: "",
-      prioridade: ""
+    const bookingState = {
+      servico: "",
+      objetivo: "",
+      data: "",
+      horario: ""
     };
     const loaderStartedAt = Date.now();
     let loadingScheduled = false;
     let loadingFinished = false;
 
-    const quizOptions = {
+    const bookingOptions = {
       "Mega hair": {
         question: "Qual é sua principal vontade com o mega hair?",
         options: [
@@ -2404,9 +3060,9 @@
       window.addEventListener("scroll", update, { passive: true });
     }
 
-    function showQuizStep(step) {
-      document.querySelectorAll(".quiz-step").forEach(function(el) {
-        el.classList.toggle("active", el.getAttribute("data-step") === String(step));
+    function showBookingStep(root, step) {
+      root.querySelectorAll(".quiz-step").forEach(function(element) {
+        element.classList.toggle("active", element.getAttribute("data-step") === String(step));
       });
     }
 
@@ -2419,117 +3075,172 @@
       button.classList.add("is-selected");
     }
 
-    function renderDynamicOptions() {
-      const key = quizState.nicho || "Ainda não sei";
-      const config = quizOptions[key] || quizOptions["Ainda não sei"];
-      const title = document.getElementById("quiz-question");
-      const container = document.getElementById("quiz-dynamic-options");
+    function renderDynamicBookingOptions() {
+      const key = bookingState.servico || "Ainda não sei";
+      const config = bookingOptions[key] || bookingOptions["Ainda não sei"];
+      const title = document.getElementById("booking-question");
+      const container = document.getElementById("booking-dynamic-options");
       if (!title || !container) return;
       title.textContent = config.question;
       container.innerHTML = config.options.map(function(item) {
         const emoji = item[2] || "✨";
         const label = escapeHtml(item[0]);
         const copy = escapeHtml(item[1]);
-        return '<button class="quiz-option" type="button" data-choice="detalhe" data-value="' + label + '" data-emoji="' + emoji + '"><span class="quiz-emoji" aria-hidden="true">' + emoji + '</span><span><strong>' + label + '</strong><small>' + copy + '</small></span></button>';
+        const selected = bookingState.objetivo === item[0] ? " is-selected" : "";
+        return '<button class="quiz-option' + selected + '" type="button" data-choice="objetivo" data-value="' + label + '"><span class="quiz-emoji" aria-hidden="true">' + emoji + '</span><span><strong>' + label + '</strong><small>' + copy + '</small></span></button>';
       }).join("");
     }
 
-    function suggestedPath() {
-      if (quizState.nicho === "Mega hair") return "orientação para mega hair";
-      if (quizState.nicho === "Loiros") return "orientação para loiros";
-      if (quizState.nicho === "Cacheados") return "orientação para cacheados";
-      if (quizState.detalhe === "Cor sem vida") return "orientação para loiros";
-      if (quizState.detalhe === "Pouco volume") return "orientação para mega hair";
-      return "orientação capilar personalizada";
+    function getLocalDateValue(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const day = String(date.getDate()).padStart(2, "0");
+      return year + "-" + month + "-" + day;
     }
 
-    function updateQuizResult() {
-      const result = document.getElementById("quiz-result");
-      const text = document.getElementById("quiz-result-text");
-      const summary = document.getElementById("quiz-summary");
-      const wa = document.getElementById("quiz-wa");
-      const path = suggestedPath();
+    function formatBookingDate(value) {
+      const parts = String(value).split("-");
+      if (parts.length !== 3) return value;
+      return parts[2] + "/" + parts[1] + "/" + parts[0];
+    }
+
+    function updateBookingProgress(step, review) {
+      const label = document.getElementById("booking-progress-label");
+      const title = document.getElementById("booking-progress-title");
+      const bar = document.querySelector(".booking-progress-bar");
+      const fill = document.getElementById("booking-progress-fill");
+      const titles = ["Serviço", "Objetivo", "Data preferida", "Horário preferido"];
+      const progress = review ? 100 : step * 25;
+      if (label) label.textContent = review ? "Tudo pronto" : "Passo " + step + " de 4";
+      if (title) title.textContent = review ? "Revisar e enviar" : titles[step - 1];
+      if (fill) fill.style.width = progress + "%";
+      if (bar) bar.setAttribute("aria-valuenow", review ? "4" : String(step));
+    }
+
+    function updateBookingResult() {
+      const result = document.getElementById("booking-result");
+      const summary = document.getElementById("booking-summary");
+      const whatsapp = document.getElementById("booking-wa");
       const chosen = {
-        nicho: quizState.nicho || "não definido",
-        detalhe: quizState.detalhe || "não definido",
-        prioridade: quizState.prioridade || "não definida"
+        servico: bookingState.servico || "não definido",
+        objetivo: bookingState.objetivo || "não definido",
+        data: bookingState.data ? formatBookingDate(bookingState.data) : "não definida",
+        horario: bookingState.horario || "não definido"
       };
       if (summary) {
         summary.innerHTML = [
-          ["💇‍♀️", "Interesse", chosen.nicho],
-          ["📝", "Detalhe", chosen.detalhe],
-          ["⭐", "Prioridade", chosen.prioridade]
+          ["💇🏾‍♀️", "Serviço", chosen.servico],
+          ["📝", "Objetivo", chosen.objetivo],
+          ["📅", "Data preferida", chosen.data],
+          ["⏰", "Horário preferido", chosen.horario]
         ].map(function(item) {
           return "<li><span>" + item[0] + "</span><span><strong>" + item[1] + ":</strong> " + escapeHtml(item[2]) + "</span></li>";
         }).join("");
       }
-      if (text) text.textContent = "✨ A melhor próxima conversa é uma " + path + ".";
       if (result) result.classList.add("active");
-      if (wa) {
+      if (whatsapp) {
         const message = [
-          "✨ Olá, Luana! Fiz o quiz no site da Lualves Hair.",
-          "💇‍♀️ Meu interesse: " + chosen.nicho,
-          "📝 Detalhe: " + chosen.detalhe,
-          "⭐ Prioridade: " + chosen.prioridade,
-          "📅 Gostaria de agendar uma orientação."
-        ].join("\\n");
-        wa.href = buildWhatsAppLink(message);
+          "✨ Olá, Luana! Gostaria de solicitar uma avaliação na Lualves Hair.",
+          "💇🏾‍♀️ Serviço: " + chosen.servico,
+          "📝 Objetivo: " + chosen.objetivo,
+          "📅 Data preferida: " + chosen.data,
+          "⏰ Horário preferido: " + chosen.horario,
+          "💬 Pode confirmar a disponibilidade para mim?"
+        ].join("\n");
+        whatsapp.href = buildWhatsAppLink(message);
       }
     }
 
-    function initQuiz() {
-      const quiz = document.querySelector("[data-quiz]");
-      if (!quiz) return;
+    function initBooking() {
+      const booking = document.querySelector("[data-booking]");
+      if (!booking) return;
       let currentStep = 1;
-      const prev = document.getElementById("quiz-prev");
-      const next = document.getElementById("quiz-next");
-      const wa = document.getElementById("quiz-wa");
-      const result = document.getElementById("quiz-result");
-      if (wa) wa.style.display = "none";
+      const previous = document.getElementById("booking-prev");
+      const next = document.getElementById("booking-next");
+      const whatsapp = document.getElementById("booking-wa");
+      const result = document.getElementById("booking-result");
+      const dateInput = document.getElementById("booking-date");
+      const timeInput = document.getElementById("booking-time");
+      const dateError = document.getElementById("booking-date-error");
+      const timeError = document.getElementById("booking-time-error");
+      const minimumDate = getLocalDateValue(new Date());
+
+      if (dateInput) dateInput.min = minimumDate;
+      if (whatsapp) whatsapp.style.display = "none";
       if (next) next.style.display = "none";
-      if (prev) prev.style.display = "none";
+      if (previous) previous.style.display = "none";
 
-      function setCurrentStep(step) {
+      function clearErrors() {
+        if (dateError) dateError.textContent = "";
+        if (timeError) timeError.textContent = "";
+      }
+
+      function setCurrentStep(step, shouldFocus) {
         currentStep = step;
-        showQuizStep(currentStep);
+        showBookingStep(booking, currentStep);
+        clearErrors();
         if (result) result.classList.remove("active");
-        if (wa) wa.style.display = "none";
-        if (prev) prev.style.display = currentStep > 1 ? "" : "none";
+        if (whatsapp) whatsapp.style.display = "none";
+        if (previous) previous.style.display = currentStep > 1 ? "" : "none";
+        if (next) {
+          next.style.display = currentStep >= 3 ? "" : "none";
+          next.textContent = currentStep === 4 ? "Revisar pedido" : "Continuar";
+        }
+        updateBookingProgress(currentStep, false);
+        if (shouldFocus !== false) {
+          window.setTimeout(function() {
+            const heading = booking.querySelector(".quiz-step.active h3");
+            if (heading) heading.focus({ preventScroll: true });
+          }, 180);
+        }
       }
 
-      function finishQuiz() {
-        updateQuizResult();
-        document.querySelectorAll(".quiz-step").forEach(function(el) {
-          el.classList.remove("active");
+      function finishBooking() {
+        updateBookingResult();
+        booking.querySelectorAll(".quiz-step").forEach(function(element) {
+          element.classList.remove("active");
         });
-        if (prev) prev.style.display = "";
+        if (previous) previous.style.display = "";
         if (next) next.style.display = "none";
-        if (wa) wa.style.display = "";
+        if (whatsapp) whatsapp.style.display = "";
+        updateBookingProgress(4, true);
       }
 
-      quiz.addEventListener("click", function(event) {
+      booking.addEventListener("click", function(event) {
         const button = event.target.closest(".quiz-option");
         if (!button) return;
         const choice = button.getAttribute("data-choice");
         const value = button.getAttribute("data-value");
-        quizState[choice] = value;
         setSelected(button);
-        if (choice === "nicho") {
-          renderDynamicOptions();
-          window.setTimeout(function() { setCurrentStep(2); }, 160);
+        if (choice === "servico") {
+          if (bookingState.servico !== value) bookingState.objetivo = "";
+          bookingState.servico = value;
+          renderDynamicBookingOptions();
+          window.setTimeout(function() { setCurrentStep(2); }, 150);
         }
-        if (choice === "detalhe") {
-          window.setTimeout(function() { setCurrentStep(3); }, 160);
-        }
-        if (choice === "prioridade") {
-          window.setTimeout(finishQuiz, 160);
+        if (choice === "objetivo") {
+          bookingState.objetivo = value;
+          window.setTimeout(function() { setCurrentStep(3); }, 150);
         }
       });
 
-      if (prev) {
-        prev.addEventListener("click", function() {
+      if (dateInput) {
+        dateInput.addEventListener("input", function() {
+          bookingState.data = dateInput.value;
+          if (dateError) dateError.textContent = "";
+        });
+      }
+      if (timeInput) {
+        timeInput.addEventListener("input", function() {
+          bookingState.horario = timeInput.value;
+          if (timeError) timeError.textContent = "";
+        });
+      }
+
+      if (previous) {
+        previous.addEventListener("click", function() {
           if (result && result.classList.contains("active")) {
-            setCurrentStep(3);
+            setCurrentStep(4);
             return;
           }
           setCurrentStep(Math.max(1, currentStep - 1));
@@ -2538,18 +3249,32 @@
 
       if (next) {
         next.addEventListener("click", function() {
-          if (currentStep === 1 && !quizState.nicho) return;
-          if (currentStep === 2 && !quizState.detalhe) return;
-          if (currentStep === 3 && !quizState.prioridade) return;
-          if (currentStep < 3) {
-            setCurrentStep(currentStep + 1);
+          if (currentStep === 3) {
+            const value = dateInput ? dateInput.value : "";
+            if (!value || value < minimumDate) {
+              if (dateError) dateError.textContent = "Escolha uma data válida a partir de hoje.";
+              if (dateInput) dateInput.focus();
+              return;
+            }
+            bookingState.data = value;
+            setCurrentStep(4);
             return;
           }
-          finishQuiz();
+          if (currentStep === 4) {
+            const value = timeInput ? timeInput.value : "";
+            if (!value) {
+              if (timeError) timeError.textContent = "Informe seu horário preferido.";
+              if (timeInput) timeInput.focus();
+              return;
+            }
+            bookingState.horario = value;
+            finishBooking();
+          }
         });
       }
 
-      renderDynamicOptions();
+      renderDynamicBookingOptions();
+      setCurrentStep(1, false);
     }
 
     function formatCounterValue(element, value) {
@@ -2668,7 +3393,7 @@
     document.addEventListener("DOMContentLoaded", function() {
       hydrateWhatsAppLinks();
       handleNavbar();
-      initQuiz();
+      initBooking();
       initStatCounters();
       initDragCarousels();
       initRevealAnimations();

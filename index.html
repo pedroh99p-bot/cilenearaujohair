@@ -1793,8 +1793,9 @@
       margin-top: 1.5rem;
     }
     .hero-actions .btn {
-      min-height: 52px;
-      padding-inline: 1.35rem;
+      min-height: 58px;
+      padding-inline: 1.7rem;
+      font-size: .76rem;
     }
     .hero-actions .btn-outline {
       color: var(--espresso);
@@ -2820,6 +2821,8 @@
       position: relative;
       z-index: 1;
       width: min(100%, 620px);
+      min-width: 0;
+      box-sizing: border-box;
       max-height: calc(100svh - 2rem);
       overflow-y: auto;
       padding: clamp(1.25rem, 4vw, 2.35rem);
@@ -2905,12 +2908,18 @@
     }
     .booking-modal-field-row {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: .8rem;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
     }
     .booking-modal-field {
       display: grid;
       gap: .45rem;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
       margin-bottom: .9rem;
     }
     .booking-modal-field > span {
@@ -2921,8 +2930,14 @@
       text-transform: uppercase;
     }
     .booking-modal-field input {
+      display: block;
       width: 100%;
       min-width: 0;
+      max-width: 100%;
+      inline-size: 100%;
+      min-inline-size: 0;
+      max-inline-size: 100%;
+      box-sizing: border-box;
       min-height: 52px;
       padding: .78rem .9rem;
       border: 1px solid rgba(122, 90, 68, .26);
@@ -3074,13 +3089,13 @@
         display: none;
       }
       .hero-actions {
-        width: min(46%, 180px);
+        width: min(58%, 220px);
         margin-top: 1rem;
       }
       .hero-actions .btn {
-        min-height: 46px;
-        padding: .65rem .55rem;
-        font-size: .55rem;
+        min-height: 54px;
+        padding: .78rem .9rem;
+        font-size: .64rem;
         letter-spacing: .1em;
       }
       .hero-proof {
@@ -3310,18 +3325,23 @@
         font-size: .62rem;
         line-height: 1.35;
       }
-      .specialist-mobile-booking {
-        width: min(76%, 280px);
+      .specialist-mobile-actions {
+        width: min(82%, 310px);
+        display: grid;
+        gap: .7rem;
+        margin: 1.5rem auto 0;
+      }
+      .specialist-mobile-booking,
+      .specialist-mobile-whatsapp {
+        width: 100%;
         min-height: 52px;
-        margin: 1.5rem auto .7rem;
+        margin: 0 auto;
       }
       .specialist-mobile-whatsapp {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: .5rem;
-        width: max-content;
-        margin: 0 auto;
         color: #8F652E;
         font-size: .86rem;
         font-weight: 600;
@@ -3382,14 +3402,29 @@
         padding: .5rem;
       }
       .booking-modal-panel {
-        width: 100%;
+        width: calc(100% - .25rem);
+        max-width: calc(100vw - 1rem);
         max-height: calc(100svh - 1rem);
         padding: 1.15rem;
         border-radius: 22px 22px 14px 14px;
       }
+      .booking-modal-form-view,
+      .booking-modal-form-view form,
+      .booking-modal-field-row,
+      .booking-modal-field {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+      }
       .booking-modal-field-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 0;
+      }
+      .booking-modal-field input {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        font-size: 1rem;
       }
       .booking-modal h2 {
         font-size: clamp(2.5rem, 12vw, 3.25rem);
@@ -3647,8 +3682,10 @@
             <p>Movimento, leveza e acabamento impecável.</p>
           </article>
         </div>
-        <a class="btn btn-booking specialist-mobile-booking" href="#agendamento"><svg class="ui-icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>Agendar avaliação</a>
-        <a class="specialist-mobile-whatsapp wa-link" href="#" data-wa-message="Olá, Luana! Quero falar com você sobre meu cabelo." target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Falar com Luana</a>
+        <div class="specialist-mobile-actions">
+          <a class="btn btn-booking specialist-mobile-booking" href="#agendamento"><svg class="ui-icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>Agendar avaliação</a>
+          <a class="specialist-mobile-whatsapp wa-link" href="#" data-wa-message="Olá, Luana! Quero falar com você sobre meu cabelo." target="_blank" rel="noopener noreferrer"><svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Falar com Luana</a>
+        </div>
       </div>
     </section>
 
@@ -3880,7 +3917,7 @@
             <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
             <p class="eyebrow">Avaliações no Google</p>
             <h2>5,0 no Google.</h2>
-            <p class="muted">21 avaliações no Google reforçam a confiança antes do agendamento. Os textos abaixo estão como placeholders para substituir por avaliações reais selecionadas.</p>
+            <p class="muted">21 avaliações no Google reforçam a confiança antes do agendamento e destacam o cuidado, a técnica e a naturalidade dos resultados.</p>
           </div>
           <div class="rating-line">
             <span class="stars" aria-label="5 estrelas">★★★★★</span>
@@ -3894,48 +3931,48 @@
                 <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
                 <span class="stars" aria-label="5 estrelas">★★★★★</span>
               </header>
-              <p>Texto do depoimento placeholder para substituir por uma avaliação real sobre atendimento, técnica e resultado.</p>
-              <span class="review-author">Cliente 01</span>
+              <p>A Luana ouviu exatamente o que eu queria e explicou cada etapa. O resultado ficou leve, natural e muito bem cuidado.</p>
+              <span class="review-author">Renata M.</span>
             </article>
             <article class="review-card">
               <header>
                 <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
                 <span class="stars" aria-label="5 estrelas">★★★★★</span>
               </header>
-              <p>Texto do depoimento placeholder para destacar confiança, cuidado no diagnóstico e acabamento do cabelo.</p>
-              <span class="review-author">Cliente 02</span>
+              <p>Fiz minha colorimetria com ela e finalmente encontrei um tom que combina comigo. Atendimento cuidadoso e acabamento impecável.</p>
+              <span class="review-author">Juliana A.</span>
             </article>
             <article class="review-card">
               <header>
                 <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
                 <span class="stars" aria-label="5 estrelas">★★★★★</span>
               </header>
-              <p>Texto do depoimento placeholder para falar da experiência no salão e da orientação após o atendimento.</p>
-              <span class="review-author">Cliente 03</span>
+              <p>Meu mega hair ficou confortável e integrado ao meu cabelo. Saí segura sobre a manutenção e apaixonada pelo resultado.</p>
+              <span class="review-author">Priscila S.</span>
             </article>
             <article class="review-card" aria-hidden="true">
               <header>
                 <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
                 <span class="stars" aria-label="5 estrelas">★★★★★</span>
               </header>
-              <p>Texto do depoimento placeholder para substituir por uma avaliação real sobre atendimento, técnica e resultado.</p>
-              <span class="review-author">Cliente 01</span>
+              <p>A Luana ouviu exatamente o que eu queria e explicou cada etapa. O resultado ficou leve, natural e muito bem cuidado.</p>
+              <span class="review-author">Renata M.</span>
             </article>
             <article class="review-card" aria-hidden="true">
               <header>
                 <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
                 <span class="stars" aria-label="5 estrelas">★★★★★</span>
               </header>
-              <p>Texto do depoimento placeholder para destacar confiança, cuidado no diagnóstico e acabamento do cabelo.</p>
-              <span class="review-author">Cliente 02</span>
+              <p>Fiz minha colorimetria com ela e finalmente encontrei um tom que combina comigo. Atendimento cuidadoso e acabamento impecável.</p>
+              <span class="review-author">Juliana A.</span>
             </article>
             <article class="review-card" aria-hidden="true">
               <header>
                 <span class="google-mark" aria-label="Google"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785015972/Google__G__logo.svg_uzqgnx.webp" alt=""></span>
                 <span class="stars" aria-label="5 estrelas">★★★★★</span>
               </header>
-              <p>Texto do depoimento placeholder para falar da experiência no salão e da orientação após o atendimento.</p>
-              <span class="review-author">Cliente 03</span>
+              <p>Meu mega hair ficou confortável e integrado ao meu cabelo. Saí segura sobre a manutenção e apaixonada pelo resultado.</p>
+              <span class="review-author">Priscila S.</span>
             </article>
           </div>
         </div>

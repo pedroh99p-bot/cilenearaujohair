@@ -390,7 +390,6 @@
       z-index: 1;
     }
     .surface-gold .eyebrow,
-    .surface-gold .portfolio-label span,
     .surface-gold .footer-title {
       color: var(--medium-brown);
     }
@@ -401,19 +400,6 @@
     .surface-gold .footer a,
     .surface-gold .footer span {
       color: var(--medium-brown);
-    }
-    .surface-gold .marquee::before {
-      background: linear-gradient(90deg, var(--gold), transparent);
-    }
-    .surface-gold .marquee::after {
-      background: linear-gradient(270deg, var(--sand), transparent);
-    }
-    .surface-gold .portfolio-card {
-      border-color: rgba(33, 28, 24, .14);
-      background: rgba(247, 244, 241, .28);
-    }
-    .surface-gold .portfolio-label {
-      border-bottom-color: rgba(33, 28, 24, .14);
     }
     .surface-gold.quiz-section .quiz-brand {
       color: var(--espresso);
@@ -588,95 +574,6 @@
       white-space: nowrap;
       transform: scaleY(1.2);
       transform-origin: center;
-    }
-
-    .portfolio {
-      overflow: hidden;
-    }
-    .portfolio-set + .portfolio-set {
-      margin-top: clamp(3rem, 7vw, 5.5rem);
-    }
-    .portfolio-label {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      padding-bottom: .85rem;
-      border-bottom: 1px solid var(--line-dark);
-    }
-    .portfolio-label h3 {
-      margin: 0;
-      font-size: clamp(2.3rem, 5vw, 4.6rem);
-    }
-    .portfolio-label span {
-      color: var(--gold);
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-    }
-    .marquee {
-      position: relative;
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      overflow: hidden;
-      overflow: clip;
-      contain: layout paint;
-    }
-    .marquee::before,
-    .marquee::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      z-index: 2;
-      width: min(9vw, 120px);
-      pointer-events: none;
-    }
-    .marquee::before {
-      left: 0;
-      background: linear-gradient(90deg, var(--espresso), transparent);
-    }
-    .marquee::after {
-      right: 0;
-      background: linear-gradient(270deg, var(--espresso), transparent);
-    }
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      gap: .18rem;
-      padding: .5rem 0 1rem;
-      animation: marqueeLeft 38s linear infinite;
-    }
-    .marquee[data-direction="right"] .marquee-track {
-      animation-name: marqueeRight;
-    }
-    .marquee:hover .marquee-track {
-      animation-play-state: paused;
-    }
-    .portfolio-card {
-      margin: 0;
-      width: clamp(230px, 24vw, 318px);
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      border-radius: 0;
-      border: 1px solid rgba(245, 241, 234, .14);
-      border-left: 0;
-      background: var(--espresso-soft);
-      box-shadow: none;
-    }
-    .portfolio-card--square {
-      aspect-ratio: 4 / 5;
-    }
-    .portfolio-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .7s var(--ease);
-    }
-    .portfolio-card:hover img {
-      transform: scale(1.045);
     }
 
     .quiz-shell {
@@ -1433,14 +1330,6 @@
       35% { opacity: 1; }
       to { transform: scaleX(1); opacity: .82; }
     }
-    @keyframes marqueeLeft {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-    @keyframes marqueeRight {
-      from { transform: translateX(-50%); }
-      to { transform: translateX(0); }
-    }
     @keyframes textRollLeft {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
@@ -1543,13 +1432,6 @@
       }
       .quiz-options {
         grid-template-columns: 1fr;
-      }
-      .portfolio-label {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-      .portfolio-card {
-        width: 68vw;
       }
       .drag-carousel {
         padding-inline: .05rem;
@@ -3537,7 +3419,6 @@
       </a>
       <nav class="nav-links" aria-label="Navegação principal">
         <a href="#sobre">Especialista</a>
-        <a href="#portfolio">Portfólio</a>
         <a href="#agendamento">Agendamento</a>
         <a href="#avaliacoes">Avaliações</a>
         <a href="#servicos">Serviços</a>
@@ -3558,7 +3439,7 @@
           <p class="hero-rating"><span aria-hidden="true">★★★★★</span><strong>Atendimento profissional</strong><small>Morro do Banco</small></p>
           <div class="hero-actions">
             <a class="btn btn-booking" href="#agendamento"><svg class="ui-icon" aria-hidden="true"><use href="#icon-calendar"></use></svg>Agendar avaliação</a>
-            <a class="btn btn-outline" href="#portfolio"><svg class="ui-icon" aria-hidden="true"><use href="#icon-sparkles"></use></svg>Ver transformações</a>
+            <a class="btn btn-outline" href="#servicos"><svg class="ui-icon" aria-hidden="true"><use href="#icon-sparkles"></use></svg>Ver serviços</a>
           </div>
           <ul class="hero-proof" aria-label="Especialidades Cilene Araújo">
             <li><svg class="ui-icon" aria-hidden="true"><use href="#icon-scissors"></use></svg>Corte</li>
@@ -3775,79 +3656,6 @@
         <span>Progressiva</span>
         <span>Hidratação</span>
         <span>Acabamento</span>
-      </div>
-    </section>
-
-    <section class="section section-dark portfolio reveal surface-gold" id="portfolio">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Portfólio</p>
-            <h2>Transformações reais em destaque.</h2>
-          </div>
-          <p>Os carrosséis preservam a vitrine visual do projeto enquanto a nova identidade da Cilene prioriza corte, escova, progressiva e hidratação.</p>
-        </div>
-
-        <article class="portfolio-set reveal">
-          <div class="portfolio-label">
-            <h3>Corte</h3>
-            <span>acabamento</span>
-          </div>
-          <div class="marquee" data-direction="left" aria-label="Carrossel de corte">
-            <div class="marquee-track">
-              <figure class="portfolio-card portfolio-card--square"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012142/704681702_18096610442181108_8947500678800711820_n._t0lzkf.webp" alt="Transformação capilar"></figure>
-              <figure class="portfolio-card portfolio-card--square"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012142/690139749_18095383643181108_4760269812864965831_n._bt1ysf.webp" alt="Resultado capilar com volume"></figure>
-              <figure class="portfolio-card portfolio-card--square"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012142/732849531_18101140436181108_5952954356228970784_n._v0nrlj.webp" alt="Antes e depois capilar"></figure>
-              <figure class="portfolio-card portfolio-card--square"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012142/726820883_18099403958181108_4692741818799831604_n._rxfppy.webp" alt="Cabelo com acabamento natural"></figure>
-              <figure class="portfolio-card portfolio-card--square"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012085/717140611_18098063069181108_7452386494298876988_n._pv63ue.webp" alt="Resultado capilar"></figure>
-              <figure class="portfolio-card portfolio-card--square"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012142/704681702_18096610442181108_8947500678800711820_n._t0lzkf.webp" alt="" aria-hidden="true"></figure>
-              <figure class="portfolio-card portfolio-card--square"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012142/690139749_18095383643181108_4760269812864965831_n._bt1ysf.webp" alt="" aria-hidden="true"></figure>
-              <figure class="portfolio-card portfolio-card--square"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012142/732849531_18101140436181108_5952954356228970784_n._v0nrlj.webp" alt="" aria-hidden="true"></figure>
-              <figure class="portfolio-card portfolio-card--square"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012142/726820883_18099403958181108_4692741818799831604_n._rxfppy.webp" alt="" aria-hidden="true"></figure>
-              <figure class="portfolio-card portfolio-card--square"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012085/717140611_18098063069181108_7452386494298876988_n._pv63ue.webp" alt="" aria-hidden="true"></figure>
-            </div>
-          </div>
-        </article>
-
-        <article class="portfolio-set reveal" data-reveal-delay="1">
-          <div class="portfolio-label">
-            <h3>Escova</h3>
-            <span>finalização</span>
-          </div>
-          <div class="marquee" data-direction="right" aria-label="Carrossel de escova">
-            <div class="marquee-track">
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012536/723238928_18098798384181108_7710432042003375156_n._cq48gv.webp" alt="Cabelo iluminado"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012535/662538351_18092198396181108_8377487018375355910_n._kumgnk.webp" alt="Cabelo com brilho"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012534/711630752_18097523225181108_2755720857316651291_n._mqtj2i.webp" alt="Cabelo com acabamento elegante"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012533/719828397_18098406644181108_3770137059902404464_n._r1cmhy.webp" alt="Transformação capilar"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012532/681623033_18584939191026075_3305728866010909041_n._stzd57.webp" alt="Resultado de cabelo iluminado"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012536/723238928_18098798384181108_7710432042003375156_n._cq48gv.webp" alt="" aria-hidden="true"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012535/662538351_18092198396181108_8377487018375355910_n._kumgnk.webp" alt="" aria-hidden="true"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012534/711630752_18097523225181108_2755720857316651291_n._mqtj2i.webp" alt="" aria-hidden="true"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012533/719828397_18098406644181108_3770137059902404464_n._r1cmhy.webp" alt="" aria-hidden="true"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012532/681623033_18584939191026075_3305728866010909041_n._stzd57.webp" alt="" aria-hidden="true"></figure>
-            </div>
-          </div>
-        </article>
-
-        <article class="portfolio-set reveal" data-reveal-delay="2">
-          <div class="portfolio-label">
-            <h3>Hidratação</h3>
-            <span>brilho e toque</span>
-          </div>
-          <div class="marquee" data-direction="left" aria-label="Carrossel de hidratação">
-            <div class="marquee-track">
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012636/700272294_18095998181181108_6106424456288769353_n._lptz8e.webp" alt="Cabelo com definição"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012635/515579288_18064221767181108_2388542049204807635_n._nthua8.webp" alt="Cabelo com brilho"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012634/701487311_18095998190181108_6694069959127983238_n._zi78e3.webp" alt="Transformação capilar"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012633/731736185_18237003982312055_3850492609895903119_n._u9m6sz.webp" alt="Resultado capilar"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012636/700272294_18095998181181108_6106424456288769353_n._lptz8e.webp" alt="" aria-hidden="true"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012635/515579288_18064221767181108_2388542049204807635_n._nthua8.webp" alt="" aria-hidden="true"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012634/701487311_18095998190181108_6694069959127983238_n._zi78e3.webp" alt="" aria-hidden="true"></figure>
-              <figure class="portfolio-card"><img src="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785012633/731736185_18237003982312055_3850492609895903119_n._u9m6sz.webp" alt="" aria-hidden="true"></figure>
-            </div>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -4121,7 +3929,6 @@
           <div class="footer-title">Navegação</div>
           <nav class="footer-links" aria-label="Links do rodapé">
             <a href="#sobre">Especialista</a>
-            <a href="#portfolio">Portfólio</a>
             <a href="#agendamento">Agendamento</a>
             <a href="#servicos">Serviços</a>
             <a href="#avaliacoes">Avaliações</a>

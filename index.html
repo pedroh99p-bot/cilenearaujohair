@@ -8,7 +8,7 @@
   <title>Cilene Araújo | Corte, Escova, Progressiva e Hidratação</title>
   <meta property="og:title" content="Cilene Araújo | Cabelos e Beleza">
   <meta property="og:description" content="Cilene Araújo: atendimento profissional para corte, escova, progressiva e hidratação no Morro do Banco.">
-  <meta property="og:image" content="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1787797493/321de2ac-fd9e-41f9-b895-af382c227014_am23mc.webp">
+  <meta property="og:image" content="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1787800993/c81e9f2b-23d1-4421-9e76-4b0bd18c5c28_1_qrsqhk.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cilene Araújo">
   <meta name="twitter:description" content="Corte, escova, progressiva e hidratação com atendimento profissional.">
-  <meta name="twitter:image" content="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1787797493/321de2ac-fd9e-41f9-b895-af382c227014_am23mc.webp">
+  <meta name="twitter:image" content="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1787800993/c81e9f2b-23d1-4421-9e76-4b0bd18c5c28_1_qrsqhk.webp">
   <link rel="icon" type="image/png" href="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1787797495/b1c7cfbe-fb4e-4310-8c3f-0cfe180eadb9_duiqgz.png">
   <link rel="apple-touch-icon" href="https://res.cloudinary.com/dhbrxzt5a/image/upload/v1787797495/b1c7cfbe-fb4e-4310-8c3f-0cfe180eadb9_duiqgz.png">
 
@@ -168,7 +168,6 @@
     .nav-logo img {
       width: clamp(118px, 13vw, 178px);
       height: auto;
-      filter: brightness(0) invert(1);
     }
     .nav-links {
       display: flex;
@@ -1369,14 +1368,22 @@
       gap: .65rem;
     }
     .float-btn {
-      width: 52px;
+      width: auto;
+      min-width: 148px;
       height: 52px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      color: var(--off-white);
-      background: var(--whatsapp-green);
-      box-shadow: 0 14px 32px rgba(37, 211, 102, .26);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      padding: 0 1.15rem;
+      border-radius: 999px;
+      color: var(--espresso);
+      background: var(--gold);
+      box-shadow: 0 14px 32px rgba(196, 161, 106, .28);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
     }
     .float-btn .brand-icon {
       width: 24px;
@@ -1590,8 +1597,11 @@
         bottom: .75rem;
       }
       .float-btn {
-        width: 48px;
-        height: 48px;
+        width: auto;
+        min-width: 136px;
+        height: 50px;
+        padding: 0 1rem;
+        font-size: .62rem;
       }
     }
 
@@ -2354,9 +2364,9 @@
     .specialist-showcase {
       padding: clamp(2.5rem, 5vw, 5rem) 0;
       background:
-        radial-gradient(circle at 18% 12%, rgba(198, 163, 106, .09), transparent 28%),
-        repeating-linear-gradient(102deg, rgba(122, 90, 68, .018) 0 1px, transparent 1px 16px),
-        var(--off-white);
+        radial-gradient(circle at 18% 12%, rgba(198, 163, 106, .13), transparent 28%),
+        repeating-linear-gradient(102deg, rgba(245, 241, 234, .025) 0 1px, transparent 1px 16px),
+        var(--espresso);
     }
     .specialist-frame {
       position: relative;
@@ -2367,9 +2377,9 @@
       overflow: hidden;
       isolation: isolate;
       padding: clamp(2.5rem, 5vw, 4.5rem);
-      border: 1px solid rgba(166, 117, 48, .72);
-      background: rgba(250, 247, 241, .62);
-      box-shadow: 0 28px 75px rgba(122, 90, 68, .1);
+      border: 1px solid rgba(196, 161, 106, .52);
+      background: rgba(21, 19, 16, .84);
+      box-shadow: 0 28px 75px rgba(0, 0, 0, .28);
     }
     .specialist-frame::before {
       content: "";
@@ -2378,8 +2388,8 @@
       z-index: 0;
       pointer-events: none;
       background:
-        radial-gradient(circle at 70% 28%, rgba(198, 163, 106, .06) 0 1px, transparent 1.5px) 0 0 / 13px 13px,
-        linear-gradient(118deg, rgba(255, 255, 255, .42), transparent 45%);
+        radial-gradient(circle at 70% 28%, rgba(198, 163, 106, .09) 0 1px, transparent 1.5px) 0 0 / 13px 13px,
+        linear-gradient(118deg, rgba(245, 241, 234, .08), transparent 45%);
       opacity: .58;
     }
     .specialist-watermark {
@@ -2387,7 +2397,7 @@
       left: 29%;
       top: 4%;
       z-index: 0;
-      color: rgba(154, 110, 50, .075);
+      color: rgba(196, 161, 106, .08);
       font-family: var(--font-serif);
       font-size: clamp(18rem, 34vw, 31rem);
       font-weight: 500;
@@ -2404,7 +2414,7 @@
     }
     .specialist-intro {
       margin: 0 0 .65rem;
-      color: #8F652E;
+      color: var(--gold);
       font-size: .72rem;
       font-weight: 700;
       letter-spacing: .15em;
@@ -2418,7 +2428,7 @@
     .specialist-copy h2 {
       max-width: none;
       margin-bottom: 1.7rem;
-      color: var(--espresso);
+      color: var(--off-white);
       font-size: clamp(6rem, 8.8vw, 8.6rem);
       line-height: .68;
     }
@@ -2426,7 +2436,7 @@
       display: block;
     }
     .specialist-copy h2 span:last-child {
-      color: #9A6E32;
+      color: var(--gold);
       font-style: italic;
       font-weight: 400;
     }
@@ -2440,7 +2450,7 @@
     .specialist-copy > p {
       max-width: 29rem;
       margin-bottom: 0;
-      color: var(--medium-brown);
+      color: rgba(245, 241, 234, .76);
       font-size: clamp(1rem, 1.55vw, 1.2rem);
       line-height: 1.52;
     }
@@ -2464,7 +2474,7 @@
       border-bottom: 0;
     }
     .specialist-signatures strong {
-      color: var(--espresso);
+      color: var(--off-white);
       font-family: var(--font-serif);
       font-size: clamp(1.65rem, 2.7vw, 2.35rem);
       font-weight: 500;
@@ -2488,10 +2498,10 @@
     }
     .specialist-portrait {
       position: absolute;
-      right: -2.5%;
+      right: 0;
       bottom: 0;
       z-index: 1;
-      width: 59%;
+      width: 56%;
       height: 97%;
       display: flex;
       align-items: flex-end;
@@ -2503,8 +2513,8 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      object-position: right bottom;
-      filter: drop-shadow(-18px 24px 32px rgba(122, 90, 68, .13));
+      object-position: center bottom;
+      filter: drop-shadow(-18px 24px 32px rgba(0, 0, 0, .32));
     }
 
     .services-grid.drag-carousel {
@@ -2901,6 +2911,7 @@
       width: 100%;
       min-width: 0;
       max-width: 100%;
+      overflow: hidden;
     }
     .booking-modal-field {
       display: grid;
@@ -2934,6 +2945,19 @@
       background: rgba(255, 255, 255, .72);
       font: inherit;
       font-size: .92rem;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .booking-modal-field input[type="date"],
+    .booking-modal-field input[type="time"] {
+      min-width: 0;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .booking-modal-field input[type="date"]::-webkit-date-and-time-value,
+    .booking-modal-field input[type="time"]::-webkit-date-and-time-value {
+      min-width: 0;
+      text-align: left;
     }
     .booking-modal-field input:focus {
       outline: 2px solid rgba(198, 163, 106, .68);
@@ -3092,7 +3116,7 @@
         position: absolute;
         left: 0;
         right: 0;
-        bottom: 1.2rem;
+        bottom: 6.25rem;
         z-index: 3;
         width: 100%;
         max-width: none;
@@ -3117,26 +3141,31 @@
       .hero-portrait {
         position: absolute;
         top: 4rem;
-        right: -42%;
+        right: -18%;
         bottom: 0;
         z-index: 0;
-        width: 118%;
+        width: 106%;
         height: auto;
         min-height: 0;
         justify-content: flex-end;
       }
       .hero-portrait img {
-        width: 100%;
+        width: 96%;
         height: 100%;
         max-width: none;
         max-height: none;
         object-fit: contain;
-        object-position: right bottom;
+        object-position: center bottom;
         transform: none;
       }
 
       .specialist-showcase {
         padding: 1.5rem 0 3rem;
+        color: var(--off-white);
+        background:
+          radial-gradient(circle at 80% 12%, rgba(196, 161, 106, .14), transparent 32%),
+          repeating-linear-gradient(102deg, rgba(245, 241, 234, .025) 0 1px, transparent 1px 16px),
+          var(--espresso);
       }
       .specialist-frame {
         display: none;
@@ -3178,7 +3207,7 @@
         position: relative;
         min-height: 438px;
         display: grid;
-        grid-template-columns: 47% 53%;
+        grid-template-columns: 48% 52%;
         align-items: stretch;
         margin-top: 0;
       }
@@ -3187,7 +3216,7 @@
         left: 0;
         top: 3%;
         z-index: 0;
-        color: rgba(154, 110, 50, .07);
+        color: rgba(196, 161, 106, .1);
         font-family: var(--font-serif);
         font-size: 12rem;
         font-weight: 500;
@@ -3203,7 +3232,7 @@
       }
       .specialist-mobile-copy .eyebrow {
         margin-bottom: .55rem;
-        color: #8F652E;
+        color: var(--gold);
         font-size: .58rem;
       }
       .specialist-mobile-copy .eyebrow::before {
@@ -3211,7 +3240,7 @@
       }
       .specialist-mobile-copy h2 {
         margin-bottom: 1rem;
-        color: var(--espresso);
+        color: var(--off-white);
         font-size: clamp(3.3rem, 15vw, 3.7rem);
         line-height: .7;
       }
@@ -3219,7 +3248,7 @@
         display: block;
       }
       .specialist-mobile-copy h2 span:last-child {
-        color: #9A6E32;
+        color: var(--gold);
         font-style: italic;
         font-weight: 400;
       }
@@ -3232,24 +3261,24 @@
       }
       .specialist-mobile-copy > p {
         margin-bottom: .65rem;
-        color: var(--medium-brown);
+        color: rgba(245, 241, 234, .72);
         font-size: .72rem;
         line-height: 1.45;
       }
       .specialist-mobile-copy > p strong {
-        color: #8F652E;
+        color: var(--gold);
         font-weight: 600;
       }
       .specialist-mobile-copy > .specialist-mobile-specialty {
         margin-bottom: .75rem;
-        color: var(--espresso);
+        color: var(--off-white);
         font-family: var(--font-serif);
         font-size: 1rem;
         line-height: 1.02;
       }
       .specialist-mobile-copy > b {
         display: block;
-        color: var(--espresso);
+        color: var(--off-white);
         font-size: .75rem;
         line-height: 1.35;
       }
@@ -3258,24 +3287,24 @@
         z-index: 1;
         overflow: hidden;
         margin: 0;
-        border-radius: 92px 14px 92px 14px;
-        background: rgba(230, 218, 203, .38);
-        box-shadow: 0 18px 46px rgba(122, 90, 68, .13);
+        border-radius: 76px 14px 76px 14px;
+        background: rgba(245, 241, 234, .08);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, .28);
       }
       .specialist-mobile-portrait::before {
         display: none;
       }
       .specialist-mobile-portrait img {
         position: absolute;
-        right: -22%;
+        right: -8%;
         bottom: 0;
         z-index: 1;
         width: auto;
         max-width: none;
-        height: 100%;
+        height: 98%;
         object-fit: contain;
         object-position: center bottom;
-        filter: drop-shadow(-12px 18px 24px rgba(33, 28, 24, .12));
+        filter: drop-shadow(-12px 18px 24px rgba(0, 0, 0, .3));
       }
       .specialist-mobile-cards {
         display: grid;
@@ -3290,10 +3319,10 @@
         align-items: center;
         flex-direction: column;
         padding: .75rem .45rem;
-        border: 1px solid rgba(168, 115, 46, .16);
+        border: 1px solid rgba(196, 161, 106, .32);
         border-radius: 20px;
-        background: rgba(255, 255, 255, .48);
-        box-shadow: 0 12px 30px rgba(122, 90, 68, .08);
+        background: rgba(245, 241, 234, .08);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, .18);
         text-align: center;
       }
       .specialist-mobile-cards article > span {
@@ -3313,7 +3342,7 @@
       .specialist-mobile-cards h3 {
         min-height: 2.45em;
         margin: .65rem 0 .45rem;
-        color: var(--espresso);
+        color: var(--off-white);
         font-size: clamp(1rem, 5.1vw, 1.24rem);
         line-height: .98;
       }
@@ -3326,7 +3355,7 @@
       }
       .specialist-mobile-cards p {
         margin: 0;
-        color: var(--medium-brown);
+        color: rgba(245, 241, 234, .7);
         font-size: .62rem;
         line-height: 1.35;
       }
@@ -3407,7 +3436,7 @@
         padding: .5rem;
       }
       .booking-modal-panel {
-        width: calc(100% - .25rem);
+        width: min(100%, calc(100vw - 1rem));
         max-width: calc(100vw - 1rem);
         max-height: calc(100svh - 1rem);
         padding: 1.15rem;
@@ -3424,9 +3453,12 @@
       .booking-modal-field-row {
         grid-template-columns: minmax(0, 1fr);
         gap: 0;
+        overflow: visible;
       }
       .booking-modal-field input {
         width: 100%;
+        inline-size: 100%;
+        max-inline-size: 100%;
         min-width: 0;
         max-width: 100%;
         font-size: 1rem;
@@ -4079,6 +4111,7 @@
   <div class="floating-actions" aria-label="Ações rápidas">
     <a class="float-btn float-btn--whatsapp wa-link" href="#" data-wa-message="Olá, Cilene! Vim pelo site e quero falar pelo WhatsApp." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
       <svg class="brand-icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+      <span>WhatsApp</span>
     </a>
   </div>
 
